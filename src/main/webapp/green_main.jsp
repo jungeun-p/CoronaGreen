@@ -7,11 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD
-	<a href="home.do">이히히</a>
-=======
 	<%@ include file="/WEB-INF/views/header.jsp" %>
+	<a href="home.do">이히히</a>
 	<a href="home.do">home</a>
->>>>>>> branch 'develop' of https://github.com/duswn158/CoronaGreen.git
+	<%@ include file="/WEB-INF/views/footer.jsp" %>
 </body>
 </html>
