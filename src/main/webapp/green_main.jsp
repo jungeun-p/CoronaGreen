@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<a href="home.do">이히히</a>
+	<%@ include file="/WEB-INF/views/header.jsp" %>
+	<a href="home.do">home</a>
 </body>
 </html>
