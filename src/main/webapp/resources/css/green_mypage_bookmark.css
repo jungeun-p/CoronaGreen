@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+/* * */
+*{
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+	font-family: 'Open Sans', sans-serif;   
+}
+img{
+    vertical-align: middle;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+li,ul,ol{
+    list-style: none;
+}
+:root {
+  /*color*/
+  --color-white: #ffffff;
+  --color-black: #212121;
+  --color-gray: #f5f5f5;
+  --color-dark-gray: #c4c4c4;
+  --color-green: #60825e;
+
+  /*font size*/
+  --font-large: 60px;
+  --font-regular: 20px;
+  --font-small: 14px;
+
+  /*font weight*/
+  --weight-bold: 700;
+  --weight-regular: 500;
+  --weight-thin: 300;
+
+  /*Size*/
+  --size-border-radius: 13px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* section */
+.bookmark{
+}
+.bookmark::after{
+    clear: both;
+    content: '';
+    display: block;
+}
+.bookmark__section{
+    width: 70%;
+    float: left;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+	padding-left: 10%;
+}
+
+.bookmark__section__ul{
+    /*border: 1px solid black;/**/
+    width: 100%;
+    display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.bookmark__section__ul > li{
+    /*border: 1px solid yellow;*/
+    width: 30%;
+    display: inline-block;
+    padding : 0%;
+}
+
+.bookmark__section1__content{
+    
+}
+
+.content__img__box{
+    border: 1px solid green;/**/
+    position: relative;
+    width: 100%;
+    height: 250px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.content__img__box > img{
+    width: 100%;
+}
+
+.content__heart{
+    width: 30px;
+    height: 30px;
+    border: 1px solid red;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.content__heart > img {
+    width: 100%;
+}
+
+.content__text{
+    width: 100%;
+}
+.content__text__p{
+    width: 100%;
+    text-align: left;
+    font-size: var(--font-regular);
+    font-weight: var(--weight-thin);
+}
+
+/* side navigation */
+
+.bookmark__side__nav{
+    width: 17%;
+    height: 1200px;
+    background-color: lightgray;
+    float: left;
+    padding-top: 50px;
+    font-size: var(--font-regular);
+  	font-weight: var(--weight-thin);
+}
+.bookmark__side__nav::after{
+    clear: both;
+    content: '';
+    display: block;
+}
+.bookmark__side__nav__p{
+    width: 90%;
+    padding-left: 10px;
+    margin: auto;
+    line-height: 40px;
+    color: var(--color-white);
+    font-size: var(--font-regular);
+    font-weight: var(--weight-thin);
+}
+.nav__link:hover{
+    color: white;
+}
