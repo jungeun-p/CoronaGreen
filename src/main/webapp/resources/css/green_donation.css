@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+	:root {
+	  /*color*/
+	  --color-white: #ffffff;
+	  --color-black: #212121;
+	  --color-gray: #f5f5f5;
+	  --color-dark-gray: #c4c4c4;
+	  --color-green: #60825e;
+	
+	  /*font size*/
+	  --font-large: 60px;
+	  --font-regular: 16px;
+	  --font-small: 12px;
+	
+	  /*font weight*/
+	  --weight-bold: 700;
+	  --weight-regular: 500;
+	  --weight-thin: 300;
+	
+	  /*Size*/
+	  --size-border-radius: 13px;
+	}
+
+	/*메인DIV박스*/
+	.dona_border {
+		margin: 100px;
+		width: 450px;
+		height: 400px;
+		border: 1px solid var(--color-white);
+		margin-left: auto;
+		margin-right: auto;
+		border-radius: var(--size-border-radius);
+		box-shadow: 0 1px 1px #c0c0c0,
+					0 2px 0 #a8a7a6, 
+					0 3px 0 #8b8a89, 
+					0 4px 0 #7d7b7a,
+					0 5px 0 #686766,
+					0 6px 3px #5f5e5d;
+	}
+	
+	/*메인텍스트*/
+	h3 {
+		padding-top: 30px;
+		text-align: center;
+	}
+	
+	/*후원텍스트 DIV박스*/
+	.Donation_desciption{
+		display:inline-block;
+	    padding-top: 30px;
+	    padding-left: 50px;
+	}
+	
+	/*후원텍스트*/ /*div p하면 풋터랑 충돌나서 p태그에 id값 넣어줬습니다.*/
+	div #D_d{
+		display: block;
+		background-color: var(--color-dark-gray);
+		width: 350px;
+		height: 100px;
+		line-height: 100px;
+		text-align: center;
+	}
+	
+	/*후원금액 DIV박스*/
+	.Donation_Money{
+	    display:inline-block;
+	    padding-top: 50px;
+	    padding-left: 50px;
+	    height: 80px;
+	    width:300px;
+	}
+	
+	/*후원금액 DIV박스*/
+	.Money_1{ 
+		width: auto;	
+	}
+	
+	/*후원금액*/
+	#mywon{
+		width: 300px;
+		height: 40px;
+		border:1px solid var(--color-dark-gray);
+		box-shadow:1px 2px 2px var(--color-dark-gray) inset; 
+		border-radius: var(--size-border-radius);
+	}
+	
+	/*WON글씨 DIV박스*/
+	.Money_2{		
+		width: auto;
+		padding-left: 10px;
+		text-align: center;
+	}
+	
+	/*WON글씨*/
+	#won_t{
+		font-weight: var(--weight-bold);
+	}
+	
+	/*버튼 DIV박스*/
+	.Button_1{
+		padding-top: 40px;
+		padding-left: 170px;
+		
+	}
+	
+	/*버튼박스*/
+	#button_t{
+		height: 30px;
+		width: 110px;
+		border-radius: var(--size-border-radius);
+		border:1px solid var(--color-dark-gray);
+		background-color: var(--color-dark-gray);
+		color: var(--color-black);
+		font-weight: var(--weight-regular);
+	}
+	
