@@ -11,7 +11,7 @@
 
 </head>
 <body>
-
+    <!--footer-->
     <footer class="footer">
         <div class="logo">
              <h1 class="logo__title">CORONA GREEN</h1>
@@ -19,23 +19,26 @@
              <p>Provides information that is updated in real-time updates.</p>
              <p class="logo__copyright">Copyright © 2020 COVID GREEN</p>
         </div>
-        <div class="menu1">
+        <div class="menu">
+            <div class="menu__category">
             <p>MENU</p>
             <ul>
-                <li><a class="footer__a" href="#">ABOUT CORONA GREEN</a></li>
-                <li><a class="footer__a" href="#">NEWS</a></li>
-                <li><a class="footer__a" href="#">POLICY</a></li>
-                <li><a class="footer__a" href="#">QNA</a></li>
+                <li><a href="#">ABOUT CORONA GREEN</a></li>
+                <li><a href="#">NEWS</a></li>
+                <li><a href="#">POLICY</a></li>
+                <li><a href="#">QNA</a></li>
             </ul>
+             </div>
         </div>
-        <div class="menu2">
+        <div class="menu">
+            <div class="menu__category">
             <p>CONTACT</p>
             <ul>
-                <li><a class="footer__a" href="#">DONATION</a></li>
+                <li><a href="#">DONATION</a></li>
                 <li>contact@covidgreen19.com</li>
             </ul>
+            </div>
         </div>
     </footer>
-
 </body>
 </html>
