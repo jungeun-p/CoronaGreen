@@ -1,35 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Template</title>
-
-<link href="resources/css/header.css" rel="stylesheet" type="text/css"/>
-<link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap" rel="stylesheet">
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="resources/js/header.js"></script>
-
+<!-- menubar css -->
+<link href="resources/css/header.css" rel="stylesheet" type="text/css" />
+<!--google font-->
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap"
+	rel="stylesheet">
 </head>
 <body>
-
-    <header class="header">
-        <div class="header_left">CORONA GREEN</div>
-        <div class="header_right">SIGN IN</div>
-        
-        <div class="nav_back"></div>
-        <nav class="nav">
-	        <ul class="menu">
-	            <li>ABOUT COVID 19</li>
-	            <li>NEWS</li>
-	            <li>POLICY</li>
-	            <li>QnA</li>            
-	        </ul>
-    	</nav>
-    </header>
-	
-
+	<!--header_1-->
+	<nav class="menubar">
+		<div class="menubar__menu">
+			<a href="#"><p class="menubar__logo">CORONA GREEN</p></a>
+			<div class="menubar__category">
+				<a href="#"><p>ABOUT</p></a>
+				<a href="#"><p>NEWS</p></a>
+				<a href="#"><p>POLICY</p></a>
+				<a href="#"><p>QnA</p></a>
+			</div>
+			<a href="#"><p class="menubar__sign">SIGN IN</p></a>
+		</div>
+		<!--user menu-->
+		<!--login:visible-->
+		<nav class="menubar__user">
+			<div class="user__category">
+				<a href="#"><span>MY PAGE</span></a>
+			</div>
+		</nav>
+	</nav>
+	<!--chat-->
+	<section class="chatbot">
+		<div class="chatbot__box">
+			<p>🙋‍♀ASK</p>
+		</div>
+	</section>
 </body>
 </html>
