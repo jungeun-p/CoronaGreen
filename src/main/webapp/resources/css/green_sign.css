@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+	:root {
+	  /*color*/
+	  --color-white: #ffffff;
+	  --color-black: #212121;
+	  --color-gray: #f5f5f5;
+	  --color-dark-gray: #c4c4c4;
+	  --color-green: #60825e;
+	
+	  /*font size*/
+	  --font-large: 60px;
+	  --font-regular: 16px;
+	  --font-small: 12px;
+	
+	  /*font weight*/
+	  --weight-bold: 700;
+	  --weight-regular: 500;
+	  --weight-thin: 300;
+	
+	  /*Size*/
+	  --size-border-radius: 13px;
+	}
+
+	.reg_border {
+		margin: 50px;
+		width: 600px;
+		height: 600px;
+		border: 1px solid var(--color-white);
+		margin-left: auto;
+		margin-right: auto;
+		border-radius: var(--color-dark-gray);
+		box-shadow: 0 1px 1px #c0c0c0,
+					0 2px 0 #a8a7a6, 
+					0 3px 0 #8b8a89, 
+					0 4px 0 #7d7b7a,
+					0 5px 0 #686766,
+					0 6px 3px #5f5e5d;
+	}
+	
+	h3 {
+		padding-top: 30px;
+		text-align: center;
+	}
+	
+	#myid, #mypw1, #mypw2, #myname, #roadFullAddr, #myph, #email, #email_valid{
+		width: 400px;
+		height: 40px;
+		border:1px solid var(--color-dark-gray);
+		box-shadow:1px 2px 2px var(--color-dark-gray) inset; 
+		border-radius: var(--size-border-radius);;	
+	}
+	
+	#idchk, #addrsearch, #receiver {
+		height: 40px;
+		width: 90px;
+		border-radius: var(--size-border-radius);
+		border:1px solid var(--color-dark-gray);
+		background-color: var(--color-dark-gray);
+		color: var(--color-black);
+		font-weight: var(--weight-regular);
+		
+	}
+	
+	#pw_text{
+		font-size: 10px;
+	}
+	
+	#roadFullAddr {
+		width: 400px;
+	}
+	
+	.ID_common, .PW_common, .NAME_common, .ADDR_common, .PHONE_common, .EMAIL_common{
+	    display:inline-table; 
+	    float: center;
+	    padding-top: 20px;
+	}
+	
+	.ID_common{
+		padding-top: 30px;
+	}
+	
+	#id_t, #pw_t, #name_t, #addr_t, #phone_t, #email_t{
+		font-weight: var(--weight-bold);
+	}
+	
+	.ID_1, .PW_1, .NAME_1, .ADDR_1, .PHONE_1, .EMAIL_1{ 
+		width: 80px;
+		text-align: center;
+	}
+	
+	
+	.ID_2, .PW_2, .NAME_2, .ADDR_2, .PHONE_2, .EMAIL_2{
+		width: 400px;
+	}
+	
+	.ID_3, .ADDR_3, .EMAIL_3{
+		width: 110px;
+	}
+	
+	/*버튼 DIV박스*/
+	.Button_1{
+		padding-top: 20px;
+		padding-left: 250px;
+		
+	}
+	
+	/*버튼박스*/
+	#button_t{
+		height: 30px;
+		width: 110px;
+		border-radius: var(--size-border-radius);
+		border:1px solid var(--color-dark-gray);
+		background-color: var(--color-dark-gray);
+		color: var(--color-black);
+		font-weight: var(--weight-regular);
+	}

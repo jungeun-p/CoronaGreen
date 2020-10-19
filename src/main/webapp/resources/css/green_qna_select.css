@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+	:root {
+	  /*color*/
+	  --color-white: #ffffff;
+	  --color-black: #212121;
+	  --color-gray: #f5f5f5;
+	  --color-dark-gray: #c4c4c4;
+	  --color-green: #60825e;
+	
+	  /*font size*/
+	  --font-large: 60px;
+	  --font-regular: 16px;
+	  --font-small: 12px;
+	
+	  /*font weight*/
+	  --weight-bold: 700;
+	  --weight-regular: 500;
+	  --weight-thin: 300;
+	
+	  /*Size*/
+	  --size-border-radius: 13px;
+	}
+
+	/*메인DIV박스*/
+	.select_border {
+		margin: 100px;
+		width: 800px;
+		height: 680px;
+		border: 1px solid var(--color-gray);
+		background-color: var(--color-gray);
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	/*title div박스*/
+	.select_title{
+		display:inline-block;
+	    padding-top: 30px;
+	    padding-left: 30px;
+	}
+	
+	/*title 텍스트*/ /*div p하면 풋터랑 충돌나서 p태그에 id값 넣어줬습니다.*/
+	div #t{
+		display: block;
+		/*border: 1px solid var(--color-black);*/
+		background-color: var(--color-gray);
+		width: 100px;
+		height: 60px;
+		line-height: 80px;
+		text-align: left;
+	}
+	
+	/*content div박스*/
+	.select_content{
+		display:inline-block;
+	    padding-top: 10px;
+	    padding-left: 30px;
+	}
+	
+	/*content 텍스트*/ /*div p하면 풋터랑 충돌나서 p태그에 id값 넣어줬습니다.*/
+	#mycontent{
+		width: 740px;
+		height: 160px;
+		line-height: 20px;
+		text-align: left;
+		background-color: var(--color-gray);
+		border: 0px;
+	}
+	
+	/*버튼 DIV박스*/
+	.select_button{
+	   	padding-top: 10px;
+		padding-left: 540px;
+		padding-bottom: 10px;
+	}
+	
+	/*버튼박스*/
+	#update_b, #update_b2{
+		height: 30px;
+		width: 110px;
+		border-radius: var(--size-border-radius);
+		border:1px solid var(--color-dark-gray);
+		background-color: var(--color-dark-gray);
+		color: var(--color-black);
+		font-weight: var(--weight-regular);
+	}
+	
+	.select_admin{
+		display:inline-block;
+	    padding-top: 20px;
+	    padding-left: 30px;
+	    padding-bottom: 20px;
+	}
+	
+	/*title 텍스트*/ /*div p하면 풋터랑 충돌나서 p태그에 id값 넣어줬습니다.*/
+	div #admin{
+		display: block;
+		/*border: 1px solid var(--color-black);*/
+		background-color: var(--color-gray);
+		width: 100px;
+		height: 140px;
+		line-height: 140px;
+		text-align: left;
+	}
+	
+	#myadmin{
+		width: 600px;
+		height: 140px;	
+		text-align: left;
+		background-color: var(--color-gray);
+		border: 0px;
+	}
+
+	.select_admin2{
+		display:inline-block;
+	    padding-top: 20px;
+	    padding-left: 30px;
+	    padding-bottom: 20px;
+	}
+	
+	/*title 텍스트*/ /*div p하면 풋터랑 충돌나서 p태그에 id값 넣어줬습니다.*/
+	div #admin2{
+		display: block;
+		/*border: 1px solid var(--color-black);*/
+		background-color: var(--color-gray);
+		width: 100px;
+		height: 140px;
+		line-height: 140px;
+		text-align: left;
+	}
+	
+	#myadmin2{
+		width: 600px;
+		height: 140px;	
+		text-align: left;
+		background-color: var(--color-gray);
+		border: 0px;
+	}
