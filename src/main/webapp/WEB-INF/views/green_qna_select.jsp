@@ -17,44 +17,35 @@
 
     <%@ include file="/WEB-INF/views/header.jsp" %>
 	
-	<section class="qna">
-		<div class="select_border">
-			
-			<div class="div_title">
-			    <div class="select select_title"><p id="t">TITLE</p></div> 
-			    <!-- div p하면 풋터랑 충돌나서 p태그에 id값 넣어줬습니다. -->
-			    <div></div>
-			</div>
-			
-			<hr width="90%" align="center" color= "black">
-			
-			<div class="div_content">
-			    <div class="select_content"><input type="text" id="mycontent" placeholder="content" required="required" title="n" /></div>
-			    <!-- div p하면 풋터랑 충돌나서 p태그에 id값 넣어줬습니다. -->
-			    <div class="select_button">
-			    	<input type="button" value="UPDATE" id="update_b" onclick=""/>
-			    	<input type="button" value="DELETE" id="update_b2" onclick=""/>
-			    </div>
-			</div>
-			
-			<hr align="center" width="90%" color= "black">
-			
-			<div class="div_admin">
-			    <div class="admin_1 select_admin"><p id="admin">ADMIN</p></div>
-			    <!-- div p하면 풋터랑 충돌나서 p태그에 id값 넣어줬습니다. -->
-			    <div class="admin_2 select_admin"><input type="text" id="myadmin" required="required" title="n" /></div>
-			</div>
-			
-			<hr align="center" width="90%" color= "black">
-			
-			<div class="div_admin2">
-			    <div class="admin2_1 select_admin2"><p id="admin2">ADMIN</p></div>
-			    <!-- div p하면 풋터랑 충돌나서 p태그에 id값 넣어줬습니다. -->
-			    <div class="admin2_2 select_admin2"><textarea id="myadmin2" cols="80" rows="8" ></textarea></div>
-			</div>
-				
-		</div>
-	</section>
+    <section class="green__board__select">
+        <div class="board__title">
+            <div class="title"><p>TITLE</p></div>
+            <div class="title__name">{title}</div>
+        </div>
+        <div class="line"></div>
+        <div class="board__content">
+            <div class="content">Contrary to popular belief, Lorem Ipsum is not simply random text. Contrary to popular belief, Lorem Ipsum is not simply random text. Contrary to popular belief, Lorem Ipsum is not simply random text. Contrary to popular belief, Lorem Ipsum is not simply random text. Contrary to popular belief, Lorem Ipsum is not simply random text.</div>
+            <div class="content__buttons">
+                <input class="button" type="button" name="" value="UPDATE" onclick="" />
+                <input class="button" type="button" name="" value="DELETE" onclick="" />
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="board__reply">
+            <div class="reply__admin"><p>{admin.id}</p></div>
+            <div class="reply__comments">Contrary to popular belief, Lorem Ipsum is not simply random text.</div>
+        </div>
+        <div class="line"></div>
+        <div class="board__reply__insert">
+            <div class="reply__admin">{admin.id}</div>
+            <div class="reply__comments__insert">
+                <textarea class="comments__text" required="required" >text</textarea>
+                <div class="reply__buttons">
+                    <input class="button" type="submit" value="SUBMIT" />
+                </div>
+            </div>
+        </div>
+    </section> 
 	
 	<%@ include file="/WEB-INF/views/footer.jsp" %>
 

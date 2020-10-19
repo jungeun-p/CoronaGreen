@@ -78,7 +78,7 @@ body {
   position: fixed;
   right: 20px;
   transform: translateY(30%);
-  background-color: var(--color-white);
+  background-color: var(--color-green);
   width: 120px;
   height: 80px;
   border-radius: 14px;

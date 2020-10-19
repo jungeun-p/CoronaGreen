@@ -1,25 +1,29 @@
 :root {
-	/*color*/ -
-	-color-white: #ffffff; -
-	-color-black: #212121; -
-	-color-gray: #f5f5f5; -
-	-color-dark-gray: #c4c4c4; -
-	-color-green: #60825e;
-	/*font size*/ -
-	-font-large: 60px; -
-	-font-regular: 20px; -
-	-font-small: 14px;
-	/*font weight*/ -
-	-weight-bold: 700; -
-	-weight-regular: 500; -
-	-weight-thin: 300;
-	/*Size*/ -
-	-size-border-radius: 13px;
+  /*color*/
+  --color-white: #ffffff;
+  --color-black: #212121;
+  --color-gray: #f5f5f5;
+  --color-dark-gray: #c4c4c4;
+  --color-green: #60825e;
+
+  /*font size*/
+  --font-large: 60px;
+  --font-regular: 20px;
+  --font-small: 14px;
+
+  /*font weight*/
+  --weight-bold: 700;
+  --weight-regular: 500;
+  --weight-thin: 300;
+
+  /*Size*/
+  --size-border-radius: 13px;
 }
 
 body {
-	margin: 0;
-	padding: 0;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /*사용예시*/

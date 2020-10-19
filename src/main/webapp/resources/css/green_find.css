@@ -29,154 +29,152 @@ body {
 
 /* * */
 * {
-	font-weight: var(--weight-bold);
-	font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-regular);
 }
 
 /* wrap__find */
 .wrap__find {
-	width: 35%;
-	margin: auto;
-	margin-top: 150px;
-	margin-bottom: 150px;
+  width: 450px;
+  margin: auto;
+  margin-top: 150px;
+  margin-bottom: 150px;
 }
 
 /* find__all */
 .find__all {
-	width: 100%;
+  width: 100%;
 }
 
 /* wrap__find__id */
 .wrap__find__id {
-	height: 210px;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: var(--size-border-radius);
+  height: 230px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--size-border-radius);
 }
 
-
 .find__id__title {
-	height: 100px;
-	text-align: center;
-	line-height: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
 }
 
 /* public */
-.wrap1, .wrap3 {
-	padding-left: 30px;
-	padding-right: 30px;
+.wrap1,
+.wrap3 {
+  padding-left: 20px;
+  padding-right: 30px;
 }
 
 .find__id__certification,
 .find__pw__certification {
-	width: 100%;
-	height: 50px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  width: 97%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .find__id__cer__title,
 .find__pw__cer__title {
-	width: 8%;
+  width: 8%;
 }
 
-.find__id__cer__input, 
+.find__id__cer__input,
 .find__pw__cer__input {
-	padding-left: 2.5%;
-    width: 61.5%;
+  padding-left: 2.5%;
+  width: 61.5%;
 }
 
 .find__id__cer__text,
 .find__pw__cer__text {
-	width: 100%;
-	height: 45px;
-	border-radius: 8px;
-	outline: none;
-	border: 1px solid #ddd;
-	padding-left: 10px;
+  width: 200px;
+  height: 40px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding-left: 10px;
+  margin-left: 20px;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-gray);
 }
 
 .find__id__cer__button,
 .find__pw__cer__button {
-	width: 20%;
+  width: 20%;
 }
 
-.find__id__cer__button__input, 
+.find__id__cer__button__input,
 .find__pw__cer__button__input {
-	padding: 10px 0;
-	width: 100%;
-	border-radius: var(--size-border-radius);
-	background-color: var(--color-dark-gray);
-	border: none;
-	outline: none;
-	cursor: pointer;
+  padding: 10px 0;
+  width: 100px;
+  border-radius: var(--size-border-radius);
+  background-color: var(--color-dark-gray);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: var(--font-small);
 }
 
-.wrap2, .wrap4 {
-	padding-left: 22px;
-	padding-right: 22px;
+.wrap2,
+.wrap4 {
+  padding-left: 22px;
+  padding-right: 22px;
 }
 
 .find__id__search,
 .find__pw__search {
-	height: 50px;
+  height: 50px;
 }
 
 .find__id__search__input,
 .find__pw__search__input {
-	float: right;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	margin-top: 8px;
-	padding: 10px 0;
-	width: 25%;
-	border-radius: var(--size-border-radius);
-	background-color: var(--color-dark-gray); 
+  float: right;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+  width: 100px;
+  font-size: var(--font-small);
+  border-radius: var(--size-border-radius);
+  background-color: var(--color-dark-gray);
 }
 
 /* wrap__find__pw */
 .wrap__find__pw {
-	margin-top: 2%;
-	height: 260px;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: var(--size-border-radius);
+  margin-top: 2%;
+  height: 290px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--size-border-radius);
 }
 
-
-
 .find__pw__title {
-	height: 100px;
-	text-align: center;
-	line-height: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
 }
 
 .find__pw__id {
-	height: 50px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .find__pw__id__input {
-	width: 84.5%;
+  width: 84.5%;
 }
 
 .find__pw__id__text {
-	width: 70%;
-	height: 45px;
-	border-radius: 8px;
-	outline: none;
-	border: 1px solid #ddd;
-	padding-left: 10px;
+  width: 200px;
+  height: 40px;
+  border-radius: 8px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding-left: 10px;
+  border: 1px solid #ddd;
+  padding-left: 10px;
+  margin-left: 16px;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-gray);
 }
-
-
-
-
-
-
-
-
-
-

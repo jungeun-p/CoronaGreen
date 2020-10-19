@@ -2,4 +2,12 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
 
+	<typeAliases>
+		<typeAlias type="com.corona.green.model.dto.MemberDto" alias="MemberDto"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="/mybatis/member-mapper.xml"/>
+	</mappers>
+
 </configuration>
