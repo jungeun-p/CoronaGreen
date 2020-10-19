@@ -1,0 +1,78 @@
+:root {
+	/*color*/ -
+	-color-white: #ffffff; -
+	-color-black: #212121; -
+	-color-gray: #f5f5f5; -
+	-color-dark-gray: #c4c4c4; -
+	-color-green: #60825e;
+	/*font size*/ -
+	-font-large: 60px; -
+	-font-regular: 20px; -
+	-font-small: 14px;
+	/*font weight*/ -
+	-weight-bold: 700; -
+	-weight-regular: 500; -
+	-weight-thin: 300;
+	/*Size*/ -
+	-size-border-radius: 13px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+/*사용예시*/
+
+/*-> var() 안에 root로 정해준 값을 넣어주면 적용됩니다. */
+.main__title p:nth-child(n + 2):nth-child(-n + 3) {
+	font-size: var(- -font-regular);
+	font-weight: var(- -weight-thin);
+	margin: 0;
+}
+
+.menubar__menu>p {
+	color: var(- -color-white);
+	font-size: var(- -font-small);
+	font-weight: var(- -weight-thin);
+	margin: 0;
+	padding: 0 30px;
+}
+
+/*자주묻는 질문*/
+.qnalist__section1__frequent {
+	margin: 120px 0 60px 0;
+}
+.qnalist__section1__frequent__title{
+	width:50%;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+.qnalist__section1__frequent__content {
+	border: 1px solid black;
+	height: 50px;
+	width:50%;
+	margin: 0 auto;
+}
+
+/*QNA 리스트*/
+.qnalist__section2__border {
+	margin-bottom: 100px;
+}
+.qnalist__section2__border__title{
+	margin: 0 auto;
+	width:50%;
+	margin-bottom: 10px;
+}
+
+.qnalist__section2__border__table {
+	margin: 0 auto;
+	border-collapse: collapse;
+	width:50%;
+}
+.qnalist__section2__border__btnwrap{
+	margin: 10px auto;
+	width:50%;
+	text-align: right;
+}
