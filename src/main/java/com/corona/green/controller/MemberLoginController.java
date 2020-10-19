@@ -1,4 +1,4 @@
-package com.corona.green;
+package com.corona.green.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -33,14 +33,17 @@ public class MemberLoginController {
 		MemberDto res = biz.login(dto);
 		if (res != null) {
 			session.setAttribute("dto", res);
-			model.addAttribute("msg","로그인 성공");
-			model.addAttribute("url","/");
-			return "redirect";
+			return "green_main";
 		} else {
-			model.addAttribute("msg","로그인 실패");
+			model.addAttribute("msg","아이디와 비밀번호를 확인해주세요.");
 			model.addAttribute("url","/loginform.do");
 			return "redirect";
 		}
+	}
+	
+	@RequestMapping("regist.do")
+	public String naverLogin() {
+		return "green_sign";
 	}
 	
 }

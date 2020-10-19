@@ -9,7 +9,9 @@
 <link href="resources/css/green_login.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
-
+<%
+	
+%>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	<form class="login_wrap" action="login.do" method="post">
 		<div class="login_box">
@@ -19,14 +21,14 @@
 			<div class="login_id login">
 				<div class="login_id_title">&nbsp;ID</div>
 				<div class="login_id_input">
-					<input class="login_text_id" name="id" type="text"/>
+					<input class="login_text_id" name="id" type="text" required="required"/>
 				</div>
 			</div>
 			
 			<div class="login_pw login">
 				<div class="login_pw_title">PW</div>
 				<div class="login_pw_input">
-					<input class="login_text_pw" name="pw" type="text"/>
+					<input class="login_text_pw" name="pw" type="text" required="required"/>
 				</div>
 			</div>
 			
@@ -35,18 +37,22 @@
 					<input class="login_select_button" type="submit" value="LOGIN"/>
 				</div>
 				<div class="login_select_regist">
-					<input class="login_select_button" type="button" value="SIGN" onclick=""/>
+					<input class="login_select_button" type="button" value="REGIST" onclick="location.href='regist.do'"/>
 				</div>
 			</div>
 			
 			<div class="login_sns login">
 				<div class="login_sns_naver sns_button">
+					<a href="naverregist.do">
 					<img src="./resources/img/naver-icon.png"/>
 					<span>NAVER LOGIN</span>
+					</a>
 				</div>
 				<div class="login_sns_kakao sns_button">
+					<a href="kakaoregist.do">
 					<img src="./resources/img/kakao-icon.png"/>
 					<span>KAKAO LOGIN</span>
+					</a>
 				</div>
 			</div>
 			
