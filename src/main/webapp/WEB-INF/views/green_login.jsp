@@ -11,7 +11,7 @@
 <body>
 
 	<%@ include file="/WEB-INF/views/header.jsp" %>
-	<form class="login_wrap">
+	<form class="login_wrap" action="login.do" method="post">
 		<div class="login_box">
 		
 			<div class="login_title login">LOGIN</div>
@@ -19,14 +19,14 @@
 			<div class="login_id login">
 				<div class="login_id_title">&nbsp;ID</div>
 				<div class="login_id_input">
-					<input class="login_text_id" type="text"/>
+					<input class="login_text_id" name="id" type="text"/>
 				</div>
 			</div>
 			
 			<div class="login_pw login">
 				<div class="login_pw_title">PW</div>
 				<div class="login_pw_input">
-					<input class="login_text_pw" type="text"/>
+					<input class="login_text_pw" name="pw" type="text"/>
 				</div>
 			</div>
 			
