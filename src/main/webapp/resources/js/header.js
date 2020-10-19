@@ -1,16 +1,12 @@
-/**
- * http://usejsdoc.org/
- */
-$(document).ready(function(){	
+'use strict';
 
-    $('.header_left').mouseover(function(){
-        $('.nav').slideDown();  
-        $('.nav_back').slideDown(); 
-    });
-    
-    $('.nav').mouseleave(function(){
-        $('.nav').slideUp();  
-        $('.nav_back').slideUp();  
-    });
-
- });
+let userBtn = document.querySelector('.menubar__sign');
+let userMenu = document.querySelector('.menubar__user');
+userBtn.addEventListener('mouseover', () => {
+    if(userMenu.style.visibility==='hidden'){
+        userMenu.style.visibility='visible';
+        
+    } else {
+        userMenu.style.visibility='hidden';
+    }
+});

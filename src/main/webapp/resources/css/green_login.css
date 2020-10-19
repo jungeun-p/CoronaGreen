@@ -1,134 +1,169 @@
 @charset "UTF-8";
 
 /* * */
-*{
-	
-	font-weight: bold;
+:root {
+  /*color*/
+  --color-white: #ffffff;
+  --color-black: #212121;
+  --color-gray: #f5f5f5;
+  --color-dark-gray: #c4c4c4;
+  --color-green: #60825e;
+
+  /*font size*/
+  --font-large: 60px;
+  --font-regular: 20px;
+  --font-semi-regular: 16px;
+  --font-small: 14px;
+
+  /*font weight*/
+  --weight-bold: 700;
+  --weight-regular: 500;
+  --weight-thin: 300;
+
+  /*Size*/
+  --size-border-radius: 13px;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* login form */
 .login_wrap {
-	width: 45%;
-	margin: auto;
-	margin-top: 50px;
-	margin-bottom: 50px;
+  width: 500px;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 /* login_box */
 .login_box {
-	height: 600px;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: 14px;
-	background-color: white;
-	padding-left: 60px;
-	padding-right: 60px;
+  height: 400px;
+  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 14px;
+  background-color: var(--color-white);
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 .login {
-	width: 100%;
+  width: 100%;
 }
 
 /* login title */
 .login_title {
-	height: 30%;
-	text-align: center;
-	line-height: 180px;
-	font-size: 30px;
+  height: 20%;
+  text-align: center;
+  line-height: 100px;
+  font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
 }
 
 /* login id pw */
 .login_id,
 .login_pw {
-	height: 15%;
-	font-size: 30px;
-	line-height: 80px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
+  height: 15%;
+  font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
+  line-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.login_text_id, .login_text_pw {
-	width: 100%;
-	height: 45px;
-	border-radius: 8px;
-	border: 1px solid #ddd;
-	outline: none;
-	padding-left: 10px;
+.login_text_id,
+.login_text_pw {
+  width: 91%;
+  height: 40px;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  outline: none;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-gray);
+  padding-left: 10px;
 }
 
-.login_id_title, .login_pw_title {
-	padding-right: 7%;
-	width: 20%;
+.login_id_title,
+.login_pw_title {
+  width: 20%;
 }
 
-.login_id_input, .login_pw_input {
-	display: flex;
-	width: 85%;
+.login_id_input,
+.login_pw_input {
+  display: flex;
+  width: 85%;
 }
 
 /* login select */
 .login_select {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	height: 15%;
-	line-height: 87px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 13%;
+  line-height: 87px;
 }
 
-.login_select_submit, .login_select_regist {
-	width: 48%;
+.login_select_submit,
+.login_select_regist {
+  width: 45%;
 }
 
 .login_select_button {
-	width: 100%;
-	border-radius: 5px;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	padding: 20px 0;
-	font-size: 18px;
+  width: 170px;
+  border-radius: 14px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 13px 0;
+  font-size: var(--font-regular);
+  background-color: var(--color-dark-gray);
+  font-weight: var(--weight-bold);
 }
 
 /* login sns */
 .login_sns {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .login_sns_naver {
-	background-color: #00c73c;
+  background-color: #00c73c;
 }
 
 .login_sns_kakao {
-	background-color: #f9e000;
-} 
+  background-color: #f9e000;
+}
 
 .sns_button {
-	width: 45%;
-	cursor: pointer;
-	font-size: 18px;
-	display: flex;
-	align-items: center;
-	padding: 20px 10px;
-	text-align: center;
-	border-radius: 5px;
+  width: 150px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding: 13px 10px;
+  text-align: center;
+  border-radius: 4px;
+  font-size: var(--font-small);
+  font-weight: var(--weight-bold);
 }
 
 .sns_button img {
-	width: 20px;
-	height: auto;
+  width: 20px;
+  height: auto;
 }
 
 .sns_button span {
-	display: inline-block;
-	margin: 0 0 0 10px;
+  display: inline-block;
+  margin: 0 0 0 10px;
 }
 
 /* login find */
 .login_find {
-	height: 5%;
+  height: 5%;
+  cursor: pointer;
 }
 
 .login_id_title,
@@ -140,12 +175,11 @@
 .login_select_regist,
 .login_sns_naver,
 .login_sns_kakao,
-.login_pw_input   {
-	display: inline;
+.login_pw_input {
+  display: inline;
 }
 
-
 .login_find_IDPW {
-	margin-top: 20px;
-	float: right;
+  margin-top: 20px;
+  float: right;
 }

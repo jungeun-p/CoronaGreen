@@ -9,6 +9,8 @@
 <title>Template</title>
 <!-- menubar css -->
 <link href="resources/css/header.css" rel="stylesheet" type="text/css" />
+<!-- menubar js -->
+<script src="resources/js/header.js" defer></script>
 <!--google font-->
 <link
 	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap"
@@ -32,23 +34,26 @@
 				if (dto == null) {
 			%>
 			<a href="loginform.do"><p class="menubar__sign">SIGN IN</p></a>
+			</div>
+			</nav>
 			<%
 				} else {
 			%>
-			<!-- 현모 마이페이지 부분 -->
 			<a href="#"><p class="menubar__sign"><%=dto.getId() %></p></a>
-			<%
-				}
-			%>
 		</div>
 		<!--user menu-->
 		<!--login:visible-->
 		<nav class="menubar__user">
 			<div class="user__category">
+				<!-- 현모 마이페이지 부분 -->
 				<a href="#"><span>MY PAGE</span></a>
+				<a href="#"><span>LOG OUT</span></a>
 			</div>
 		</nav>
 	</nav>
+			<%
+				}
+			%>
 	<!--chat-->
 	<section class="chatbot">
 		<div class="chatbot__box">

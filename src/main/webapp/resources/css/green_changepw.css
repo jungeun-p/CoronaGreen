@@ -19,97 +19,103 @@
   --weight-thin: 300;
 
   /*Size*/
-  --size-border-radius: 13px;
+  --size-border-radius: 14px;
 }
 
 body {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
 }
 
 /* * */
 * {
-	font-weight: var(--weight-bold);
-	font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
+  font-size: var(--font-regular);
 }
 
 /* change form */
 .wrap__changepw {
-	width: 40%;
-	margin: auto;
-	margin-top: 150px;
-	margin-bottom: 150px;
-	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	border-radius: var(--size-border-radius);
+  width: 420px;
+  margin: auto;
+  margin-top: 150px;
+  margin-bottom: 150px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--size-border-radius);
 }
 
 /* changepw box */
 .changepw {
-	height: 320px;
-	padding-left: 60px;
-	padding-right: 60px;
+  height: 320px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 /* changepw2 box */
 .changepw2 {
-	height: 68px;
-	padding-left: 30px;
-	padding-right: 30px;
+  height: 68px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 /* changepw all */
 .change__all {
-	width: 100%;
+  width: 100%;
 }
 
 /* changepw title */
 .changepw__title {
-	text-align: center;
-	line-height: 150px;
-	height: 150px;
+  text-align: center;
+  line-height: 120px;
+  height: 120px;
 }
 
 /* change first, change second */
-.changepw__first, .changepw__second {
-	height: 80px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+.changepw__first,
+.changepw__second {
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.changepw__first__title, .changepw__second__title  {
-	width: 18%;
+.changepw__first__title,
+.changepw__second__title {
+  width: 18%;
 }
 
-.changepw__first__input, .changepw__second__input  {
-	display: flex;
-	width: 100%;
+.changepw__first__input,
+.changepw__second__input {
+  display: flex;
+  width: 100%;
 }
 
-.changepw__first__text, .changepw__second__text {
-	width: 95%;
-	height: 45px;
-	border-radius: 8px;
-	outline: none;
-	border: 1px solid #ddd;
-	padding-left: 10px;
+.changepw__first__text,
+.changepw__second__text {
+  width: 95%;
+  height: 44px;
+  border-radius: 14px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding-left: 10px;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-gray);
 }
-
-
 
 /* change button */
 .changepw__button {
-	height: 40px;
+  height: 40px;
 }
 
 .changepw__button__input {
-	float: right;
-	border: none;
-	outline: none;
-	cursor: pointer;
-	padding: 10px 0;
-	width: 27%;
-	border-radius: var(--size-border-radius);
-	background-color: var(--color-dark-gray); 
+  float: right;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 0;
+  width: 27%;
+  font-size: var(--font-regular);
+  font-weight: var(--weight-bold);
+  border-radius: var(--size-border-radius);
+  background-color: var(--color-dark-gray);
 }
-
