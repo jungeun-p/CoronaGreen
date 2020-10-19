@@ -7,10 +7,6 @@
 <title>REGIST</title>
 
 <link href="resources/css/green_sign.css" rel="stylesheet" type="text/css"/>
-<link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap" rel="stylesheet">
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="resources/js/header.js"></script>
 
 </head>
 <body>
@@ -76,8 +72,6 @@
 			<div class="div_Button">
 			    <div class="Button_1 Donation_Button"><input type="button" value="회원가입" id="button_t" onclick=""/></div>
 			</div>
-		
-
 		</div>
     </section>
     
