@@ -8,6 +8,13 @@
 
 <link href="resources/css/green_login.css" rel="stylesheet" type="text/css"/>
 </head>
+<script type="text/javascript">
+	history.pushState(null, null, "main.do");
+	
+	window.onpopstate = function(event) {
+		history.go(1);
+	}
+</script>
 <body>
 <%
 	

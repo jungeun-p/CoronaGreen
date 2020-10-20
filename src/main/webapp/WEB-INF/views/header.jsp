@@ -47,7 +47,7 @@
 			<div class="user__category">
 				<!-- 현모 마이페이지 부분 -->
 				<a href="#"><span>MY PAGE</span></a>
-				<a href="#"><span>LOG OUT</span></a>
+				<a href="logout1.do"><span>LOG OUT</span></a>
 			</div>
 		</nav>
 	</nav>
