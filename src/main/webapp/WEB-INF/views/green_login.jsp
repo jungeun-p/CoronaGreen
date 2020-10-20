@@ -9,11 +9,11 @@
 <link href="resources/css/green_login.css" rel="stylesheet" type="text/css"/>
 </head>
 <script type="text/javascript">
-	history.pushState(null, null, "main.do");
+	/* history.pushState(null, null, "main.do");
 	
 	window.onpopstate = function(event) {
 		history.go(1);
-	}
+	} */
 </script>
 <body>
 <%
@@ -49,8 +49,8 @@
 			</div>
 			
 			<div class="login_sns login">
-				<div class="login_sns_naver sns_button">
-					<a href="naverregist.do">
+				<div id="naver_id_login" class="login_sns_naver sns_button">
+					<a href="${url}">
 					<img src="./resources/img/naver-icon.png"/>
 					<span>NAVER LOGIN</span>
 					</a>
