@@ -23,7 +23,7 @@ $(document).ready(function() {
 	  $('#summernote').summernote({
  	    	placeholder: 'content',
 	        minHeight: 370,
-	        maxHeight: null,
+	        maxHeight: 370,
 	        focus: true, 
 	        lang : 'ko-KR'
 	  });
