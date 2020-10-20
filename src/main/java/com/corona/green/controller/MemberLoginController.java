@@ -33,7 +33,7 @@ public class MemberLoginController {
 		MemberDto res = biz.login(dto);
 		if (res != null) {
 			session.setAttribute("dto", res);
-			return "green_main";
+			return "redirect:main.do";
 		} else {
 			model.addAttribute("msg","아이디와 비밀번호를 확인해주세요.");
 			model.addAttribute("url","/loginform.do");
@@ -44,6 +44,14 @@ public class MemberLoginController {
 	@RequestMapping("regist.do")
 	public String naverLogin() {
 		return "green_sign";
+	}
+	
+	@RequestMapping("/logout1.do")
+	public String logout(HttpSession session) {
+		logger.info("로그아웃 성공");
+		System.out.println("asdjlsakdjlsakdj");
+		session.invalidate();
+		return "redirect:main.do";
 	}
 	
 }

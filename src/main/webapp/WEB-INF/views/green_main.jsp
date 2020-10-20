@@ -10,6 +10,19 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header.jsp"%>
+	<%
+		if(dto != null) {
+	%>
+	<script type="text/javascript">
+	history.pushState(null, null, "main.do");
+	
+	window.onpopstate = function(event) {
+		history.go(1);
+	}
+	</script>
+	<%
+		}
+	%>
 	<!--main-->
 	<section class="main">
 		<div class="main__image"
