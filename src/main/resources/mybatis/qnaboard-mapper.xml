@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="qnaboard">
+
+	<select id="qnalist" parameterType="QnaBoardDto" resultType="QnaBoardDto">
+		SELECT ID, BOARDNO, TITLE, CONTENT, REGDATE, SECRET
+		FROM QNA_BOARD
+	</select>
+
+</mapper>

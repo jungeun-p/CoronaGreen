@@ -28,7 +28,7 @@
 				<a href="#"><p>ABOUT</p></a>
 				<a href="#"><p>NEWS</p></a>
 				<a href="#"><p>POLICY</p></a>
-				<a href="#"><p>QnA</p></a>
+				<a href="qnalsit.do"><p>QnA</p></a>
 			</div>
 			<%
 				if (dto == null) {
