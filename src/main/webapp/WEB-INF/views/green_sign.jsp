@@ -60,6 +60,7 @@
 				<div class="ADDR_3 ADDR_common">
 					<input type="button" class="" id="addrsearch" onclick="execPostCode();" value="주소검색"/>
 				</div>
+				<div id="addr_check"></div>
 			</div>
 
 			<div class="divPHONE">
@@ -102,9 +103,11 @@
 			</div>
 
 			<div class="div_Button">
+			<span id="registcheck">
 				<div class="Button_1 Donation_Button">
-					<input type="submit" value="회원가입" id="reg_submit" class="button_t" disabled="disabled"/>
+					<input type="submit" value="GOGO" id="reg_submit" class="button_t"/>
 				</div>
+				</span>
 			</div>
 		</div>
 	</section>

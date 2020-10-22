@@ -114,4 +114,5 @@
 		background-color: var(--color-dark-gray);
 		color: var(--color-black);
 		font-weight: var(--weight-regular);
+		cursor: pointer;
 	}
