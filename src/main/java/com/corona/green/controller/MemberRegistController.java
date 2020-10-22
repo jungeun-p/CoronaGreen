@@ -28,6 +28,9 @@ public class MemberRegistController {
 	@RequestMapping("registres.do")
 	public String registRes(Model model, MemberDto dto, String addr1, String addr2, String addr3) {
 		logger.info("회원가입");
+		if (addr3 == null) {
+			addr3 = "";
+		}
 		dto.setAddress("("+addr1+") " + addr2 +" "+ addr3);
 		biz.regist(dto);
 		
