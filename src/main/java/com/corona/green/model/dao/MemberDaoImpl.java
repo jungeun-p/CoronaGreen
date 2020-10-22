@@ -20,13 +20,40 @@ public class MemberDaoImpl implements MemberDao {
 	@Override
 	public MemberDto login(MemberDto dto) {
 		MemberDto res = null;
-		logger.info("다오에서" + dto.getId());
 		
 		try {
 			res = sqlSession.selectOne(NAMESPACE + "login", dto);
 		} catch (Exception e) {
 			logger.info("ERROR LOGIN SELECT");
 			e.printStackTrace();
+		}
+		return res;
+	}
+
+
+	@Override
+	public int regist(MemberDto dto) {
+		int res = 0;
+		
+		try {
+			res = sqlSession.insert(NAMESPACE + "insert", dto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.info("ERROR REGIST INSERT");
+		}
+		return res;
+	}
+
+
+	@Override
+	public int IdCheck(String id) {
+		int res = 0;
+		
+		try {
+			res = sqlSession.selectOne(NAMESPACE + "idcheck", id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.info("ERROR IDCHECK");
 		}
 		return res;
 	}

@@ -18,4 +18,16 @@ public class MemberBizImpl implements MemberBiz{
 		return dao.login(dto);
 	}
 
+	@Override
+	public int regist(MemberDto dto) {
+		// TODO Auto-generated method stub
+		return dao.regist(dto);
+	}
+
+	@Override
+	public int IdCheck(String id) {
+		// TODO Auto-generated method stub
+		return dao.IdCheck(id);
+	}
+
 }
