@@ -183,3 +183,13 @@ body {
   margin-top: 20px;
   float: right;
 }
+
+.sns__login {
+	text-decoration: none;
+	color: black;
+}
+
+.find__idpw {
+	text-decoration: none;
+	color: black;
+}

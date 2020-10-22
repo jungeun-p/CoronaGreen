@@ -4,30 +4,54 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-	
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	
+
 	<!-- db.properties -->
-	<context:property-placeholder location="classpath:mybatis/db.properties"/>
-	
+	<context:property-placeholder
+		location="classpath:mybatis/db.properties" />
+
 	<!-- dataSource -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="${green.driver}"/>
-		<property name="url" value="${green.url}"/>
-		<property name="username" value="${green.username}"/>
-		<property name="password" value="${green.password}"/>
-	</bean>
-	
-	<!-- mybatis -->
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="WEB-INF/spring/sqls/config.xml"/>
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${green.driver}" />
+		<property name="url" value="${green.url}" />
+		<property name="username" value="${green.username}" />
+		<property name="password" value="${green.password}" />
 	</bean>
 
-	
+	<!-- mybatis -->
+	<bean id="sqlSession"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="WEB-INF/spring/sqls/config.xml" />
+	</bean>
+
+
 	<!-- mybatis template -->
-	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+	<bean id="sqlSessionTemplate"
+		class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSession" />
 	</bean>
-		
+	
+	 <!-- 메일 보내기 (SEND) -->
+   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+      <property name="host" value="smtp.gmail.com" />
+      <property name="port" value="587" />
+      <property name="username" value="dndrldzk@gmail.com" />
+      <property name="password" value="qndhkz45" />
+    
+
+      <!-- email 요청시는 SMTP -->
+      <property name="javaMailProperties">
+         <props>
+            <prop key="mail.transport.protocol">smtp</prop>
+            <prop key="mail.smtp.auth">true</prop>
+            <prop key="mail.smtp.starttls.enable">true</prop>
+            <prop key="mail.debug">true</prop>
+         </props>
+      </property>
+      </bean>
+
 </beans>

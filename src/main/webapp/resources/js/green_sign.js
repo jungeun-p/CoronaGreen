@@ -42,13 +42,13 @@ function execPostCode() {
          }).open();
      }
 
-$(function(){
+
 	var check = false;
 	var array = new Array(6).fill(false);
 	array[4] = true;
 	$("#user_id").blur(function(){
 		if ($('#user_id').val() == "") {
-			$('#id_check').text('아이디를 입력해주세요 :)');
+			$('#id_check').text('아이디를 입력해주세요');
 			$('#id_check').css('color', 'red');
 			array[0] = false;
 		}
@@ -65,7 +65,7 @@ $(function(){
 				
 				if (data == 1) {
 						// 1 : 아이디가 중복되는 문구
-						$("#id_check").text("사용중인 아이디입니다 :p");
+						$("#id_check").text("사용중인 아이디입니다");
 						$("#id_check").css("color", "red");
 						array[0] = false;
 					} else {
@@ -80,7 +80,7 @@ $(function(){
 				
 						} else if(user_id == ""){
 							
-							$('#id_check').text('아이디를 입력해주세요 :)');
+							$('#id_check').text('아이디를 입력해주세요');
 							$('#id_check').css('color', 'red');
 							array[0] = false;
 						} else {
@@ -192,7 +192,7 @@ $(function(){
 		
 		
 		
-		var mailJ = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+		/*var mailJ = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 		$("#email").blur(function(){
 			var email = $("#email").val().trim();
 			console.log(email);
@@ -208,7 +208,77 @@ $(function(){
 				$("#email_check").text("");
 				array[5] = true;
 			}
-		})
+		})*/
+		
+		$("#email").blur(function(){
+		if ($('#email').val() == "") {
+			$('#email_check').text('이메일을 입력해주세요');
+			$('#email_check').css('color', 'red');
+			array[5] = false;
+		}
+	})
+	$("#email").blur(function() {
+		// id = "id_reg" / name = "userId"
+		var user_email = $('#email').val().trim();
+		$.ajax({
+			url : 'emailcheck.do?email='+user_email,
+			type : 'get',
+			success : function(data) {
+				var mailJ = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+				
+				if (data == 1) {
+						// 1 : 아이디가 중복되는 문구
+						$("#email_check").text("사용중인 이메일입니다.");
+						$("#email_check").css("color", "red");
+						array[5] = false;
+					} else {
+						
+						if(mailJ.test(user_email)){
+							// 0 : 아이디 길이 / 문자열 검사
+							$("#email_check").text("사용가능한 이메일입니다.");
+							$('#email_check').css('color', 'blue');
+							// $("#reg_submit").prop("disabled", false);
+							array[5] = true;
+							
+				
+						} else if(user_email == ""){
+							
+							$('#email_check').text('이메일을 입력해주세요.');
+							$('#email_check').css('color', 'red');
+							array[5] = false;
+						} else {
+							$('#email_check').text("정확한 이메일을 입력해주세요.");
+							$('#email_check').css('color', 'red');
+							array[5] = false;
+						}
+						
+					}
+				var odd = function(element) {
+					return (element == false);
+				};
+				if (array.some(odd) == true) {
+					check = false;
+				} else {
+					check = true;
+				}
+				
+				
+				
+				
+				if (check) {
+					$("#reg_submit").prop("disabled", false);
+					$("#reg_submit").css("background-color", "blue");
+				} else {
+					$("#reg_submit").prop("disabled", true);
+					$("#reg_submit").css("background-color", "red");
+				}
+				}, error : function() {
+						console.log("실패");
+				}
+			});
+		
+		
+	});
 		
 	
 		
@@ -234,11 +304,68 @@ $(function(){
 				$("#reg_submit").css("background-color", "red");
 			}
 		})
-		
-		
-		
-		
-		
 	
-	
-})
+		
+		var user_email = $("#email").val();
+		if (user_email != "") {
+		console.log(user_email);
+		$.ajax({
+			url : 'emailcheck.do?email='+user_email,
+			type : 'get',
+			success : function(data) {
+				var mailJ = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+				
+				if (data == 1) {
+						// 1 : 아이디가 중복되는 문구
+						$("#email_check").text("사용중인 이메일입니다.");
+						$("#email_check").css("color", "red");
+						array[5] = false;
+					} else {
+						
+						if(mailJ.test(user_email)){
+							// 0 : 아이디 길이 / 문자열 검사
+							$("#email_check").text("사용가능한 이메일입니다.");
+							$('#email_check').css('color', 'blue');
+							// $("#reg_submit").prop("disabled", false);
+							array[5] = true;
+							
+				
+						} else if(user_email == ""){
+							
+							$('#email_check').text('이메일을 입력해주세요.');
+							$('#email_check').css('color', 'red');
+							array[5] = false;
+						} else {
+							$('#email_check').text("정확한 이메일을 입력해주세요.");
+							$('#email_check').css('color', 'red');
+							array[5] = false;
+						}
+						
+					}
+				var odd = function(element) {
+					return (element == false);
+				};
+				if (array.some(odd) == true) {
+					check = false;
+				} else {
+					check = true;
+				}
+				
+				
+				
+				
+				if (check) {
+					$("#reg_submit").prop("disabled", false);
+					$("#reg_submit").css("background-color", "blue");
+				} else {
+					$("#reg_submit").prop("disabled", true);
+					$("#reg_submit").css("background-color", "red");
+				}
+				}, error : function() {
+						console.log("실패");
+				}
+			});
+		
+		}
+		
+		

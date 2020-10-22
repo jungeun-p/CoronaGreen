@@ -58,4 +58,32 @@ public class MemberDaoImpl implements MemberDao {
 		return res;
 	}
 
+
+	@Override
+	public int EmailCheck(String email) {
+		int res = 0;
+		
+		try {
+			res = sqlSession.selectOne(NAMESPACE + "emailcheck", email);
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.info("ERROR EMAILCHECK");
+		}
+		return res;
+	}
+
+
+	@Override
+	public MemberDto EmailCheckId(String email) {
+		MemberDto dto = null;
+		
+		try {
+			dto = sqlSession.selectOne(NAMESPACE + "emailcheckid", email);
+		} catch (Exception e) {
+			logger.info("ERROR EMAILCHECK ID");
+			e.printStackTrace();
+		}
+		return dto;
+	}
+
 }

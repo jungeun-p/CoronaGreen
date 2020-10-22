@@ -75,12 +75,12 @@
 				<div class="EMAIL_1 EMAIL_common" id="email_t">EMAIL</div>
 				<div class="EMAIL_2 EMAIL_common">
 					<%
-						 if (session.getAttribute("naveremail") != null) {
+						 if (request.getAttribute("naveremail") != null) {
 					%>
 					<input type="email" name="email" id="email"
 						placeholder="이메일을 입력하세요." value="${naveremail }" class="check__1"/><br>
 					<%
-						} else if (session.getAttribute("kakaoemail") != null) {
+						} else if (request.getAttribute("kakaoemail") != null) {
 					%>
 					<input type="email" name="email" id="email"
 						placeholder="이메일을 입력하세요." value="${kakaoemail }" class="check__1"/><br>

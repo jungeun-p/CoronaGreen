@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corona.green.api.NaverLoginBo;
+import com.corona.green.api.UserSha256;
 import com.corona.green.model.biz.MemberBiz;
 import com.corona.green.model.dto.MemberDto;
 import com.github.scribejava.core.model.OAuth2AccessToken;
@@ -52,7 +53,6 @@ public class MemberLoginController {
 	// 네이버 콜백
 	@RequestMapping(value = "/callback.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session) throws IOException, ParseException {
-	System.out.println("여기는 callback");
 	OAuth2AccessToken oauthToken;
 	oauthToken = naverLoginBO.getAccessToken(session, code, state);
 	//1. 로그인 사용자 정보를 읽어온다.
@@ -73,7 +73,7 @@ public class MemberLoginController {
 	String email = (String)response_obj.get("email");
 	System.out.println(email);
 	//4.파싱 닉네임 세션으로 저장
-	session.setAttribute("naveremail",email); //세션 생성
+	model.addAttribute("naveremail",email); //세션 생성
 	model.addAttribute("result", apiResult);
 	return "green_sign"; 
 	}
@@ -88,7 +88,8 @@ public class MemberLoginController {
 	@RequestMapping("/login.do")
 	public String login(MemberDto dto, Model model, HttpSession session) {
 		logger.info("login");
-		
+		String encryPassword = UserSha256.encrypt(dto.getPw());
+		dto.setPw(encryPassword);
 		MemberDto res = biz.login(dto);
 		if (res != null) {
 			if (res.getEnabled().equals("Y")) {
@@ -109,7 +110,7 @@ public class MemberLoginController {
 	
 	@RequestMapping("kakaoregist.do")
 	public String naverLogin(String email,Model model,HttpSession session) {
-		session.setAttribute("kakaoemail", email);
+		model.addAttribute("kakaoemail", email);
 		return "green_sign";
 	}
 	
