@@ -8,5 +8,16 @@
 		WHERE ID = #{id}
 		AND PW = #{pw}
 	</select>
+	
+	<insert id="insert" parameterType="MemberDto">
+		INSERT INTO MEMBER 
+		VALUES(#{id}, #{pw}, #{phone}, #{address}, #{email}, 'USER', 'N', SYSDATE)
+	</insert>
+	
+	<select id="idcheck" parameterType="String" resultType="int">
+		SELECT COUNT(*)
+		FROM MEMBER
+		WHERE ID = #{id}
+	</select>
 
 </mapper>

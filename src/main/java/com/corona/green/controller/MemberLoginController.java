@@ -78,7 +78,11 @@ public class MemberLoginController {
 	return "green_sign"; 
 	}
 	
-	
+	// 카카오 로그인
+	@RequestMapping("/kakaologin.do")
+	public String KakaoLogin () {
+		return "kakao_login";
+	}
 
 	
 	@RequestMapping("/login.do")
@@ -103,8 +107,9 @@ public class MemberLoginController {
 		}
 	}
 	
-	@RequestMapping("regist.do")
-	public String naverLogin() {
+	@RequestMapping("kakaoregist.do")
+	public String naverLogin(String email,Model model,HttpSession session) {
+		session.setAttribute("kakaoemail", email);
 		return "green_sign";
 	}
 	
@@ -114,6 +119,11 @@ public class MemberLoginController {
 		System.out.println("asdjlsakdjlsakdj");
 		session.invalidate();
 		return "redirect:main.do";
+	}
+	
+	@RequestMapping("regist.do")
+	public String regist() {
+		return "green_sign";
 	}
 	
 }

@@ -7,13 +7,16 @@
 <title>Insert title here</title>
 
 <link href="resources/css/green_login.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src = "https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="resources/js/green_login.js" defer></script>
 </head>
 <script type="text/javascript">
-	/* history.pushState(null, null, "main.do");
+	history.pushState(null, null, "main.do");
 	
 	window.onpopstate = function(event) {
 		history.go(1);
-	} */
+	} 
 </script>
 <body>
 <%
@@ -56,7 +59,7 @@
 					</a>
 				</div>
 				<div class="login_sns_kakao sns_button">
-					<a href="kakaoregist.do">
+					<a id="kakaologin">
 					<img src="./resources/img/kakao-icon.png"/>
 					<span>KAKAO LOGIN</span>
 					</a>
