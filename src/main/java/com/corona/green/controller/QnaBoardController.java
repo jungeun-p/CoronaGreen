@@ -5,11 +5,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corona.green.model.biz.QnaBoardBiz;
 import com.corona.green.model.biz.QnaBoardReBiz;
 import com.corona.green.model.dto.QnaBoardDto;
+import com.corona.green.paging.Paging;
 
 @Controller
 public class QnaBoardController {
@@ -21,13 +24,13 @@ public class QnaBoardController {
 	@Autowired
 	private QnaBoardReBiz qnaReBiz;
 
-	@RequestMapping("/qnalist.do")
-	public String qnalist(Model model) {
-		
-		model.addAttribute("list", qnaBiz.selectList());
-		
-		return "green_qna_list";
-	}
+	/*
+	 * @RequestMapping("/qnalist.do") public String qnalist(Model model) {
+	 * 
+	 * model.addAttribute("list", qnaBiz.selectList());
+	 * 
+	 * return "green_qna_list"; }
+	 */
 	
 	@RequestMapping("/qnadetail.do")
 	public String qnadetail(Model model, int boardno) {
@@ -93,12 +96,40 @@ public class QnaBoardController {
 	}
 	
 	@RequestMapping("/serch.do")
-	public String qnasherch(String serchselect, String serchtext) {
+	public String qnasherch(String serchselect, String serchtext, Model model) {
 		
-		System.out.println(serchselect+"옵션:::::::"+serchtext);
-		//model.addAttribute("option", option);
+		System.out.println(serchselect+"옵션:::::::"+serchtext);		
 		
-		return "redirect:qnalist.do";
+		if(serchselect.equals("title")) {
+			model.addAttribute("list",qnaBiz.selectSerchList_title(serchtext));
+			return "green_qna_list";
+		} else if(serchselect.equals("id")) {
+			model.addAttribute("list",qnaBiz.selectSerchList_id(serchtext));
+			return "green_qna_list";
+		} else {
+			System.out.println("null serchselect");
+			return "qnalist.do";
+		}
+	}
+	
+	@RequestMapping("/qnalist.do")
+	public String boardList(Paging vo, Model model
+			, @RequestParam(value="nowPage", required=false)String nowPage
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
+		
+		int total = qnaBiz.countBoard();
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		} else if (nowPage == null) {
+			nowPage = "1";
+		} else if (cntPerPage == null) { 
+			cntPerPage = "5";
+		}
+		vo = new Paging(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		model.addAttribute("paging", vo);
+		model.addAttribute("viewAll", qnaBiz.selectBoard(vo));
+		return "green_qna_list";
 	}
 	
 }

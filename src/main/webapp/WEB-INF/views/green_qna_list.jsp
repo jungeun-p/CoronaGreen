@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="resources/css/green_qna_list.css" rel="stylesheet"
-	type="text/css" />
+<link href="resources/css/green_qna_list.css" rel="stylesheet" type="text/css" />
+<script>
+	function selChange() {
+		var sel = document.getElementById('cntPerPage').value;
+		location.href="qnalist.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
+	}
+</script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header.jsp"%>
@@ -20,6 +25,21 @@
 				<div class="qnalist__section1__frequent__content">내영</div>
 			</div>
 
+		<div id="outter">
+			
+			<div style="float: right;">
+				<select id="cntPerPage" name="sel" onchange="selChange()">
+					<option value="5"
+						<c:if test="${paging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
+					<option value="10"
+						<c:if test="${paging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
+					<option value="15"
+						<c:if test="${paging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
+					<option value="20"
+						<c:if test="${paging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
+				</select>
+			</div>
+			
 			<div class="qnalist__section2__border">
 				<div class="qnalist__section2__border__title">QNA 게시판</div>
 				<table border=1 class="qnalist__section2__border__table">
@@ -36,13 +56,13 @@
 						<th>작성 날짜</th>
 					</tr>
 					<c:choose>
-						<c:when test="${empty list }">
+						<c:when test="${empty viewAll }">
 							<tr>
-								<td>------작성된 문의글이 없습니다-------</td>
+								<td colspan="5" align="center">------작성된 문의글이 없습니다-------</td>
 							</tr>
 						</c:when>
 						<c:otherwise>
-							<c:forEach items="${list }" var="list">
+							<c:forEach items="${viewAll }" var="list">
 								<tr>
 									<td>${list.boardno }</td>
 									<td>${list.secret }</td>
@@ -67,7 +87,26 @@
 						</c:otherwise>
 					</c:choose>
 				</table>
-				<p>${option }</p>
+				<div style="display: block; text-align: center;">		
+					<c:if test="${paging.startPage != 1 }">
+						<a href="qnalist.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+					</c:if>
+					<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+						<c:choose>
+							<c:when test="${p == paging.nowPage }">
+								<b>${p }</b>
+							</c:when>
+							<c:when test="${p != paging.nowPage }">
+								<a href="qnalist.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+							</c:when>
+						</c:choose>
+					</c:forEach>
+					<c:if test="${paging.endPage != paging.lastPage}">
+						<a href="qnalist.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+					</c:if>
+				</div>
+			</div>	
+		</div><!-- outer -->
 				<div class="qnalist__section2__border__btnwrap">
 					<form action="serch.do" method="post">
 						<select name="serchselect">
@@ -81,9 +120,7 @@
 						class="qnalist__section2__btninsert"
 						onclick="location.href='qnainsertForm.do'" />
 				</div>
-			</div>
-
-		</div>
+		</div> <!-- qnalistwrap -->
 
 
 	</section>

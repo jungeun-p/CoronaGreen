@@ -29,5 +29,38 @@
 		DELETE FROM QNA_BOARD
 		WHERE BOARDNO = #{boardno}
 	</delete>
+	
+	<select id="selectSerchTitle" parameterType="String" resultType="QnaBoardDto">
+		SELECT ID, BOARDNO, TITLE, CONTENT, REGDATE, SECRET
+		FROM QNA_BOARD
+		WHERE TITLE LIKE '%'||#{title}||'%'
+		ORDER BY BOARDNO
+	</select>
+	
+	<select id="selectSerchId" parameterType="String" resultType="QnaBoardDto">
+		SELECT ID, BOARDNO, TITLE, CONTENT, REGDATE, SECRET
+		FROM QNA_BOARD
+		WHERE ID LIKE '%'||#{id}||'%'
+		ORDER BY BOARDNO
+	</select>
+	
+	<!-- 총 게시글 갯수 출력 -->
+	<select id="countBoard" resultType="int">
+		SELECT COUNT(*) FROM QNA_BOARD
+	</select>
+	
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectBoard" resultType="QnaBoardDto" parameterType="int">
+		SELECT * 
+			FROM (
+				SELECT ROWNUM RN, A.* 
+					FROM (
+							SELECT * 
+							FROM QNA_BOARD
+							ORDER BY BOARDNO
+							) A
+					)
+		WHERE RN BETWEEN #{start} AND #{end}
+	</select>
 
 </mapper>
