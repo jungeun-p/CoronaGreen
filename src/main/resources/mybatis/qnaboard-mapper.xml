@@ -5,6 +5,29 @@
 	<select id="qnalist" parameterType="QnaBoardDto" resultType="QnaBoardDto">
 		SELECT ID, BOARDNO, TITLE, CONTENT, REGDATE, SECRET
 		FROM QNA_BOARD
+		ORDER BY BOARDNO
 	</select>
+	
+	<select id="selectOne" parameterType="int" resultType="QnaBoardDto">
+		SELECT ID, BOARDNO, TITLE, CONTENT, REGDATE, SECRET
+		FROM QNA_BOARD
+		WHERE BOARDNO = #{boardno}
+	</select>
+	
+	<insert id="insert" parameterType="QnaBoardDto">
+		INSERT INTO QNA_BOARD
+		VALUES(#{id}, BOARDNO_SEQ.NEXTVAL, #{title}, #{content}, SYSDATE, #{secret})
+	</insert>
+	
+	<update id="update" parameterType="QnaBoardDto">
+		UPDATE QNA_BOARD
+		SET TITLE = #{title}, CONTENT = #{content}
+		WHERE BOARDNO = #{boardno}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM QNA_BOARD
+		WHERE BOARDNO = #{boardno}
+	</delete>
 
 </mapper>

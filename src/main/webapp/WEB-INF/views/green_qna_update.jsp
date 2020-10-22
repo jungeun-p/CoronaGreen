@@ -12,16 +12,17 @@
     <section class="qnaupdate">
     
 		<div class="qnaupdate__wrap">
-			<form action="update.do" method="post">
+			<form action="qnaupdateres.do" method="post">
 				<div class="qnaupdate__top">
 				
 					<div class="qnaupdate__top__title">
 						<span class="qnaupdate__top__span__title">TITLE </span>
-						<input type="text" name ="title" class="qnaupdate__input__title" maxlength="30" placeholder="제목을 입력해주세요">
+						<input type="text" name ="title" class="qnaupdate__input__title" maxlength="30" value="${list.title }">
+						<input type="hidden" name="boardno" value="${list.boardno }">
 					</div>
 					<div class="qnaupdate__top__content">
 						<span class="qnaupdate__top__span__content">CONTENT </span>
-						<textarea rows="10" cols="80" placeholder="내용을 입력해주세요" maxlength="1300" name ="content" class="qnaupdate__input__content"></textarea>
+						<textarea rows="10" cols="80" maxlength="1300" name ="content" class="qnaupdate__input__content">${list.content }</textarea>
 					</div>
 					
 				</div>

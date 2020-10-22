@@ -23,12 +23,14 @@
 			<div class="qnalist__section2__border">
 				<div class="qnalist__section2__border__title">QNA 게시판</div>
 				<table border=1 class="qnalist__section2__border__table">
-					<col width="10%">
+					<col width="5%">
+					<col width="5%">
 					<col width="50%">
 					<col width="20%">
 					<col width="20%">
 					<tr>
 						<th>번호</th>
+						<th>비밀글</th>
 						<th>제목</th>
 						<th>작성자</th>
 						<th>작성 날짜</th>
@@ -40,18 +42,41 @@
 							</tr>
 						</c:when>
 						<c:otherwise>
-							<c:forEach items="${list }" var="dto">
+							<c:forEach items="${list }" var="list">
 								<tr>
-									<td>${dto.boardno }</td>
-									<td><a href="qnadetail.do?boardno=${dto.boardno }">${dto.title }</a></td>
-									<td>${dto.id }</td>
-									<td>${dto.regdate }</td>
+									<td>${list.boardno }</td>
+									<td>${list.secret }</td>
+									<c:choose>
+										<c:when test="${dto.id eq 'admin' }">
+											<td><a href="qnadetail.do?boardno=${list.boardno }" onclick="">${list.title }</a></td>
+										</c:when>
+										<c:when test="${list.id eq dto.id && list.secret eq 'Y' }">
+											<td><a href="qnadetail.do?boardno=${list.boardno }" onclick="">${list.title }</a></td>
+										</c:when>
+										<c:when test="${list.secret != 'Y' }">
+											<td><a href="qnadetail.do?boardno=${list.boardno }" onclick="">${list.title }</a></td>
+										</c:when>
+										<c:otherwise>
+											<td><a href="#" onclick="alert('비밀글 입니다.');">${list.title }</a></td>
+										</c:otherwise>									
+									</c:choose>
+									<td>${list.id }</td>
+									<td>${list.regdate }</td>
 								</tr>
 							</c:forEach>						
 						</c:otherwise>
 					</c:choose>
 				</table>
+				<p>${option }</p>
 				<div class="qnalist__section2__border__btnwrap">
+					<form action="serch.do" method="post">
+						<select name="serchselect">
+							<option value="title">제목</option>
+							<option value="id">작성자</option>
+						</select>
+						<input type="text" name="serchtext">
+						<input type="submit" value="검색">
+					</form>
 					<input type="button" value="QNA 작성"
 						class="qnalist__section2__btninsert"
 						onclick="location.href='qnainsertForm.do'" />

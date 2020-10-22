@@ -5,11 +5,13 @@
 	<typeAliases>
 		<typeAlias type="com.corona.green.model.dto.MemberDto" alias="MemberDto"/>
 		<typeAlias type="com.corona.green.model.dto.QnaBoardDto" alias="QnaBoardDto"/>
+		<typeAlias type="com.corona.green.model.dto.QnaBoardReDto" alias="QnaBoardReDto"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="/mybatis/member-mapper.xml"/>
 		<mapper resource="/mybatis/qnaboard-mapper.xml"/>
+		<mapper resource="/mybatis/qnare-mapper.xml"/>
 	</mappers>
 
 </configuration>

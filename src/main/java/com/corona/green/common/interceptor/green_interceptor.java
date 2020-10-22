@@ -1,5 +1,7 @@
 package com.corona.green.common.interceptor;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -18,7 +20,22 @@ public class green_interceptor implements HandlerInterceptor {
 		
 		logger.info("[Interceptor] preHandle");
 		
-		return HandlerInterceptor.super.preHandle(request, response, handler);
+		if(request.getRequestURI().contains("/qnainsertForm.do") &&
+				request.getSession().getAttribute("dto") == null) {
+			
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+            out.println("<script>alert('글을 작성하려면 로그인해주세요');history.go(-1);</script>");
+            out.flush();
+            
+			return false;
+		}
+		
+		if(request.getRequestURI().contains("/qnadetail.do")) {
+			System.out.println(request.getSession().getAttribute("id")+"★★★★★★★★★★★★★★★★★★★");
+		}
+		
+		return true;
 	}
 	
 	@Override

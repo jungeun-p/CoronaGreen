@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="qnaRe">
+
+	<select id="selectOne" parameterType="int" resultType="QnaBoardReDto">
+		SELECT BOARDNO, CONTENT, REGDATE
+		FROM QNA_BOARD_RE
+		WHERE BOARDNO = #{boardno}
+	</select>
+	
+	<insert id="insert" parameterType="QnaBoardReDto">
+		INSERT INTO QNA_BOARD_RE
+		VALUES(#{boardno}, #{content}, SYSDATE)
+	</insert>
+	
+</mapper>

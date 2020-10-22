@@ -33,25 +33,61 @@ public class QnaBoardDaoImpl implements QnaBoardDao {
 	@Override
 	public QnaBoardDto selectOne(int boardno) {
 		
-		return null;
+		QnaBoardDto dto = null;
+		
+		try {
+			dto = sqlSession.selectOne(NAMESPACER+"selectOne", boardno);
+		} catch (Exception e) {
+			System.out.println("[ERROR SelectOne]");
+			e.printStackTrace();
+		}
+		
+		return dto;
 	}
 
 	@Override
 	public int insert(QnaBoardDto dto) {
 		
-		return 0;
+		int res = 0;
+		
+		try {
+			res = sqlSession.insert(NAMESPACER+"insert", dto);
+		} catch (Exception e) {
+			System.out.println("[ERROR insert]");
+			e.printStackTrace();
+		}
+		
+		return res;
 	}
 
 	@Override
 	public int update(QnaBoardDto dto) {
 		
-		return 0;
+		int res = 0;
+		
+		try {
+			res = sqlSession.update(NAMESPACER+"update", dto);
+		} catch (Exception e) {
+			System.out.println("[ERROR Update]");
+			e.printStackTrace();
+		}
+		
+		return res;
 	}
 
 	@Override
 	public int delete(int boardno) {
 		
-		return 0;
+		int res = 0;
+		
+		try {
+			res = sqlSession.delete(NAMESPACER+"delete",boardno);
+		} catch (Exception e) {
+			System.out.println("[ERROR Delete]");
+			e.printStackTrace();
+		}
+		
+		return res;
 	}
 
 }

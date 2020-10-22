@@ -26,8 +26,19 @@ $(document).ready(function() {
 	        maxHeight: 370,
 	        focus: true, 
 	        lang : 'ko-KR'
-	  });
+	  });	 	  	  
+	  
+	  $("#chk").click(function(){
+		    if($("#chk").prop("checked")){
+		       $("#chk1").val("Y");
+		       console.log($("#chk1").val());
+		    } else {
+		       $("#chk1").val("N");
+		       console.log($("#chk1").val());
+		    }
+		 });
 	});
+	
 </script>
 </head>
 <body>
@@ -40,8 +51,10 @@ $(document).ready(function() {
 				
 					<div class="qnainsert__top__title">
 						<span class="qnainsert__top__span__title">TITLE </span>
+						<input type="hidden" name="id" value="${dto.id }">
 						<input type="text" name ="title" class="qnainsert__input__title" maxlength="30" placeholder="제목을 입력해주세요">
-						<input type="checkbox">비밀글
+						<input type="hidden" id="chk1" value="N" name="secret"/>
+						<input type="checkbox" id="chk">비밀글
 					</div>
 					<div class="qnainsert__top__content">
 						<span class="qnainsert__top__span__content">CONTENT </span>
