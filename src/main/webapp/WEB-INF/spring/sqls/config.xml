@@ -12,6 +12,7 @@
 		<mapper resource="/mybatis/member-mapper.xml"/>
 		<mapper resource="/mybatis/qnaboard-mapper.xml"/>
 		<mapper resource="/mybatis/qnare-mapper.xml"/>
+		<mapper resource="/mybatis/mypage-mapper.xml"/>
 	</mappers>
 
 </configuration>

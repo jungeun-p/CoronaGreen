@@ -27,6 +27,7 @@ public class MemberLoginController {
 	/* NaverLoginBO */
 	private NaverLoginBo naverLoginBO;
 	private String apiResult = null;
+	
 	@Autowired
 	private void setNaverLoginBO(NaverLoginBo naverLoginBO) {
 	this.naverLoginBO = naverLoginBO;
@@ -48,6 +49,7 @@ public class MemberLoginController {
 		return "green_login";
 	}
 	
+	// 네이버 콜백
 	@RequestMapping(value = "/callback.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session) throws IOException, ParseException {
 	System.out.println("여기는 callback");
@@ -73,7 +75,13 @@ public class MemberLoginController {
 	//4.파싱 닉네임 세션으로 저장
 	session.setAttribute("naveremail",email); //세션 생성
 	model.addAttribute("result", apiResult);
-	return "green_sign";
+	return "green_sign"; 
+	}
+	
+	// 카카오 로그인
+	@RequestMapping("/kakaologin.do")
+	public String KakaoLogin () {
+		return "kakao_login";
 	}
 
 	
@@ -99,8 +107,9 @@ public class MemberLoginController {
 		}
 	}
 	
-	@RequestMapping("regist.do")
-	public String naverLogin() {
+	@RequestMapping("kakaoregist.do")
+	public String naverLogin(String email,Model model,HttpSession session) {
+		session.setAttribute("kakaoemail", email);
 		return "green_sign";
 	}
 	
@@ -110,6 +119,11 @@ public class MemberLoginController {
 		System.out.println("asdjlsakdjlsakdj");
 		session.invalidate();
 		return "redirect:main.do";
+	}
+	
+	@RequestMapping("regist.do")
+	public String regist() {
+		return "green_sign";
 	}
 	
 }
