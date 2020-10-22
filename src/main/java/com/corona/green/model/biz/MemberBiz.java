@@ -7,4 +7,6 @@ public interface MemberBiz {
 	public MemberDto login(MemberDto dto);
 	public int regist(MemberDto dto);
 	public int IdCheck(String id);
+	public int EmailCheck(String email);
+	public MemberDto EmailCheckId(String email);
 }
