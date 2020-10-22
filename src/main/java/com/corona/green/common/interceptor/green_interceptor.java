@@ -31,10 +31,6 @@ public class green_interceptor implements HandlerInterceptor {
 			return false;
 		}
 		
-		if(request.getRequestURI().contains("/qnadetail.do")) {
-			System.out.println(request.getSession().getAttribute("id")+"★★★★★★★★★★★★★★★★★★★");
-		}
-		
 		return true;
 	}
 	
