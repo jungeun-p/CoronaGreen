@@ -42,4 +42,10 @@ public class MemberBizImpl implements MemberBiz{
 		return dao.EmailCheckId(email);
 	}
 
+	@Override
+	public int EmailIdCheck(MemberDto dto) {
+		// TODO Auto-generated method stub
+		return dao.EmailIdCheck(dto);
+	}
+
 }

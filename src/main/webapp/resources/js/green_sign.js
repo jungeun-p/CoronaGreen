@@ -344,7 +344,10 @@ var pw = function() {
 		$("#pw_check2").text("비밀번호가 일치하지 않습니다.");
 		$('#pw_check2').css('color', 'red');
 		array[2] = false;
-	} else if ((user_pw1 == user_pw2) && user_pw2 != "") {
+	} else if (((user_pw1.search(reg2) < 0 || user_pw1.search(reg3) < 0) || (user_pw2.search(reg2) < 0 || user_pw2.search(reg3) < 0)) && (user_pw1 == user_pw2)) {
+		$("#pw_check2").text("");
+		array[2] = false;
+	} else if ((user_pw1 == user_pw2) && user_pw1 != "") {
 		$("#pw_check2").text("");
 		array[1] = true;
 		real = true;
@@ -357,6 +360,7 @@ var pwchk = function() {
 	var real = false;
 	var user_pw1 = $("#mypw1").val().trim();
 	var user_pw2 = $("#mypw2").val().trim();
+	console.log(user_pw1 + " " + user_pw2);
 	if (array[1] == true) {
 		if (user_pw2 == "") {
 			$("#pw_check2").text("비밀번호 재확인을 입력해주세요.");
@@ -366,11 +370,32 @@ var pwchk = function() {
 			$("#pw_check2").text("비밀번호가 일치하지 않습니다.");
 			$('#pw_check2').css('color', 'red');
 			array[2] = false;
-		} else {
+		} else if (((user_pw1.search(reg2) < 0 || user_pw1.search(reg3) < 0) || (user_pw2.search(reg2) < 0 || user_pw2.search(reg3) < 0)) && (user_pw1 == user_pw2)) {
+			$("#pw_check2").text("");
+			array[2] = false;
+		} else if ((user_pw1 == user_pw2) && user_pw1 != "") {
 			$("#pw_check2").text("");
 			array[2] = true;
 			real = true;
 		}
+	} else {
+		if (user_pw2 == "") {
+			$("#pw_check2").text("비밀번호 재확인을 입력해주세요.");
+			$('#pw_check2').css('color', 'red');
+			array[2] = false;
+		} else if (user_pw1 != user_pw2) {
+			$("#pw_check2").text("비밀번호가 일치하지 않습니다.");
+			$('#pw_check2').css('color', 'red');
+			array[2] = false;
+		} else if (((user_pw1.search(reg2) < 0 || user_pw1.search(reg3) < 0) || (user_pw2.search(reg2) < 0 || user_pw2.search(reg3) < 0)) && (user_pw1 == user_pw2)) {
+			$("#pw_check2").text("");
+			array[2] = false;
+		} else if ((user_pw1 == user_pw2) && user_pw1 != "") {
+			$("#pw_check2").text("");
+			array[2] = true;
+			real = true;
+		}
+		
 	}
 	return real;
 }
