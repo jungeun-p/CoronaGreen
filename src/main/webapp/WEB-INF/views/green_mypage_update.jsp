@@ -36,11 +36,17 @@
 	                </li>
 	                <li class="update__form__li">
                         <span class="form__text">PW</span>
-	                    <input type="text" name="pw"  required="required" placeholder="변경할 비밀번호를 입력해주세요">
+	                    <input type="text"  id="pw" name="pw"  required="required" placeholder="변경할 비밀번호를 입력해주세요">
+	                </li>
+	                <li class="update__form__li__result">
+	                	<div id="pw_check1" class="check"></div>
 	                </li>
 	                <li class="update__form__li">
                         <span class="form__text"></span>
-	                    <input type="text" name="passwordconfirm" class="password__confirm"  required="required" placeholder="같은 비밀번호를 입력해주세요">
+	                    <input type="text" id="pwchk" name="passwordconfirm" class="password__confirm"  required="required" placeholder="같은 비밀번호를 입력해주세요">
+	                </li>
+	                  <li class="update__form__li__result">
+	                	<div id="pw_check2" class="check"></div>
 	                </li>
 	                <li class="update__form__li">
                         <span class="form__text">EMAIL</span>
@@ -55,7 +61,9 @@
 	                    <input type="text" name="address" readonly value="${dto.address }">
 	                </li>
 	                <li class="update__form__li update__form__li__submit">
-	                   <input class="update__submit" type="button" value="UPDATE" onclick="pw_check()"/>
+<!-- 	                   <input class="update__submit" type="button" value="UPDATE" onclick="pw_check()"/> -->
+	                   <input id="change" class="update__submit changepw__button__input" type="button" value="UPDATE" disabled="disabled" onclick="pw_check()"/>
+	                   
 	                </li>
 	                <li>
 	                	<div class="update__message"></div>
