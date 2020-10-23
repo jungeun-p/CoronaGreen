@@ -48,4 +48,10 @@ public class MemberBizImpl implements MemberBiz{
 		return dao.EmailIdCheck(dto);
 	}
 
+	@Override
+	public int ChangePw(MemberDto dto) {
+		// TODO Auto-generated method stub
+		return dao.ChangePw(dto);
+	}
+
 }

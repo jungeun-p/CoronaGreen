@@ -37,5 +37,11 @@
 		FROM MEMBER
 		WHERE EMAIL = #{email} AND ID = #{id}
 	</select>
+	
+	<update id="changepw" parameterType="MemberDto">
+		UPDATE MEMBER SET
+		PW = #{pw}
+		WHERE ID = #{id}
+	</update>
 
 </mapper>

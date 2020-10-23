@@ -13,7 +13,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header.jsp"%>
-	<form class="wrap__changepw">
+	<form action="changepwres.do" method="post" class="wrap__changepw">
 	<input type="hidden" name="id" value="${id }"/>
 		<div class="changepw">
 			<div class="changepw__title change__all">NEW PW</div>
@@ -36,7 +36,7 @@
 			
 			<div class="changepw2">
 			<div class="changepw__button change__all">
-				<input id="change" class="changepw__button__input"  type="button" value="change" disabled="disabled"/>
+				<input id="change" class="changepw__button__input"  type="submit" value="change" disabled="disabled"/>
 			</div>
 			</div>
 	</form>

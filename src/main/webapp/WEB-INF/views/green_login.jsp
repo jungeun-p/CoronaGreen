@@ -38,7 +38,7 @@
 			<div class="login_pw login">
 				<div class="login_pw_title">PW</div>
 				<div class="login_pw_input">
-					<input class="login_text_pw" name="pw" type="text" required="required"/>
+					<input class="login_text_pw" name="pw" type="password" required="required"/>
 				</div>
 			</div>
 			
