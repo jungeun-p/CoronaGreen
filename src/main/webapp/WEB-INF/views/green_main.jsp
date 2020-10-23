@@ -34,8 +34,6 @@
 			</div>
 		</div>
 	</section>
-	<a href="home.do">이히히</a>
-	<a href="home.do">home</a>
 	<section class="charts">
 		<div class="chart__wrap">
 			<p>word cloud chart</p>
@@ -46,7 +44,7 @@
 		<!-- 선별진료소 -->
 		<div class="chart__wrap">
 			<div class="map_wrap">
-    			<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+    			<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden; color: black; border-radius: 30px;"></div>
 	    		<div id="menu_wrap" class="bg_white">
 	        		<div class="option">
 			            <div>
