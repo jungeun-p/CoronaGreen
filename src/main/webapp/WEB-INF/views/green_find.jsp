@@ -53,7 +53,7 @@
 						<input name="id" id="pw__id" class="find__pw__id__text" type="text"/>
 					</div>
 				</div>
-				<div id="check2"></div>
+				<div class="check" id="check2"></div>
 				
 				<div class="find__pw__certification find__all">
 					<div class="find__pw__cer__title">EMAIL</div>
@@ -64,7 +64,7 @@
 						<input id="emailsend2" class="find__pw__cer__button__input" type="button" value="CONFIRM" disabled="disabled"/>
 					</div>
 				</div>
-				<div id="check3"></div>
+				<div class="check" id="check3"></div>
 			</div>
 			
 			<div class="find__pw__certification find__all">
@@ -76,7 +76,7 @@
 					<input id="search" class="find__pw__search__input" type="submit" value="SEARCH" disabled="disabled"/>
 				</div>
 			</div>
-			<div class="check" id="check4"></div>
+			<div class="check code__check" id="check4"></div>
 		</form>
 	</div>
 	<%@ include file="/WEB-INF/views/footer.jsp"%>

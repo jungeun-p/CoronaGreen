@@ -181,8 +181,14 @@ body {
 }
 
 .check{
+	height: 20px;
 	font-size: var(--font-small);
 	text-align: center;
+	padding-right: 30px;
+}
+
+.code__check {
+	padding-right: 45px;
 }
 
 
