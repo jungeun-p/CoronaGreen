@@ -30,4 +30,16 @@ public class MemberBizImpl implements MemberBiz{
 		return dao.IdCheck(id);
 	}
 
+	@Override
+	public int EmailCheck(String email) {
+		// TODO Auto-generated method stub
+		return dao.EmailCheck(email);
+	}
+
+	@Override
+	public MemberDto EmailCheckId(String email) {
+		// TODO Auto-generated method stub
+		return dao.EmailCheckId(email);
+	}
+
 }

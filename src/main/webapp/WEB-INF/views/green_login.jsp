@@ -12,11 +12,11 @@
 <script src="resources/js/green_login.js" defer></script>
 </head>
 <script type="text/javascript">
-	history.pushState(null, null, "main.do");
+	/* history.pushState(null, null, "main.do");
 	
 	window.onpopstate = function(event) {
 		history.go(1);
-	} 
+	}  */
 </script>
 <body>
 <%
@@ -67,7 +67,7 @@
 			</div>
 			
 			<div class="login_find login">
-				<div class="login_find_IDPW">FIND ID & PW</div>
+				<div class="login_find_IDPW"><a class="find__idpw" href="find.do">FIND ID & PW</a></div>
 			</div>
 			
 		</div>

@@ -19,5 +19,17 @@
 		FROM MEMBER
 		WHERE ID = #{id}
 	</select>
+	
+	<select id="emailcheck" parameterType="String" resultType="int">
+		SELECT COUNT(*)
+		FROM MEMBER
+		WHERE EMAIL = #{email}
+	</select>
+	
+	<select id="emailcheckid" parameterType="String" resultType="MemberDto">
+		SELECT ID, PW, PHONE, ADDRESS, EMAIL, ROLE, ENABLED, REGDATE
+		FROM MEMBER
+		WHERE EMAIL = #{email}
+	</select>
 
 </mapper>

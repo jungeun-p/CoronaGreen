@@ -73,10 +73,16 @@ body {
 .qnalist__section2__border__table {
 	margin: 0 auto;
 	border-collapse: collapse;
-	width:50%;
+	width:100%;
 }
 .qnalist__section2__border__btnwrap{
 	margin: 10px auto;
 	width:50%;
 	text-align: right;
+}
+
+#outter{
+	margin: 0 auto;
+    border-collapse: collapse;
+    width: 50%;
 }
