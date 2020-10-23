@@ -12,11 +12,11 @@
 <script src="resources/js/green_login.js" defer></script>
 </head>
 <script type="text/javascript">
-	/* history.pushState(null, null, "main.do");
+	history.pushState(null, null, "main.do");
 	
 	window.onpopstate = function(event) {
 		history.go(1);
-	}  */
+	}  
 </script>
 <body>
 <%

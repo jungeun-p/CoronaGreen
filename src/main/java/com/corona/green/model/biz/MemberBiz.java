@@ -9,4 +9,5 @@ public interface MemberBiz {
 	public int IdCheck(String id);
 	public int EmailCheck(String email);
 	public MemberDto EmailCheckId(String email);
+	public int EmailIdCheck(MemberDto dto);
 }
