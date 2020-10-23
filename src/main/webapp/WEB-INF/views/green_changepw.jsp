@@ -12,6 +12,7 @@
 <body>
 	<%@ include file="/WEB-INF/views/header.jsp"%>
 	<form class="wrap__changepw">
+	<input type="hidden" value="${id }"/>
 		<div class="changepw">
 			<div class="changepw__title change__all">NEW PW</div>
 			
@@ -21,13 +22,13 @@
 					<input class="changepw__first__text" type="text"/>
 				</div>
 			</div>
-			
 			<div class="changepw__second change__all">
 				<div class="changepw__second__title">&nbsp;&nbsp;</div>
 				<div class="changepw__second__input">
 					<input class="changepw__first__text" type="text"/>
 				</div>
 			</div>
+			<div id="check"></div>
 			</div>
 			
 			<div class="changepw2">
