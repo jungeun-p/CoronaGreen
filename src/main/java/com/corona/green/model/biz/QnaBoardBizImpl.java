@@ -42,16 +42,6 @@ public class QnaBoardBizImpl implements QnaBoardBiz {
 	}
 
 	@Override
-	public List<QnaBoardDto> selectSerchList_title(String serchtext) {
-		return qnaboardDao.selectSerchList_title(serchtext);
-	}
-
-	@Override
-	public List<QnaBoardDto> selectSerchList_id(String serchtext) {
-		return qnaboardDao.selectSerchList_id(serchtext);
-	}
-
-	@Override
 	public int countBoard() {
 		return qnaboardDao.countBoard();
 	}
@@ -59,7 +49,27 @@ public class QnaBoardBizImpl implements QnaBoardBiz {
 	@Override
 	public List<QnaBoardDto> selectBoard(Paging vo) {
 		return qnaboardDao.selectBoard(vo);
+	}
+
+	@Override
+	public List<QnaBoardDto> selectSerchList_title(String serchtext, Paging vo) {
+		return qnaboardDao.selectSerchList_title(serchtext,vo);
+	}
+
+	@Override
+	public List<QnaBoardDto> selectSerchList_id(String serchtext, Paging vo) {
+		return qnaboardDao.selectSerchList_id(serchtext,vo);
+	}
+
+	@Override
+	public int countSerchBoard_title(String serchtext) {
+		return qnaboardDao.countSerchBoard_title(serchtext);
 	}	
+	
+	@Override
+	public int countSerchBoard_id(String serchtext) {
+		return qnaboardDao.countSerchBoard_id(serchtext);
+	}
 	
 
 }

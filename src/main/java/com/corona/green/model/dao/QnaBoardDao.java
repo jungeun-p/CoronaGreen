@@ -15,8 +15,11 @@ public interface QnaBoardDao {
 	public int update(QnaBoardDto dto);
 	public int delete(int boardno);
 	
-	public List<QnaBoardDto> selectSerchList_title(String serchtext);
-	public List<QnaBoardDto> selectSerchList_id(String serchtext);
+	public List<QnaBoardDto> selectSerchList_title(String serchtext, Paging vo);
+	public List<QnaBoardDto> selectSerchList_id(String serchtext, Paging vo);
+	
+	public int countSerchBoard_title(String serchtext);
+	public int countSerchBoard_id(String serchtext);
 	
 	// 게시물 총 갯수
 	public int countBoard();

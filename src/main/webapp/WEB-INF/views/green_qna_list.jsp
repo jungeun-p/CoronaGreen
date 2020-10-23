@@ -8,15 +8,39 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link href="resources/css/green_qna_list.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<style type="text/css">
+#serchpaging{
+	display:none;
+}
+
+#paging{
+	display: block;
+}
+</style>
 <script>
+	$(document).ready(function(){
+		<c:if test="${serchtext == null}">
+			$("#serchpaging").css("display","none");
+			$("#paging").css("display","block");
+		</c:if>
+		<c:if test="${serchtext != null}">
+			$("#serchpaging").css("display","block");
+			$("#paging").css("display","none");
+		</c:if>
+	})
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
 		location.href="qnalist.do?nowPage=${paging.nowPage}&cntPerPage="+sel;
+		<c:if test="${serchtext != null}">
+			location.href="serch.do?nowPage=${paging.nowPage}&serchselect=title&serchtext=${serchtext}&cntPerPage="+sel;
+		</c:if>
 	}
 </script>
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/header.jsp"%>
+	<%@ include file="/WEB-INF/views/header.jsp"%>	
 	<section class="qnalist">
 		<div class="qnalist__wrap">
 
@@ -27,7 +51,7 @@
 
 		<div id="outter">
 			
-			<div style="float: right;">
+			<div style="float: right;" id="pagingselbox">
 				<select id="cntPerPage" name="sel" onchange="selChange()">
 					<option value="5"
 						<c:if test="${paging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
@@ -67,7 +91,7 @@
 									<td>${list.boardno }</td>
 									<td>${list.secret }</td>
 									<c:choose>
-										<c:when test="${dto.id eq 'admin' }">
+										<c:when test="${dto.role eq 'ADMIN' }">
 											<td><a href="qnadetail.do?boardno=${list.boardno }" onclick="">${list.title }</a></td>
 										</c:when>
 										<c:when test="${list.id eq dto.id && list.secret eq 'Y' }">
@@ -87,7 +111,7 @@
 						</c:otherwise>
 					</c:choose>
 				</table>
-				<div style="display: block; text-align: center;">		
+				<div style="text-align: center;" id="paging">		
 					<c:if test="${paging.startPage != 1 }">
 						<a href="qnalist.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
 					</c:if>
@@ -105,6 +129,26 @@
 						<a href="qnalist.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
 					</c:if>
 				</div>
+				<!-- serch.do -->
+				<div style="text-align: center;" id="serchpaging">		
+					<c:if test="${paging.startPage != 1 }">
+						<a href="serch.do?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}&serchselect=title&serchtext=${serchtext}">&lt;</a>
+					</c:if>
+					<c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
+						<c:choose>
+							<c:when test="${p == paging.nowPage }">
+								<b>${p }</b>
+							</c:when>
+							<c:when test="${p != paging.nowPage }">
+								<a href="serch.do?nowPage=${p }&cntPerPage=${paging.cntPerPage}&serchselect=title&serchtext=${serchtext}">${p }</a>
+							</c:when>
+						</c:choose>
+					</c:forEach>
+					<c:if test="${paging.endPage != paging.lastPage}">
+						<a href="serch.do?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}&serchselect=title&serchtext=${serchtext}">&gt;</a>
+					</c:if>
+				</div>
+				<!-- serch.do end -->
 			</div>	
 		</div><!-- outer -->
 				<div class="qnalist__section2__border__btnwrap">

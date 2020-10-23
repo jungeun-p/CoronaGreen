@@ -1,7 +1,9 @@
 package com.corona.green.model.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,12 +94,17 @@ public class QnaBoardDaoImpl implements QnaBoardDao {
 	}
 
 	@Override
-	public List<QnaBoardDto> selectSerchList_title(String serchtext) {
+	public List<QnaBoardDto> selectSerchList_title(String serchtext, Paging vo) {
 		
 		List<QnaBoardDto> list = new ArrayList<QnaBoardDto>();
 		
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		map.put("title", serchtext);
+		map.put("vo", vo);
+		
 		try {
-			list = sqlSession.selectList(NAMESPACER+"selectSerchTitle",serchtext);
+			list = sqlSession.selectList(NAMESPACER+"selectSerchTitle",map);
 		} catch (Exception e) {
 			System.out.println("[ERROR SelectSerchList]");
 			e.printStackTrace();
@@ -107,7 +114,7 @@ public class QnaBoardDaoImpl implements QnaBoardDao {
 	}
 	
 	@Override
-	public List<QnaBoardDto> selectSerchList_id(String serchtext) {
+	public List<QnaBoardDto> selectSerchList_id(String serchtext, Paging vo) {
 		
 		List<QnaBoardDto> list = new ArrayList<QnaBoardDto>();
 		
@@ -148,6 +155,37 @@ public class QnaBoardDaoImpl implements QnaBoardDao {
 		}
 		
 		return list;
+	}
+
+	@Override
+	public int countSerchBoard_title(String serchtext) {
+		int res = 0;
+		//System.out.println("와따악☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆");
+		
+		try {
+			res = sqlSession.selectOne(NAMESPACER+"serchcountBoardTitle", serchtext);
+			System.out.println(res);
+		} catch (Exception e) {
+			System.out.println("[countBoard_serchcountBoardTitle_ERROR]");
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
+	
+	@Override
+	public int countSerchBoard_id(String serchtext) {
+		int res = 0;
+		
+		try {
+			res = sqlSession.selectOne(NAMESPACER+"serchcountBoardId", serchtext);
+			System.out.println(res);
+		} catch (Exception e) {
+			System.out.println("[countBoard_serchcountBoardId_ERROR]");
+			e.printStackTrace();
+		}
+		
+		return res;
 	}
 
 }
