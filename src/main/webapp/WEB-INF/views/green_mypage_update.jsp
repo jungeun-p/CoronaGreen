@@ -9,28 +9,7 @@
 
 <link rel="stylesheet" href="resources/css/green_mypage_update.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript">
-	function pw_check(){
-		var pw=$("input[name=pw]").val();
-		var pw_check=$("input[name=passwordconfirm]").val();
-		var member_pw="${dto.pw}";
-		if(pw != pw_check){
-			alert("비밀번호가 서로 다릅니다")
-			$("input[name=pw]").val("");
-			$("input[name=passwordconfirm]").val("");
-			$("input[name=passwordconfirm]").focus();
-		}else{
-			
-			if(pw == member_pw){
-				alert("기존 비밀번호와 같을 수 없습니다");
-				$("input[name=pw]").val("");
-				$("input[name=pw]").focus();
-			}else{
-				document.getElementsByClassName("update__form")[0].submit();
-			}
-		}					
-	}
-</script>
+<script src="resources/js/green_mypage_update.js" ></script>
 </head>
 <body>
 
@@ -77,6 +56,9 @@
 	                </li>
 	                <li class="update__form__li update__form__li__submit">
 	                   <input class="update__submit" type="button" value="UPDATE" onclick="pw_check()"/>
+	                </li>
+	                <li>
+	                	<div class="update__message"></div>
 	                </li>
 	            </ul>
 	        </form>

@@ -146,3 +146,12 @@ body {
 .update__submit:hover{
     cursor: pointer;
 }
+.update__message{
+	color: red;
+	font-size: var(--font-regular);
+    font-weight: var(--weight-bold);
+    line-height: 50px;
+    text-align: center;
+    width: 100%;
+	
+}
