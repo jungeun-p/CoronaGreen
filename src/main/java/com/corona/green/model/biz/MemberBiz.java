@@ -10,4 +10,5 @@ public interface MemberBiz {
 	public int EmailCheck(String email);
 	public MemberDto EmailCheckId(String email);
 	public int EmailIdCheck(MemberDto dto);
+	public int ChangePw(MemberDto dto);
 }

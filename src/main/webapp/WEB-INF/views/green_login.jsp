@@ -24,6 +24,7 @@
 %>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	<form class="login_wrap" action="login.do" method="post">
+	<input type="hidden" value="normal" name="code"/>
 		<div class="login_box">
 		
 			<div class="login_title login">LOGIN</div>
@@ -38,7 +39,7 @@
 			<div class="login_pw login">
 				<div class="login_pw_title">PW</div>
 				<div class="login_pw_input">
-					<input class="login_text_pw" name="pw" type="text" required="required"/>
+					<input class="login_text_pw" name="pw" type="password" required="required"/>
 				</div>
 			</div>
 			

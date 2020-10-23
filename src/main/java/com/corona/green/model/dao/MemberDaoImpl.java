@@ -100,4 +100,18 @@ public class MemberDaoImpl implements MemberDao {
 		return res;
 	}
 
+
+	@Override
+	public int ChangePw(MemberDto dto) {
+		int res = 0;
+		
+		try {
+			res = sqlSession.update(NAMESPACE + "changepw", dto);
+		} catch (Exception e) {
+			logger.info("ERROR CHANGEPW");
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 }
