@@ -26,12 +26,14 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .menubar {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
-  padding: 0;
-  height: 70px;
+  z-index: 1;
+  top: 10px;
+  padding-top: 10px;
+  height: 60px;
   background-color: transparent;
 }
 
@@ -41,6 +43,10 @@ body {
   font-weight: var(--weight-logo);
   margin: 0;
   padding: 0 30px;
+}
+
+.menubar__user__menu {
+  padding-bottom: 40px;
 }
 
 .menubar__sign {
@@ -55,7 +61,6 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  transform: translateY(75%);
 }
 
 .menubar__category {
@@ -64,7 +69,7 @@ body {
   justify-content: space-between;
 }
 
-.menubar__category > a > p {
+.category__name {
   color: var(--color-black);
   font-size: var(--font-small);
   font-weight: var(--weight-bold);
@@ -72,27 +77,38 @@ body {
   padding: 5px 20px;
 }
 
+.category__name:hover {
+  color: var(--color-green);
+  transition: 0.2s linear;
+}
+
 /*user menu*/
 .menubar__user {
   visibility: hidden;
-  position: fixed;
-  right: 20px;
-  transform: translateY(30%);
-  background-color: var(--color-green);
+  background-color: var(--color-white);
+  transform: translate(-30%, 13%);
   width: 120px;
-  height: 80px;
-  border-radius: 14px;
+  height: 90px;
+  border-radius: 6px;
+  box-shadow: 10px 4px 70px rgba(0, 0, 0, 0.29);
 }
+
 .user__category {
-  transform: translate(35%, 100%);
   font-size: var(--font-small);
-  width: 80px;
-  padding: 0;
 }
-.user__category > a > p {
+
+.category {
+  margin: 0;
+  text-decoration: none;
   color: var(--color-black);
   font-weight: var(--weight-regular);
-  display: inline;
+  padding: 13px 20px;
+  border-radius: 8px;
+}
+
+.category:hover {
+  background-color: var(--color-gray);
+  transition: 0.2s linear;
 }
 
 /*chatbot*/
@@ -103,6 +119,7 @@ body {
   right: 50px;
   cursor: pointer;
 }
+
 .chatbot__box {
   width: 160px;
   height: 60px;
@@ -112,5 +129,4 @@ body {
 .chatbot__box > p {
   transform: translate(30%, 80%);
   font-weight: var(--weight-bold);
-  color: var(--color-green);
 }

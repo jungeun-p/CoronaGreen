@@ -34,8 +34,6 @@
 			</div>
 		</div>
 	</section>
-	<a href="home.do">이히히</a>
-	<a href="home.do">home</a>
 	<section class="charts">
 		<div class="chart__wrap">
 			<p>word cloud chart</p>

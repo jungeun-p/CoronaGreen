@@ -25,32 +25,35 @@
 		<div class="menubar__menu">
 			<a href="main.do"><p class="menubar__logo">CORONA GREEN</p></a>
 			<div class="menubar__category">
-				<a href="#"><p>ABOUT</p></a>
-				<a href="#"><p>NEWS</p></a>
-				<a href="#"><p>POLICY</p></a>
-				<a href="qnalist.do"><p>QnA</p></a>
+				<a href="#"><p class="category__name">ABOUT</p></a>
+				<a href="#"><p class="category__name">NEWS</p></a>
+				<a href="#"><p class="category__name">POLICY</p></a>
+				<a href="qnalist.do"><p class="category__name">QnA</p></a>
 			</div>
+			<div class="menubar__user__menu">
 			<%
 				if (dto == null) {
 			%>
 			<a href="loginform.do"><p class="menubar__sign">SIGN IN</p></a>
+			</div>
 			</div>
 			</nav>
 			<%
 				} else {
 			%>
 			<a href="#"><p class="menubar__sign"><%=dto.getId() %></p></a>
-		</div>
 		<!--user menu-->
 		<!--login:visible-->
 		<nav class="menubar__user">
 			<div class="user__category">
 				<!-- 현모 마이페이지 부분 -->
-				<a href="mypage_update.do"><span>MY PAGE</span></a>
-				<a href="logout1.do"><span>LOG OUT</span></a>
+				<a href="mypage_update.do"><p class="category">MY PAGE</p></a>
+                <a href="logout1.do"><p class="category">SIGN OUT</p></a>
 			</div>
 		</nav>
-	</nav>
+		</div>
+	</div>
+</nav>
 			<%
 				}
 			%>
