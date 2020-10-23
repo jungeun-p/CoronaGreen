@@ -94,9 +94,12 @@ public class MemberLoginController {
 	@RequestMapping("/login.do")
 	public String login(MemberDto dto, Model model, HttpSession session, @RequestParam("code") String code) {
 		logger.info("login");
+		System.out.println("코드뭐냐" + code);
 		if (code != null) {
+			System.out.println("코드 있네?");
 			// 네이버 로그인 ( 이메일 존재시 )
 			if (code.equals("naver")) {
+				System.out.println("네이버 일때");
 				MemberDto res = biz.login(dto);
 				if (res != null) {
 					if (res.getEnabled().equals("Y")) {
@@ -115,41 +118,51 @@ public class MemberLoginController {
 				}
 				// 카카오 로그인 ( 이메일 존재시 )
 			} else if (code.equals("kakao")) {
+				System.out.println("카카오 일때");
 				MemberDto res = biz.login(dto);
-				if (res.getEnabled().equals("Y")) {
-					session.invalidate();
-					model.addAttribute("msg", "탈퇴된 회원입니다. 카카오 채널 OOO 문의 부탁드립니다.");
-					model.addAttribute("url", "/");
-					return "redirect";
+				if (res != null) {
+					if (res.getEnabled().equals("Y")) {
+						session.invalidate();
+						model.addAttribute("msg", "탈퇴된 회원입니다. 카카오 채널 OOO 문의 부탁드립니다.");
+						model.addAttribute("url", "/");
+						return "redirect";
+					} else {
+						session.setAttribute("dto", res);
+						return "redirect:main.do";
+					}
 				} else {
-					session.setAttribute("dto", res);
-					return "redirect:main.do";
+					model.addAttribute("msg", "아이디와 비밀번호를 확인해주세요.");
+					model.addAttribute("url", "/loginform.do");
+					return "redirect";
 				}
-			} else {
-				model.addAttribute("msg", "아이디와 비밀번호를 확인해주세요.");
-				model.addAttribute("url", "/loginform.do");
-				return "redirect";
-			}
 
-		}
-
-		// 일반 로그인
-		String encryPassword = UserSha256.encrypt(dto.getPw());
-		dto.setPw(encryPassword);
-		MemberDto res = biz.login(dto);
-		if (res != null) {
-			if (res.getEnabled().equals("Y")) {
-				session.invalidate();
-				model.addAttribute("msg", "탈퇴된 회원입니다. 카카오 채널 OOO 문의 부탁드립니다.");
-				model.addAttribute("url", "/");
-				return "redirect";
 			} else {
-				session.setAttribute("dto", res);
-				return "redirect:main.do";
+				// 일반 로그인
+				System.out.println("일반 로그인");
+				System.out.println("암호화 전 : " + dto.getPw());
+				String encryPassword = UserSha256.encrypt(dto.getPw());
+				System.out.println("암호화 후 : " + encryPassword);
+				dto.setPw(encryPassword);
+				MemberDto res = biz.login(dto);
+				if (res != null) {
+					if (res.getEnabled().equals("Y")) {
+						session.invalidate();
+						model.addAttribute("msg", "탈퇴된 회원입니다. 카카오 채널 OOO 문의 부탁드립니다.");
+						model.addAttribute("url", "/");
+						return "redirect";
+					} else {
+						session.setAttribute("dto", res);
+						return "redirect:main.do";
+					}
+				} else {
+					model.addAttribute("msg", "아이디와 비밀번호를 확인해주세요.");
+					model.addAttribute("url", "/loginform.do");
+					return "redirect";
+				}
 			}
 		} else {
-			model.addAttribute("msg", "아이디와 비밀번호를 확인해주세요.");
-			model.addAttribute("url", "/loginform.do");
+			model.addAttribute("msg", "잘못된 접근입니다.");
+			model.addAttribute("url", "/main.do");
 			return "redirect";
 		}
 	}

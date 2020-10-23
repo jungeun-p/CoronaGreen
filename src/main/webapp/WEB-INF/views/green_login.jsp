@@ -24,6 +24,7 @@
 %>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
 	<form class="login_wrap" action="login.do" method="post">
+	<input type="hidden" value="normal" name="code"/>
 		<div class="login_box">
 		
 			<div class="login_title login">LOGIN</div>

@@ -21,14 +21,14 @@
 			<div class="changepw__first change__all">
 				<div class="changepw__first__title">PW</div>
 				<div class="changepw__first__input">
-					<input name="pw" id="pw" class="changepw__first__text" type="text"/>
+					<input name="pw" id="pw" class="changepw__first__text" type="password"/>
 				</div>
 			</div>
 			<div id="pw_check1" class="check"></div>
 			<div class="changepw__second change__all">
 				<div class="changepw__second__title">&nbsp;&nbsp;</div>
 				<div class="changepw__second__input">
-					<input id="pwchk" class="changepw__first__text" type="text"/>
+					<input id="pwchk" class="changepw__first__text" type="password"/>
 				</div>
 			</div>
 			<div id="pw_check2" class="check"></div>
