@@ -22,6 +22,10 @@ function execPostCode() {
 			$("#roadFullAddr2").val(addr);
 			
 			$("#addr_check").text("");
+			$("#roadFullAddr1").css("outline-color", "#ddd");
+			$("#roadFullAddr1").css("border", "1px solid #ddd");
+			$("#roadFullAddr2").css("outline-color", "#ddd");
+			$("#roadFullAddr2").css("border", "1px solid #ddd");
 
 			/*
 			 * document.getElementById('signUpUserPostNo').value =
@@ -196,6 +200,8 @@ if ($("#email").val() != "") {
 						// 1 : 아이디가 중복되는 문구
 						$("#email_check").text("사용중인 이메일입니다.");
 						$("#email_check").css("color", "red");
+						$('#email').css("outline-color", "red");
+						$('#email').css("border", "1px solid red");
 						array[5] = false;
 					} else {
 
@@ -203,6 +209,8 @@ if ($("#email").val() != "") {
 							// 0 : 아이디 길이 / 문자열 검사
 							$("#email_check").text("사용가능한 이메일입니다.");
 							$('#email_check').css('color', 'blue');
+							$('#email').css("outline-color", "#ddd");
+							$('#email').css("border", "1px solid #ddd");
 							// $("#reg_submit").prop("disabled", false);
 							array[5] = true;
 
@@ -210,10 +218,14 @@ if ($("#email").val() != "") {
 
 							$('#email_check').text('이메일을 입력해주세요.');
 							$('#email_check').css('color', 'red');
+							$('#email').css("outline-color", "red");
+							$('#email').css("border", "1px solid red");
 							array[5] = false;
 						} else {
 							$('#email_check').text("정확한 이메일을 입력해주세요.");
 							$('#email_check').css('color', 'red');
+							$('#email').css("outline-color", "red");
+							$('#email').css("border", "1px solid red");
 							array[5] = false;
 						}
 
@@ -244,6 +256,8 @@ var id = function() {
 	if ($('#user_id').val() == "") {
 		$('#id_check').text('아이디를 입력해주세요');
 		$('#id_check').css('color', 'red');
+		$("#user_id").css("outline-color", "red");
+		$("#user_id").css("border", "1px solid red");
 		array[0] = false;
 	}
 	var user_id = $('#user_id').val();
@@ -260,6 +274,8 @@ var id = function() {
 				// 1 : 아이디가 중복되는 문구
 				$("#id_check").text("사용중인 아이디입니다");
 				$("#id_check").css("color", "red");
+				$("#user_id").css("outline-color", "red");
+				$("#user_id").css("border", "1px solid red");
 				array[0] = false;
 			} else {
 
@@ -267,12 +283,16 @@ var id = function() {
 					// 0 : 아이디 길이 / 문자열 검사
 					$("#id_check").text("사용가능한 아이디입니다");
 					$('#id_check').css('color', 'blue');
+					$("#user_id").css("outline-color", "#ddd");
+					$("#user_id").css("border", "1px solid #ddd");
 					// $("#reg_submit").prop("disabled", false);
 					array[0] = true;
 				} else if (user_id == "") {
 
 					$('#id_check').text('아이디를 입력해주세요');
 					$('#id_check').css('color', 'red');
+					$("#user_id").css("outline-color", "red");
+					$("#user_id").css("border", "1px solid red");
 					array[0] = false;
 				} else if ((hangle.test(user_id) && hangle2.test(user_id))
 						|| (idJ.test(user_id))
@@ -280,10 +300,14 @@ var id = function() {
 								.search(hangle) >= 0)) && user_id.length >= 6) {
 					$('#id_check').text("아이디는 영문 숫자만 가능합니다.");
 					$('#id_check').css('color', 'red');
+					$("#user_id").css("outline-color", "red");
+					$("#user_id").css("border", "1px solid red");
 					array[0] = false;
 				} else {
 					$('#id_check').text("아이디는 6~12자 이내로 입력해주세요.");
 					$('#id_check').css('color', 'red');
+					$("#user_id").css("outline-color", "red");
+					$("#user_id").css("border", "1px solid red");
 					array[0] = false;
 				}
 			}
@@ -318,21 +342,29 @@ var pw = function() {
 	if (user_pw1 == "") {
 		$("#pw_check1").text("비밀번호를 입력해주세요.");
 		$('#pw_check1').css('color', 'red');
+		$("#mypw1").css("outline-color", "red");
+		$("#mypw1").css("border", "1px solid red");
 		array[1] = false;
 	} else if (user_pw1.length < 8 || user_pw1.length > 20) {
 		$("#pw_check1").text("비밀번호 8~20자 이내로 입력해주세요.");
 		$("#pw_check2").text("");
 		$('#pw_check1').css('color', 'red');
+		$("#mypw1").css("outline-color", "red");
+		$("#mypw1").css("border", "1px solid red");
 		array[1] = false;
 		return real;
 	} else if ((user_pw1.search(num) < 0 && user_pw1.search(eng) < 0) || (user_pw1.search(eng) < 0 && user_pw1.search(spe) < 0) || (user_pw1.search(spe) < 0 && (user_pw1.search(num) < 0))) {
 		$("#pw_check1").text("영문, 숫자, 특수문자 중 2가지 이상 혼합하여 입력해주세요.");
 		$('#pw_check1').css('color', 'red');
 		$("#pw_check2").text("");
+		$("#mypw1").css("outline-color", "red");
+		$("#mypw1").css("border", "1px solid red");
 		array[1] = false;
 		return real;
 	} else {
 		$("#pw_check1").text("");
+		$("#mypw1").css("outline-color", "#ddd");
+		$("#mypw1").css("border", "1px solid #ddd");
 		array[1] = true;
 		real = true;
 	}
@@ -340,9 +372,13 @@ var pw = function() {
 	if ((user_pw1 != user_pw2) && user_pw2 != "") {
 		$("#pw_check2").text("비밀번호가 일치하지 않습니다.");
 		$('#pw_check2').css('color', 'red');
+		$("#mypw2").css("outline-color", "red");
+		$("#mypw2").css("border", "1px solid red");
 		array[2] = false;
 	} else if ((user_pw1 == user_pw2) && user_pw1 != "") {
 		$("#pw_check2").text("");
+		$("#mypw2").css("outline-color", "#ddd");
+		$("#mypw2").css("border", "1px solid #ddd");
 		array[2] = true;
 		//real = true;
 	}
@@ -355,48 +391,82 @@ var pwchk = function() {
 	var user_pw1 = $("#mypw1").val().trim();
 	var user_pw2 = $("#mypw2").val().trim();
 	if (array[1] == true) {
-		if (user_pw2 == "") {
+		if ((user_pw1.length < 8 || user_pw1.length > 20) && (user_pw2 == "")){
+			$("#pw_check2").text("");
+			$("#mypw2").css("outline-color", "#ddd");
+			$("#mypw2").css("border", "1px solid #ddd");
+			array[2] = false;
+		} else if (user_pw2 == "") {
 			$("#pw_check2").text("비밀번호 재확인을 입력해주세요.");
 			$('#pw_check2').css('color', 'red');
+			$("#mypw2").css("outline-color", "red");
+			$("#mypw2").css("border", "1px solid red");
 			array[2] = false;
 		} else if ((user_pw1 != user_pw2) && user_pw1 == "") {
 			$("#pw_check2").text("");
+			$("#mypw2").css("outline-color", "#ddd");
+			$("#mypw2").css("border", "1px solid #ddd");
 			array[2] = false;
 		} else if (user_pw1.length < 8) {
 			$("#pw_check2").text("");
+			$("#mypw2").css("outline-color", "#ddd");
+			$("#mypw2").css("border", "1px solid #ddd");
 			array[2] = false
 		} else if (user_pw1 != user_pw2) {
 			$("#pw_check2").text("비밀번호가 일치하지 않습니다.");
 			$('#pw_check2').css('color', 'red');
+			$("#mypw2").css("outline-color", "red");
+			$("#mypw2").css("border", "1px solid red");
 			array[2] = false;
 		} else if (user_pw1 == ""){
 			$("#pw_check2").text("");
+			$("#mypw2").css("outline-color", "#ddd");
+			$("#mypw2").css("border", "1px solid #ddd");
 			array[2] = false;
 		} else {
 			$("#pw_check2").text("");
+			$("#mypw2").css("outline-color", "#ddd");
+			$("#mypw2").css("border", "1px solid #ddd");
 			array[2] = true;
 			real = true;
 		}
 	} else {
-		if (user_pw2 == "") {
+		if ((user_pw1.length < 8 || user_pw1.length > 20) && (user_pw2 == "")){
+			$("#pw_check2").text("");
+			$("#mypw2").css("outline-color", "#ddd");
+			$("#mypw2").css("border", "1px solid #ddd");
+			array[2] = false;
+		} else if (user_pw2 == "") {
 			$("#pw_check2").text("비밀번호 재확인을 입력해주세요.");
 			$('#pw_check2').css('color', 'red');
+			$("#mypw2").css("outline-color", "red");
+			$("#mypw2").css("border", "1px solid red");
 			array[2] = false;
 		} else if ((user_pw1 != user_pw2) && user_pw1 == "") {
 			$("#pw_check2").text("");
+			$("#mypw2").css("outline-color", "#ddd");
+			$("#mypw2").css("border", "1px solid #ddd");
 			array[2] = false;
 		} else if (user_pw1.length < 8) {
 			$("#pw_check2").text("");
+			$("#mypw2").css("outline-color", "#ddd");
+			$("#mypw2").css("border", "1px solid #ddd");
 			array[2] = false
 		} else if (user_pw1 != user_pw2) {
 			$("#pw_check2").text("비밀번호가 일치하지 않습니다.");
 			$('#pw_check2').css('color', 'red');
+			$("#mypw2").css("outline-color", "red");
+			$("#mypw2").css("border", "1px solid red");
 			array[2] = false;
 		} else if (user_pw1 == ""){
 			$("#pw_check2").text("");
+			$("#mypw2").css("outline-color", "#ddd");
+			$("#mypw2").css("border", "1px solid #ddd");
 			array[2] = false;
 		} else {
 			$("#pw_check2").text("");
+			$("#mypw2").css("outline-color", "#ddd");
+			$("#mypw2").css("border", "1px solid #ddd");
 			array[2] = true;
 			real = true;
 		}
@@ -412,13 +482,19 @@ var phone = function() {
 	if (myph == "") {
 		$("#myph_check").text("핸드폰 번호를 입력해주세요.");
 		$("#myph_check").css("color", "red");
+		$("#myph").css("outline-color", "red");
+		$("#myph").css("border", "1px solid red");
 		array[3] = false;
 	} else if (phoneJ.test(myph) == false) {
 		$("#myph_check").text("핸드폰 번호를 정확히 입력해주세요");
 		$("#myph_check").css("color", "red");
+		$("#myph").css("outline-color", "red");
+		$("#myph").css("border", "1px solid red");
 		array[3] = false;
 	} else {
 		$("#myph_check").text("");
+		$("#myph").css("outline-color", "#ddd");
+		$("#myph").css("border", "1px solid #ddd");
 		array[3] = true;
 		real = true;
 	}
@@ -430,6 +506,8 @@ var email = function() {
 	if ($('#email').val() == "") {
 		$('#email_check').text('이메일을 입력해주세요');
 		$('#email_check').css('color', 'red');
+		$('#email').css("outline-color", "red");
+		$('#email').css("border", "1px solid red");
 		array[5] = false;
 	}
 
@@ -445,6 +523,8 @@ var email = function() {
 						// 1 : 아이디가 중복되는 문구
 						$("#email_check").text("사용중인 이메일입니다.");
 						$("#email_check").css("color", "red");
+						$('#email').css("outline-color", "red");
+						$('#email').css("border", "1px solid red");
 						array[5] = false;
 					} else {
 
@@ -452,16 +532,22 @@ var email = function() {
 							// 0 : 아이디 길이 / 문자열 검사
 							$("#email_check").text("사용가능한 이메일입니다.");
 							$('#email_check').css('color', 'blue');
+							$('#email').css("outline-color", "#ddd");
+							$('#email').css("border", "1px solid #ddd");
 							// $("#reg_submit").prop("disabled", false);
 							array[5] = true;
 						} else if (user_email == "") {
 
 							$('#email_check').text('이메일을 입력해주세요.');
 							$('#email_check').css('color', 'red');
+							$('#email').css("outline-color", "red");
+							$('#email').css("border", "1px solid red");
 							array[5] = false;
 						} else {
 							$('#email_check').text("정확한 이메일을 입력해주세요.");
 							$('#email_check').css('color', 'red');
+							$('#email').css("outline-color", "red");
+							$('#email').css("border", "1px solid red");
 							array[5] = false;
 						}
 
@@ -490,8 +576,16 @@ var email = function() {
 var addr = function() {
 	if ($("#roadFullAddr1").val() == "" ||
 			$("#roadFullAddr2").val() == "" ) {
+		$("#roadFullAddr1").css("outline-color", "red");
+		$("#roadFullAddr1").css("border", "1px solid red");
+		$("#roadFullAddr2").css("outline-color", "red");
+		$("#roadFullAddr2").css("border", "1px solid red");
 		array[4] = false;
 	} else {
+		$("#roadFullAddr1").css("outline-color", "#ddd");
+		$("#roadFullAddr1").css("border", "1px solid #ddd");
+		$("#roadFullAddr2").css("outline-color", "#ddd");
+		$("#roadFullAddr2").css("border", "1px solid #ddd");
 		array[4] = true;
 	}
 }
@@ -512,46 +606,39 @@ $("#user_id").blur(function(){
 	var user_id = $("#user_id");
 	user_id.val(user_id.val().replace(/(\s*)/g,""));
 	id();
-	addr();
 })
 $("#user_id").keyup(function() {
 	var user_id = $("#user_id");
 	user_id.val(user_id.val().replace(/(\s*)/g,""));
 	id();
-	addr();
 })
 $("#mypw1").blur(function() {
 	blank_del();
 	pw();
-	addr();
 })
 $("#mypw2").blur(function() {
 	blank_del2();
 	pwchk();
-	addr();
 })
 $("#myph").blur(function() {
 	var user_ph = $("#myph");
 	user_ph.val(user_ph.val().replace(/(\s*)/g,""));
 	phone();
-	addr();
 })
 $("#email").keyup(function() {
 	var user_email = $("#email");
 	user_email.val(user_email.val().replace(/(\s*)/g,""));
 	email();
-	addr();
 })
 
 $("#email").blur(function() {
 	var user_email = $("#email");
 	user_email.val(user_email.val().replace(/(\s*)/g,""));
 	email();
-	addr();
 })
 
-
-
+var code = "";
+var code_check_keyup = false;
 var code_check = false;
 $("#phone_code_send").click(function(){
 	var phone = $("#myph").val();
@@ -560,17 +647,26 @@ $("#phone_code_send").click(function(){
 		url : 'phonesend.do?phone=' + phone,
 		type : 'get',
 		success: function(data) {
+			code = data;
 			alert("인증번호가 발송되었습니다.");
 			$("#phone_code_check").text("인증번호를 입력해주세요.");
 			$("#phone_code_check").css("color","red");
+			$("#phonecode").css("outline-color", "red");
+			$("#phonecode").css("border", "1px solid red");
+			$("#myph_check").text("");
+			code_check = true;
 			$("#phonecode").keyup(function(){
 				if ($.trim(data) == $("#phonecode").val()) {
 					$("#phone_code_check").text("인증번호가 일치합니다");
 					$("#phone_code_check").css("color", "blue");
+					$("#phonecode").css("outline-color", "#ddd");
+					$("#phonecode").css("border", "1px solid #ddd");
 					$("#phone_code_check_button").prop("disabled",false);
 				} else {
 					$("#phone_code_check").text("인증번호가 일치하지 않습니다.");
 					$("#phone_code_check").css("color", "red");
+					$("#phonecode").css("outline-color", "red");
+					$("#phonecode").css("border", "1px solid red");
 					$("#phone_code_check_button").prop("disabled",true);
 				}
 			})
@@ -601,7 +697,7 @@ $("#phone_code_check_button").click(function(){
 	$("#phone_code_send").prop("disabled",true);
 	$("#phone_code_check").text("인증이 완료되었습니다.");
 	$("#phone_code_check").css("color", "blue");
-	code_check = true;
+	code_check_keyup = true;
 })
 
 
@@ -633,8 +729,23 @@ $("#reg_submit").click(function() {
 		$("#addrsearch").focus();
 		return false;
 	} else if (code_check == false) {
-		alert("핸드폰 인증을 해주세요.");
+		$("#myph_check").text("핸드폰 인증을 해주세요.");
+		$("#myph_check").css("color", "red");
+		$("#phone_code_send").focus();
+		return false;
+	} else if ((code_check_keyup == false) && ($.trim(code) != $("#phonecode").val())) {
+		$("#phone_code_check").text("인증번호를 정확히 입력하고 CONFIRM을 눌러주세요.");
+		$("#phone_code_check").css("color", "red");
 		$("#phonecode").focus();
+		$("#phone_code_check_button").prop("disabled",true);
+		return false;
+	} else if ((code_check_keyup == false) && ($.trim(code) == $("#phonecode").val())) {
+		alert("인증버튼을 눌러주세요.");
+		$("#phone_code_check").text("인증번호가 일치합니다");
+		$("#phone_code_check").css("color", "blue");
+		$("#phonecode").css("outline-color", "#ddd");
+		$("#phonecode").css("border", "1px solid #ddd");
+		$("#phone_code_check_button").prop("disabled",false);
 		return false;
 	} else {
 		$("#roadFullAddr1").prop("disabled",false);
@@ -643,4 +754,26 @@ $("#reg_submit").click(function() {
 		return true;
 	}
 })
+
+
+
+
+
+
+$("#phonecode").blur(function(){
+	if ($.trim(code) == $("#phonecode").val()) {
+		$("#phone_code_check").text("인증번호가 일치합니다");
+		$("#phone_code_check").css("color", "blue");
+		$("#phonecode").css("outline-color", "#ddd");
+		$("#phonecode").css("border", "1px solid #ddd");
+		$("#phone_code_check_button").prop("disabled",false);
+	} else {
+		$("#phone_code_check").text("인증번호가 일치하지 않습니다.");
+		$("#phone_code_check").css("color", "red");
+		$("#phonecode").css("outline-color", "red");
+		$("#phonecode").css("border", "1px solid red");
+		$("#phone_code_check_button").prop("disabled",true);
+	}
+})
+
 

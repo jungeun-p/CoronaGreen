@@ -136,6 +136,11 @@ body {
     background-color: var(--color-gray);
 }
 
+/* .check__1:focus {
+	outline-color: red;
+	border: 1px solid red;
+} */
+
 
 /* 중복확인 등 체크 표시 */
 .check__font{
