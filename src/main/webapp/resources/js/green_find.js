@@ -1,6 +1,9 @@
 var mailJ = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 $("#id__email").keyup(function(){
-	var email_check = $("#id__email").val();
+	var email_del = $("#id__email");
+	var email_check = email_del.val().replace(/(\s*)/g,"");
+	email_del.val(email_del.val().replace(/(\s*)/g,""));
+	console.log(email_check);
 	if (mailJ.test(email_check)) {
 		$("#check1").text("");
 		$("#emailsend").prop("disabled", false);
@@ -39,9 +42,11 @@ $("#id__email").keyup(function(){
 
 
 $("#pw__id").keyup(function(){
-	var id_check = $("#pw__id").val();
+	//var id_check = $("#pw__id").val();
+	var id_del = $("#pw__id");
+	var id_check = id_del.val().replace(/(\s*)/g,"");
+	id_del.val(id_del.val().replace(/(\s*)/g,""));
 	var email_check2 = $("#pw__email").val();
-	console.log(mailJ.test(email_check2));
 	if ((id_check != "" && email_check2 != "") && (mailJ.test(email_check2) == true)) {
 		if (email_check2 == "") {
 			$("#check2").text("");
@@ -62,7 +67,9 @@ $("#pw__id").keyup(function(){
 
 $("#pw__email").keyup(function(){
 	var id_check = $("#pw__id").val();
-	var email_check2 = $("#pw__email").val();
+	var email_del = $("#pw__email");
+	var email_check2 = email_del.val().replace(/(\s*)/g,"");
+	email_del.val(email_del.val().replace(/(\s*)/g,""));
 	if ((id_check != "" && email_check2 != "") && (mailJ.test(email_check2) == true)) {
 		$("#check3").text("");
 		$("#emailsend2").prop("disabled", false);
@@ -111,7 +118,9 @@ $.ajax({
 
 $("#pw__email__code").keyup(function(){
 	var random_code = $("#code").val();
-	var user_code = $("#pw__email__code").val();
+	var user_code_del = $("#pw__email__code");
+	var user_code = user_code_del.val().replace(/(\s*)/g,"");
+	user_code_del.val(user_code_del.val().replace(/(\s*)/g,""));
 	if (random_code == user_code) {
 		$("#check4").text("인증번호가 일치합니다");
 		$("#check4").css("color", "blue");

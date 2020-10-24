@@ -12,18 +12,18 @@
 <script src="resources/js/green_login.js" defer></script>
 </head>
 <script type="text/javascript">
-	history.pushState(null, null, "main.do");
+    history.pushState(null, null, "main.do");
 	
 	window.onpopstate = function(event) {
 		history.go(1);
-	}  
+	}
 </script>
 <body>
 <%
 	
 %>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
-	<form class="login_wrap" action="login.do" method="post">
+	<form class="login_wrap" action="login.do" method="post" onsubmit="return check()">
 	<input type="hidden" value="normal" name="code"/>
 		<div class="login_box">
 		
@@ -32,20 +32,20 @@
 			<div class="login_id login">
 				<div class="login_id_title">&nbsp;ID</div>
 				<div class="login_id_input">
-					<input class="login_text_id" name="id" type="text" required="required"/>
+					<input id="id" class="login_text_id" name="id" type="text" required="required"/>
 				</div>
 			</div>
 			
 			<div class="login_pw login">
 				<div class="login_pw_title">PW</div>
 				<div class="login_pw_input">
-					<input class="login_text_pw" name="pw" type="password" required="required"/>
+					<input id="pw" class="login_text_pw" name="pw" type="password" required="required"/>
 				</div>
 			</div>
 			
 			<div class="login_select login">
 				<div class="login_select_submit">
-					<input class="login_select_button" type="submit" value="LOGIN"/>
+					<input id="login" class="login_select_button" type="submit" value="LOGIN"/>
 				</div>
 				<div class="login_select_regist">
 					<input class="login_select_button" type="button" value="REGIST" onclick="location.href='regist.do'"/>

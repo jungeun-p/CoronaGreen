@@ -3,34 +3,23 @@ function execPostCode() {
 		oncomplete : function(data) {
 			// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-			// 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
-			// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-			var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
-			var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+			// 주소 변수
+            var addr = '';
+            // 참고항목 변수
+            var extraAddr = '';
 
-			// 법정동명이 있을 경우 추가한다. (법정리는 제외)
-			// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-			if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
-				extraRoadAddr += data.bname;
-			}
-			// 건물명이 있고, 공동주택일 경우 추가한다.
-			if (data.buildingName !== '' && data.apartment === 'Y') {
-				extraRoadAddr += (extraRoadAddr !== '' ? ', '
-						+ data.buildingName : data.buildingName);
-			}
-			// 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-			if (extraRoadAddr !== '') {
-				extraRoadAddr = ' (' + extraRoadAddr + ')';
-			}
-			// 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
-			if (fullRoadAddr !== '') {
-				fullRoadAddr += extraRoadAddr;
-			}
+            // 사용자가 선택한 주소가 도로명주소일 때
+            if (data.userSelectedType === 'R') {
+                addr = data.roadAddress;
+            } else {
+                // 사용자가 선택한 주소가 지번주소일 때 
+                addr = data.jibunAddress;
+            }
 
 			// 우편번호와 주소 정보를 해당 필드에 넣는다.
 
 			$("#roadFullAddr1").val(data.zonecode);
-			$("#roadFullAddr2").val(fullRoadAddr);
+			$("#roadFullAddr2").val(addr);
 			
 			$("#addr_check").text("");
 
@@ -90,6 +79,13 @@ var array = new Array(6).fill(false);
 var reg1 = /^[a-z0-9]{8,20}$/;
 var reg2 = /[a-z]/g;
 var reg3 = /[0-9]/g;
+
+var num = /[0-9]/g;
+var eng = /[a-z]/ig;
+var spe = /[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi;
+var blank = /₩s/;
+
+
 
 /*
  * $("#mypw1").blur(function(){ var user_pw1 = $("#mypw1").val().trim(); var
@@ -188,12 +184,12 @@ $("input").blur(function() {
 	}
 })
 
-var user_email = $("#email").val();
-if (user_email != "") {
+if ($("#email").val() != "") {
 	$.ajax({
 				url : 'emailcheck.do?email=' + user_email,
 				type : 'get',
 				success : function(data) {
+					var user_email = $("#email").val();
 					var mailJ = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 
 					if (data == 1) {
@@ -314,7 +310,8 @@ var id = function() {
 	});
 	return array[0];
 }
-
+var user_pw1 = $("#mypw1").val();
+var user_pw2 = $("#mypw2").val();
 // 비밀번호 체크
 var pw = function() {
 	var real = false;
@@ -324,14 +321,21 @@ var pw = function() {
 		$("#pw_check1").text("비밀번호를 입력해주세요.");
 		$('#pw_check1').css('color', 'red');
 		array[1] = false;
-	} else if (reg1.test(user_pw1) == false) {
+	} else if (user_pw1.length < 8 || user_pw1.length > 20) {
 		$("#pw_check1").text("비밀번호 8~20자 이내로 입력해주세요.");
+		$("#pw_check2").text("");
 		$('#pw_check1').css('color', 'red');
 		array[1] = false;
-	} else if (user_pw1.search(reg2) < 0 || user_pw1.search(reg3) < 0) {
-		$("#pw_check1").text("숫자와 영문을 조합해주세요.");
+		return real;
+	} else if ((user_pw1.search(num) < 0 && user_pw1.search(eng) < 0) || (user_pw1.search(eng) < 0 && user_pw1.search(spe) < 0) || (user_pw1.search(spe) < 0 && (user_pw1.search(num) < 0))) {
+		$("#pw_check1").text("영문, 숫자, 특수문자 중 2가지 이상 혼합하여 입력해주세요.");
 		$('#pw_check1').css('color', 'red');
+		$("#pw_check2").text("");
 		array[1] = false;
+		console.log("비번"+array[1]);
+		console.log("비번체크"+array[2]);
+		console.log("비번리얼"+real);
+		return real;
 	} else {
 		$("#pw_check1").text("");
 		array[1] = true;
@@ -342,14 +346,14 @@ var pw = function() {
 		$("#pw_check2").text("비밀번호가 일치하지 않습니다.");
 		$('#pw_check2').css('color', 'red');
 		array[2] = false;
-	} else if (((user_pw1.search(reg2) < 0 || user_pw1.search(reg3) < 0) || (user_pw2.search(reg2) < 0 || user_pw2.search(reg3) < 0)) && (user_pw1 == user_pw2)) {
-		$("#pw_check2").text("");
-		array[2] = false;
 	} else if ((user_pw1 == user_pw2) && user_pw1 != "") {
 		$("#pw_check2").text("");
-		array[1] = true;
-		real = true;
+		array[2] = true;
+		//real = true;
 	}
+	console.log("비번"+array[1]);
+	console.log("비번체크"+array[2]);
+	console.log("비번리얼"+real);
 	return real;
 }
 
@@ -358,20 +362,25 @@ var pwchk = function() {
 	var real = false;
 	var user_pw1 = $("#mypw1").val().trim();
 	var user_pw2 = $("#mypw2").val().trim();
-	console.log(user_pw1 + " " + user_pw2);
 	if (array[1] == true) {
 		if (user_pw2 == "") {
 			$("#pw_check2").text("비밀번호 재확인을 입력해주세요.");
 			$('#pw_check2').css('color', 'red');
 			array[2] = false;
+		} else if ((user_pw1 != user_pw2) && user_pw1 == "") {
+			$("#pw_check2").text("");
+			array[2] = false;
+		} else if (user_pw1.length < 8) {
+			$("#pw_check2").text("");
+			array[2] = false
 		} else if (user_pw1 != user_pw2) {
 			$("#pw_check2").text("비밀번호가 일치하지 않습니다.");
 			$('#pw_check2').css('color', 'red');
 			array[2] = false;
-		} else if (((user_pw1.search(reg2) < 0 || user_pw1.search(reg3) < 0) || (user_pw2.search(reg2) < 0 || user_pw2.search(reg3) < 0)) && (user_pw1 == user_pw2)) {
+		} else if (user_pw1 == ""){
 			$("#pw_check2").text("");
 			array[2] = false;
-		} else if ((user_pw1 == user_pw2) && user_pw1 != "") {
+		} else {
 			$("#pw_check2").text("");
 			array[2] = true;
 			real = true;
@@ -381,20 +390,29 @@ var pwchk = function() {
 			$("#pw_check2").text("비밀번호 재확인을 입력해주세요.");
 			$('#pw_check2').css('color', 'red');
 			array[2] = false;
+		} else if ((user_pw1 != user_pw2) && user_pw1 == "") {
+			$("#pw_check2").text("");
+			array[2] = false;
+		} else if (user_pw1.length < 8) {
+			$("#pw_check2").text("");
+			array[2] = false
 		} else if (user_pw1 != user_pw2) {
 			$("#pw_check2").text("비밀번호가 일치하지 않습니다.");
 			$('#pw_check2').css('color', 'red');
 			array[2] = false;
-		} else if (((user_pw1.search(reg2) < 0 || user_pw1.search(reg3) < 0) || (user_pw2.search(reg2) < 0 || user_pw2.search(reg3) < 0)) && (user_pw1 == user_pw2)) {
+		} else if (user_pw1 == ""){
 			$("#pw_check2").text("");
 			array[2] = false;
-		} else if ((user_pw1 == user_pw2) && user_pw1 != "") {
+		} else {
 			$("#pw_check2").text("");
 			array[2] = true;
 			real = true;
 		}
 		
 	}
+	console.log("비번체크"+array[2]);
+	console.log("비번체크리얼"+real);
+	console.log("비번"+array[1]);
 	return real;
 }
 
@@ -524,32 +542,55 @@ $("#reg_submit").click(function() {
 		return true;
 	}
 })
+
+
+var blank_del = function() {
+	var user_pw1 = $("#mypw1");
+	user_pw1.val(user_pw1.val().replace(/(\s*)/g,""));
+}
+
+var blank_del2 = function() {
+	var user_pw2 = $("#mypw2");
+	user_pw2.val(user_pw2.val().replace(/(\s*)/g,""));
+}
 $("#user_id").blur(function(){
+	var user_id = $("#user_id");
+	user_id.val(user_id.val().replace(/(\s*)/g,""));
 	id();
 	addr();
 })
 $("#user_id").keyup(function() {
+	var user_id = $("#user_id");
+	user_id.val(user_id.val().replace(/(\s*)/g,""));
 	id();
 	addr();
 })
 $("#mypw1").blur(function() {
+	blank_del();
 	pw();
 	addr();
 })
 $("#mypw2").blur(function() {
+	blank_del2();
 	pwchk();
 	addr();
 })
 $("#myph").blur(function() {
+	var user_ph = $("#myph");
+	user_ph.val(user_ph.val().replace(/(\s*)/g,""));
 	phone();
 	addr();
 })
 $("#email").keyup(function() {
+	var user_email = $("#email");
+	user_email.val(user_email.val().replace(/(\s*)/g,""));
 	email();
 	addr();
 })
 
 $("#email").blur(function() {
+	var user_email = $("#email");
+	user_email.val(user_email.val().replace(/(\s*)/g,""));
 	email();
 	addr();
 })

@@ -21,7 +21,7 @@
 				<div class="find__id__certification find__all">
 					<div class="find__id__cer__title">EMAIL</div>
 					<div class="find__id__cer__input">
-						<input id="id__email" name="email" class="find__id__cer__text" type="text"/>
+						<input id="id__email" name="text" class="find__id__cer__text" type="text"/>
 					</div>
 					<div class="find__id__cer__button">
 						<input id="emailsend" class="find__id__cer__button__input" type="button" value="CONFIRM" disabled="disabled"/>

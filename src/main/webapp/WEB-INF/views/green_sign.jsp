@@ -15,34 +15,31 @@
 <body>
 
 	<%@ include file="/WEB-INF/views/header.jsp"%>
-<form id="registform" action="registres.do" method="post">
-	<section class="regist">
-		<div class="reg_border">
-			<h3>SIGN</h3>
-			<div class="divID">
-				<div class="ID_1 ID_common" id="id_t">ID</div>
-				<div class="ID_2 ID_common">
-					<input type="text" name="id" class="myid" id="user_id" placeholder="아이디를 입력하세요."
-						required="required" title="n" class="check__1"/>
+	<form class="wrap" id="registform" action="registres.do" method="post">
+		<div class="wrap__regist">
+			<div class="regist__title">SIGN</div>
+			<div class="regist__id">
+				<div class="regist__id__title" id="id_t">ID</div>
+				<div class="regist__id__input">
+					<input type="text" name="id" class="regist__id__text check__1" id="user_id" placeholder="아이디는 영문, 숫자(8~20자)만 가능합니다."/>
 				</div>
-				<div class="check_font" id="id_check"></div>
 			</div>
+			<div class="check_font" id="id_check"></div>
 
-			<div class="divPW">
-				<div class="PW_1 PW_common" id="pw_t">PW</div>
-				<div class="PW_2 PW_common">
-					<input type="password" name="pw" id="mypw1" class="pw"
-						placeholder="비밀번호를 입력하세요." required="required" class="check__1"/> <br> <span
-						id="pw_text">8~15자리의 영문,숫자,특수문자의 입력이 가능합니다.</span><br> 
+			<div class="regist__pw">
+				<div class="regist__pw__title" id="pw_t">PW</div>
+				<div class="regist__pw__input">
+					<input type="text" name="pw" id="mypw1" class="pw"
+						placeholder="비밀번호를 입력하세요." required="required" class="check__1"/> 
 						
+				</div>
 						<div class="check_font" id="pw_check1"></div>
 						
-						<input type="password" id="mypw2" class="pw"
+						<input type="text" id="mypw2" class="pw"
 						placeholder="비밀번호를 확인하세요." required="required" class="check__1"/> <font
 						id="Notice" size="2"></font>
 						
 						<div class="check_font" id="pw_check2"></div>
-				</div>
 			</div>
 
 			<div class="divADDR">
@@ -78,17 +75,17 @@
 					<%
 						 if (request.getAttribute("naveremail") != null) {
 					%>
-					<input type="email" name="email" id="email"
+					<input type="text" name="email" id="email"
 						placeholder="이메일을 입력하세요." value="${naveremail }" class="check__1"/><br>
 					<%
 						} else if (request.getAttribute("kakaoemail") != null) {
 					%>
-					<input type="email" name="email" id="email"
+					<input type="text" name="email" id="email"
 						placeholder="이메일을 입력하세요." value="${kakaoemail }" class="check__1"/><br>
 					<%
 						} else {
 					%>
-					<input type="email" name="email" id="email"
+					<input type="text" name="email" id="email"
 						placeholder="이메일을 입력하세요." class="check__1"/><br>
 					<%
 						}
@@ -110,7 +107,6 @@
 				</span>
 			</div>
 		</div>
-	</section>
 </form>
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 

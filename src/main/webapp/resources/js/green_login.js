@@ -1,3 +1,8 @@
+
+
+function check() {
+	$("#id").val($("#id").val().replace(/(\s*)/g,""));
+}
 $(function() {
 	$("#kakaologin").click(function(){
 		Kakao.init("b368023ab0ada558460c961fcfa59892");
@@ -19,3 +24,4 @@ $(function() {
 		})
 	})
 })
+
