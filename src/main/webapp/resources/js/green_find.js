@@ -3,7 +3,6 @@ $("#id__email").keyup(function(){
 	var email_del = $("#id__email");
 	var email_check = email_del.val().replace(/(\s*)/g,"");
 	email_del.val(email_del.val().replace(/(\s*)/g,""));
-	console.log(email_check);
 	if (mailJ.test(email_check)) {
 		$("#check1").text("");
 		$("#emailsend").prop("disabled", false);
@@ -98,15 +97,25 @@ $.ajax({
 			$("#pw__email__code").prop("disabled",true);
 			$("#check4").text("입력하신 정보는 존재하지 않습니다.");
 			$("#check4").css("color", "red");
-			console.log(data);
-			console.log($("#code").val());
 		} else {
 			$("#pw__email__code").prop("disabled",false);
 			$("#check4").text("이메일이 발송되었습니다. 코드를 입력해주세요.");
 			$("#check4").css("color", "red");
-			$("#code").val(data);
 			console.log(data);
-			console.log($("#code").val());
+			$("#pw__email__code").keyup(function(){
+				var user_code_del = $("#pw__email__code");
+				var user_code = user_code_del.val().replace(/(\s*)/g,"");
+				user_code_del.val(user_code_del.val().replace(/(\s*)/g,""));
+				if (data == user_code) {
+					$("#check4").text("인증번호가 일치합니다");
+					$("#check4").css("color", "blue");
+					$("#search").prop("disabled", false);
+				} else {
+					$("#check4").text("인증번호가 일치하지 않습니다.");
+					$("#check4").css("color", "red");
+					$("#search").prop("disabled", true);
+				}
+			})
 		}
 	}, error: function() {
 		alert("통신실패");
@@ -116,7 +125,7 @@ $.ajax({
 })
 
 
-$("#pw__email__code").keyup(function(){
+/*$("#pw__email__code").keyup(function(){
 	var random_code = $("#code").val();
 	var user_code_del = $("#pw__email__code");
 	var user_code = user_code_del.val().replace(/(\s*)/g,"");
@@ -130,5 +139,5 @@ $("#pw__email__code").keyup(function(){
 		$("#check4").css("color", "red");
 		$("#search").prop("disabled", true);
 	}
-})
+})*/
 

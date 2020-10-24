@@ -234,7 +234,6 @@ if ($("#email").val() != "") {
 					}
 				},
 				error : function() {
-					console.log("실패");
 				}
 			});
 
@@ -305,7 +304,6 @@ var id = function() {
 
 		},
 		error : function() {
-			console.log("실패");
 		}
 	});
 	return array[0];
@@ -332,9 +330,6 @@ var pw = function() {
 		$('#pw_check1').css('color', 'red');
 		$("#pw_check2").text("");
 		array[1] = false;
-		console.log("비번"+array[1]);
-		console.log("비번체크"+array[2]);
-		console.log("비번리얼"+real);
 		return real;
 	} else {
 		$("#pw_check1").text("");
@@ -351,9 +346,6 @@ var pw = function() {
 		array[2] = true;
 		//real = true;
 	}
-	console.log("비번"+array[1]);
-	console.log("비번체크"+array[2]);
-	console.log("비번리얼"+real);
 	return real;
 }
 
@@ -410,9 +402,6 @@ var pwchk = function() {
 		}
 		
 	}
-	console.log("비번체크"+array[2]);
-	console.log("비번체크리얼"+real);
-	console.log("비번"+array[1]);
 	return real;
 }
 
@@ -420,7 +409,6 @@ var pwchk = function() {
 var phone = function() {
 	var real = false;
 	var myph = $("#myph").val().trim();
-	console.log(myph);
 	if (myph == "") {
 		$("#myph_check").text("핸드폰 번호를 입력해주세요.");
 		$("#myph_check").css("color", "red");
@@ -494,7 +482,6 @@ var email = function() {
 					}
 				},
 				error : function() {
-					console.log("실패");
 				}
 			});
 	return array[5];
@@ -509,39 +496,7 @@ var addr = function() {
 	}
 }
 
-$("#reg_submit").click(function() {
-	id();
-	pw();
-	pwchk();
-	phone();
-	email();
-	addr();
-	if (!id()) {
-		$("#user_id").focus();
-		return false;
-	} else if (!pw()) {
-		$("#mypw1").focus();
-		return false;
-	} else if (!pwchk()) {
-		$("#mypw2").focus();
-		return false;
-	} else if (!phone()) {
-		$("#myph").focus();
-		return false;
-	} else if (!email()){
-		$("#email").focus();
-		return false;
-	} else if ($("#roadFullAddr1").val() == "" || $("#roadFullAddr2").val() ==""){
-		$("#addr_check").text("주소 검색을 해주세요.");
-		$("#addr_check").css("color","red");
-		$("#addrsearch").focus();
-		return false;
-	} else {
-		$("#roadFullAddr1").prop("disabled",false);
-		$("#roadFullAddr2").prop("disabled",false);
-		return true;
-	}
-})
+
 
 
 var blank_del = function() {
@@ -594,3 +549,98 @@ $("#email").blur(function() {
 	email();
 	addr();
 })
+
+
+
+var code_check = false;
+$("#phone_code_send").click(function(){
+	var phone = $("#myph").val();
+	if (array[3]) {
+	$.ajax({
+		url : 'phonesend.do?phone=' + phone,
+		type : 'get',
+		success: function(data) {
+			alert("인증번호가 발송되었습니다.");
+			$("#phone_code_check").text("인증번호를 입력해주세요.");
+			$("#phone_code_check").css("color","red");
+			$("#phonecode").keyup(function(){
+				if ($.trim(data) == $("#phonecode").val()) {
+					$("#phone_code_check").text("인증번호가 일치합니다");
+					$("#phone_code_check").css("color", "blue");
+					$("#phone_code_check_button").prop("disabled",false);
+				} else {
+					$("#phone_code_check").text("인증번호가 일치하지 않습니다.");
+					$("#phone_code_check").css("color", "red");
+					$("#phone_code_check_button").prop("disabled",true);
+				}
+			})
+		}, error: function(data) {
+			alert("실패!");
+		}
+	})
+	} else {
+		var myph = $("#myph").val().trim();
+		if (myph == "") {
+			$("#myph_check").text("인증번호를 받기 위해서는 핸드폰 번호를 입력해주세요.");
+			$("#myph_check").css("color", "red");
+		} else if (phoneJ.test(myph) == false) {
+			$("#myph_check").text("인증번호를 받기 위해서는 핸드폰 번호를 정확히 입력해주세요");
+			$("#myph_check").css("color", "red");
+		}
+	}
+})
+
+
+
+
+
+$("#phone_code_check_button").click(function(){
+	$("#phonecode").prop("disabled",true);
+	$("#phone_code_check_button").prop("disabled",true);
+	$("#myph").prop("disabled",true);
+	$("#phone_code_send").prop("disabled",true);
+	$("#phone_code_check").text("인증이 완료되었습니다.");
+	$("#phone_code_check").css("color", "blue");
+	code_check = true;
+})
+
+
+$("#reg_submit").click(function() {
+	id();
+	pw();
+	pwchk();
+	phone();
+	email();
+	addr();
+	if (!id()) {
+		$("#user_id").focus();
+		return false;
+	} else if (!pw()) {
+		$("#mypw1").focus();
+		return false;
+	} else if (!pwchk()) {
+		$("#mypw2").focus();
+		return false;
+	} else if (!phone()) {
+		$("#myph").focus();
+		return false;
+	} else if (!email()){
+		$("#email").focus();
+		return false;
+	} else if ($("#roadFullAddr1").val() == "" || $("#roadFullAddr2").val() ==""){
+		$("#addr_check").text("주소 검색을 해주세요.");
+		$("#addr_check").css("color","red");
+		$("#addrsearch").focus();
+		return false;
+	} else if (code_check == false) {
+		alert("핸드폰 인증을 해주세요.");
+		$("#phonecode").focus();
+		return false;
+	} else {
+		$("#roadFullAddr1").prop("disabled",false);
+		$("#roadFullAddr2").prop("disabled",false);
+		$("#myph").prop("disabled",false);
+		return true;
+	}
+})
+

@@ -12,7 +12,6 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header.jsp"%>
-	<input id="code" type="hidden" value=""/>
 	<div class="wrap__find">
 		<form class="wrap__find__id">
 			<div class="wrap1">

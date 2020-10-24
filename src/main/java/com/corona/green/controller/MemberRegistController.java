@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.corona.green.api.UserSha256;
 import com.corona.green.model.biz.MemberBiz;
 import com.corona.green.model.dto.MemberDto;
+import com.corona.green.api.PhoneCodeSend;
+import com.corona.green.api.RandomCode;
 
 @Controller
 public class MemberRegistController {
@@ -63,5 +65,16 @@ public class MemberRegistController {
 		return res1;
 	}
 	
+	@RequestMapping(value="phonesend.do", method=RequestMethod.GET)
+	@ResponseBody
+	public String PhoneCodeSend(@RequestParam("phone") String phone) {
+		
+		PhoneCodeSend send = new PhoneCodeSend();
+		RandomCode code = new RandomCode();
+		String phonecode = code.excuteGenerate();
+		send.certifiedPhoneNumber(phone, phonecode);
+		
+		return phonecode;
+	}
 	
 }

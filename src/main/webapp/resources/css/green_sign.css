@@ -35,7 +35,7 @@ body {
 
 .wrap {
 	width: 650px;
-	height: 710px;
+	height: 835px;
 	border: 1px solid var(--color-white);
 	margin: auto;
 	margin-top: 150px;
@@ -45,7 +45,15 @@ body {
 }
 
 .wrap__regist {
-	padding-left: 20px
+	padding-left: 40px;
+    padding-right: 40px;
+}
+
+.regist__all {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
 .regist__title {
@@ -54,22 +62,104 @@ body {
 	line-height: 150px;
 }
 
-
-
-/*버튼 DIV박스*/
-.Button_1 {
-	padding-top: 20px;
-	padding-left: 250px;
+.regist__input {
+	width: 85%;
 }
 
-/*버튼박스*/
-.button_t {
+.check__1 {
+	width: 85%;
+	font-size: var(--font-small);
+}
+
+.pw__chk,
+.regist__addr__roadname,
+.regist__addr__detail {
+	margin-left: 85px;
+}
+
+.regist__addr__post {
+	width: 62.5%;
+}
+
+
+
+.regist__addr__post {
+	width: 15%;
+    margin-left: 17px;
+}
+
+.regist__addr__button {
+	width: 18.5%;
+    margin-right: 278px;
+}
+
+.regist__addr__search {
+	width: 100%;
+}
+
+.regist__addr,
+.regist__addr__roadname,
+.regist__addr__detail {
+	height: 50px;
+}
+
+.regist__phone__input {
+	width: 57.5%;
+}
+
+.regist__phone__text {
+	width: 100%;
+}
+
+.regist__phone__cer__input {
+	width: 61.5%;
+}
+
+.regist__phone__cer__text {
+	width: 93%;
+}
+
+.regist__cofirm {
+	text-align: center;
+}
+
+.check__1 {
+    /* width: 200px; */
+    height: 40px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #ddd;
+    padding-left: 10px;
+    /* margin-left: 20px; */
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--color-gray);
+    background-color: var(--color-gray);
+}
+
+
+/* 중복확인 등 체크 표시 */
+.check__font{
 	height: 30px;
-	width: 110px;
-	border-radius: var(--size-border-radius);
-	border: 1px solid var(--color-dark-gray);
-	background-color: var(--color-dark-gray);
-	color: var(--color-black);
-	font-weight: var(--weight-regular);
-	cursor: pointer;
+    font-size: var(--font-small);
+    line-height: 30px;
+    color: red;
+    text-align: left;
+    margin-left: 85px;
+}
+
+.regist__button {
+	padding: 10px 0;
+    width: 100px;
+    border-radius: var(--size-border-radius);
+    background-color: var(--color-dark-gray);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: var(--font-small);
+}
+
+.post__input{
+	width: 100%;
+	text-align: center;
+	padding-left: 0px;
 }

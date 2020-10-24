@@ -17,80 +17,105 @@
 	<%@ include file="/WEB-INF/views/header.jsp"%>
 	<form class="wrap" id="registform" action="registres.do" method="post">
 		<div class="wrap__regist">
+		
 			<div class="regist__title">SIGN</div>
-			<div class="regist__id">
+			
+			<div class="regist__id regist__all">
 				<div class="regist__id__title" id="id_t">ID</div>
-				<div class="regist__id__input">
-					<input type="text" name="id" class="regist__id__text check__1" id="user_id" placeholder="아이디는 영문, 숫자(8~20자)만 가능합니다."/>
+				<div class="regist__id__input regist__input">
+					<input type="text" name="id" class="regist__id__text check__1" id="user_id" placeholder="아이디(6~12자)"/>
 				</div>
 			</div>
-			<div class="check_font" id="id_check"></div>
+			<div class="check__font" id="id_check"></div>
 
-			<div class="regist__pw">
+			<div class="regist__pw regist__all">
 				<div class="regist__pw__title" id="pw_t">PW</div>
-				<div class="regist__pw__input">
-					<input type="text" name="pw" id="mypw1" class="pw"
-						placeholder="비밀번호를 입력하세요." required="required" class="check__1"/> 
-						
+				<div class="regist__pw__input regist__input">
+					<input type="text" name="pw" id="mypw1" class="pw check__1""
+						placeholder="비밀번호(숫자,영문,특수문자 2가지이상 조합 8~20자)" required="required"/> 
 				</div>
-						<div class="check_font" id="pw_check1"></div>
-						
-						<input type="text" id="mypw2" class="pw"
-						placeholder="비밀번호를 확인하세요." required="required" class="check__1"/> <font
+			</div>
+			<div class="check__font check__pw" id="pw_check1"></div>
+				
+			<div class="regist__pwchk regist__all">	
+				<div class="regist__pwchk__input regist__input">		
+						<input type="text" id="mypw2" class="pw__chk check__1"
+						placeholder="비밀번호 확인" required="required"/> <font
 						id="Notice" size="2"></font>
-						
-						<div class="check_font" id="pw_check2"></div>
-			</div>
+				</div>	
+			</div>	
+			<div class="check__font check__pwchk" id="pw_check2"></div>
+		
 
-			<div class="divADDR">
-				<div class="ADDR_1 ADDR_common" id="addr_t">ADDRESS</div>
-				<div class="ADDR_2 ADDR_common">
+			<div class="regist__addr regist__all">
+				<div class="regist__addr__title" id="addr_t">ADDR</div>
+				<div class="regist__addr__post">
 					<input type="text" name="addr1" id="roadFullAddr1"
-						class="form-control roadFullAddr"  required="required"
+						class="check__1 post__input"  required="required"
 						disabled />
+				</div>
+				<div class="regist__addr__button">
+					<input type="button" class="regist__addr__search regist__button" id="addrsearch" onclick="execPostCode();" value="SEARCH"/>
+				</div>
+			</div>
+			
+			<div class="regist__addr__roadname regist__all regist__input">
 						<input type="text" name="addr2" id="roadFullAddr2"
-						class="form-control roadFullAddr" required="required"
+						class="check__1" required="required"
 						disabled />
+			</div>
+			
+			<div class="regist__addr__detail regist__all regist__input">
 						<input type="text" name="addr3" id="roadFullAddr3"
-						class="form-control roadFullAddr"/>
-				</div>
-				<div class="ADDR_3 ADDR_common">
-					<input type="button" class="" id="addrsearch" onclick="execPostCode();" value="주소검색"/>
-				</div>
-				<div id="addr_check"></div>
+						class="check__1"/>
 			</div>
+			<div class="check__font check__addr" id="addr_check"></div>
+			
 
-			<div class="divPHONE">
-				<div class="PHONE_1 PHONE_common" id="phone_t">P.H</div>
-				<div class="PHONE_2 PHONE_common">
+			<div class="regist__phone regist__all">
+				<div class="regist__phone__title" id="phone_t">P.H</div>
+				<div class="regist__phone__input regist__input">
 					<input type="text" name="phone" id="myph"
-						placeholder="전화번호를 '-'없이 입력하세요." required="required" class="check__1"/>
+						placeholder="전화번호(- 없이 입력)" class="check__1 regist__phone__text"/>
 				</div>
-				<div class="check_font" id="myph_check"></div>
+				<div class="regist__phone__button">
+					<input id="phone_code_send" type="button" class="regist__button" value="CONFIRM"/>
+				</div>
 			</div>
+			<div class="check__font check__phone" id="myph_check"></div>
+			
+			<div class="regist__phone__cer regist__all">
+				<div class="regist__phone__cer__title">CODE</div>
+				<div class="regist__phone__cer__input regist__input">
+					<input type="text" id="phonecode" class="check__1 regist__phone__cer__text"/>
+				</div>
+				<div class="regist__phone__cer__button">
+					<input id="phone_code_check_button" type="button" class="regist__button" value="CONFIRM" disabled="disabled"/>
+				</div>
+			</div>
+			<div class="check__font check__phone__code" id="phone_code_check"></div>
 
-			<div class="divEMAIL">
-				<div class="EMAIL_1 EMAIL_common" id="email_t">EMAIL</div>
-				<div class="EMAIL_2 EMAIL_common">
+			<div class="regist_email regist__all">
+				<div class="regist__email__title" id="email_t">EMAIL</div>
+				<div class="regist__email__input regist__input">
 					<%
 						 if (request.getAttribute("naveremail") != null) {
 					%>
 					<input type="text" name="email" id="email"
-						placeholder="이메일을 입력하세요." value="${naveremail }" class="check__1"/><br>
+						placeholder="이메일" value="${naveremail }" class="check__1"/><br>
 					<%
 						} else if (request.getAttribute("kakaoemail") != null) {
 					%>
 					<input type="text" name="email" id="email"
-						placeholder="이메일을 입력하세요." value="${kakaoemail }" class="check__1"/><br>
+						placeholder="이메일" value="${kakaoemail }" class="check__1"/><br>
 					<%
 						} else {
 					%>
 					<input type="text" name="email" id="email"
-						placeholder="이메일을 입력하세요." class="check__1"/><br>
+						placeholder="이메일" class="check__1"/><br>
 					<%
 						}
 					%>
-					<div class="check_font" id="email_check"></div>
 					<!-- <input type="text" name="EMAIL_VALID" id="email_valid"
 						placeholder="인증코드">
 				</div>
@@ -98,13 +123,12 @@
 					<input id="receiver" type="button" value="인증번호발송" onclick=""> -->
 				</div>
 			</div>
+			<div class="check__font check__email" id="email_check"></div>
 
-			<div class="div_Button">
-			<span id="registcheck">
-				<div class="Button_1 Donation_Button">
-					<input type="submit" value="GOGO" id="reg_submit" class="button_t"/>
+			<div class="regist__cofirm">
+				<div class="regist__confirm__input">
+					<input class="regist__confirm__button regist__button" type="submit" value="SIGN" id="reg_submit" class=""/>
 				</div>
-				</span>
 			</div>
 		</div>
 </form>
