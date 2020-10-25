@@ -1,118 +1,170 @@
 @charset "UTF-8";
 
-	:root {
-	  /*color*/
-	  --color-white: #ffffff;
-	  --color-black: #212121;
-	  --color-gray: #f5f5f5;
-	  --color-dark-gray: #c4c4c4;
-	  --color-green: #60825e;
-	
-	  /*font size*/
-	  --font-large: 60px;
-	  --font-regular: 16px;
-	  --font-small: 12px;
-	
-	  /*font weight*/
-	  --weight-bold: 700;
-	  --weight-regular: 500;
-	  --weight-thin: 300;
-	
-	  /*Size*/
-	  --size-border-radius: 13px;
-	}
+:root {
+  /*color*/
+  --color-white: #ffffff;
+  --color-black: #212121;
+  --color-gray: #f5f5f5;
+  --color-dark-gray: #c4c4c4;
+  --color-green: #60825e;
 
-	.reg_border {
-		margin: 50px;
-		width: 610px;
-		height: 630px;
-		border: 1px solid var(--color-white);
-		margin-left: auto;
-		margin-right: auto;
-		border-radius: var(--color-dark-gray);
-		box-shadow: 0 1px 1px #c0c0c0,
-					0 2px 0 #a8a7a6, 
-					0 3px 0 #8b8a89, 
-					0 4px 0 #7d7b7a,
-					0 5px 0 #686766,
-					0 6px 3px #5f5e5d;
-	}
-	
-	h3 {
-		padding-top: 0px;
-		text-align: center;
-	}
-	
-	.myid, #mypw1, #mypw2, #myname, .roadFullAddr, #myph, #email, #email_valid{
-		width: 400px;
-		height: 40px;
-		border:1px solid var(--color-dark-gray);
-		box-shadow:1px 2px 2px var(--color-dark-gray) inset; 
-		border-radius: var(--size-border-radius);;	
-	}
-	
-	#idchk, #addrsearch, #receiver {
-		height: 40px;
-		width: 90px;
-		border-radius: var(--size-border-radius);
-		border:1px solid var(--color-dark-gray);
-		background-color: var(--color-dark-gray);
-		color: var(--color-black);
-		font-weight: var(--weight-regular);
-		
-	}
-	
-	#pw_text{
-		font-size: 10px;
-	}
-	
-	.roadFullAddr {
-		width: 400px;
-	}
-	
-	.ID_common, .PW_common, .NAME_common, .ADDR_common, .PHONE_common, .EMAIL_common{
-	    display:inline-table; 
-	    float: center;
-	    padding-top: 20px;
-	}
-	
-	.ID_common{
-		padding-top: 20px;
-	}
-	
-	#id_t, #pw_t, #name_t, #addr_t, #phone_t, #email_t{
-		font-weight: var(--weight-bold);
-	}
-	
-	.ID_1, .PW_1, .NAME_1, .ADDR_1, .PHONE_1, .EMAIL_1{ 
-		width: 80px;
-		text-align: center;
-	}
-	
-	
-	.ID_2, .PW_2, .NAME_2, .ADDR_2, .PHONE_2, .EMAIL_2{
-		width: 400px;
-	}
-	
-	.ID_3, .ADDR_3, .EMAIL_3{
-		width: 110px;
-	}
-	
-	/*버튼 DIV박스*/
-	.Button_1{
-		padding-top: 20px;
-		padding-left: 250px;
-		
-	}
-	
-	/*버튼박스*/
-	.button_t{
-		height: 30px;
-		width: 110px;
-		border-radius: var(--size-border-radius);
-		border:1px solid var(--color-dark-gray);
-		background-color: var(--color-dark-gray);
-		color: var(--color-black);
-		font-weight: var(--weight-regular);
-		cursor: pointer;
-	}
+  /*font size*/
+  --font-large: 60px;
+  --font-regular: 20px;
+  --font-small: 14px;
+
+  /*font weight*/
+  --weight-bold: 700;
+  --weight-regular: 500;
+  --weight-thin: 300;
+
+  /*Size*/
+  --size-border-radius: 14px;
+}
+
+*{
+	font-size: var(--font-regular);
+	font-weight: var(--weight-bold);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+	width: 650px;
+	height: 835px;
+	border: 1px solid var(--color-white);
+	margin: auto;
+	margin-top: 150px;
+	margin-bottom: 150px;
+	border-radius: var(--size-border-radius);
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.wrap__regist {
+	padding-left: 40px;
+    padding-right: 40px;
+}
+
+.regist__all {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.regist__title {
+	height: 150px;
+	text-align: center;
+	line-height: 150px;
+}
+
+.regist__input {
+	width: 85%;
+}
+
+.check__1 {
+	width: 85%;
+	font-size: var(--font-small);
+}
+
+.pw__chk,
+.regist__addr__roadname,
+.regist__addr__detail {
+	margin-left: 85px;
+}
+
+.regist__addr__post {
+	width: 62.5%;
+}
+
+
+
+.regist__addr__post {
+	width: 15%;
+    margin-left: 17px;
+}
+
+.regist__addr__button {
+	width: 18.5%;
+    margin-right: 278px;
+}
+
+.regist__addr__search {
+	width: 100%;
+}
+
+.regist__addr,
+.regist__addr__roadname,
+.regist__addr__detail {
+	height: 50px;
+}
+
+.regist__phone__input {
+	width: 57.5%;
+}
+
+.regist__phone__text {
+	width: 100%;
+}
+
+.regist__phone__cer__input {
+	width: 61.5%;
+}
+
+.regist__phone__cer__text {
+	width: 93%;
+}
+
+.regist__cofirm {
+	text-align: center;
+}
+
+.check__1 {
+    /* width: 200px; */
+    height: 40px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #ddd;
+    padding-left: 10px;
+    /* margin-left: 20px; */
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--color-gray);
+    background-color: var(--color-gray);
+}
+
+/* .check__1:focus {
+	outline-color: red;
+	border: 1px solid red;
+} */
+
+
+/* 중복확인 등 체크 표시 */
+.check__font{
+	height: 30px;
+    font-size: var(--font-small);
+    line-height: 30px;
+    color: red;
+    text-align: left;
+    margin-left: 85px;
+}
+
+.regist__button {
+	padding: 10px 0;
+    width: 100px;
+    border-radius: var(--size-border-radius);
+    background-color: var(--color-dark-gray);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: var(--font-small);
+}
+
+.post__input{
+	width: 100%;
+	text-align: center;
+	padding-left: 0px;
+}

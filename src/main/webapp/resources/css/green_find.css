@@ -70,10 +70,14 @@ body {
 .find__id__certification,
 .find__pw__certification {
   width: 97%;
-  height: 50px;
+  /* height: 50px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.find__id__certification {
+	height: 50px;
 }
 
 .find__id__cer__title,
@@ -144,7 +148,7 @@ body {
 /* wrap__find__pw */
 .wrap__find__pw {
   margin-top: 2%;
-  height: 290px;
+  height: 330px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: var(--size-border-radius);
 }
@@ -156,7 +160,7 @@ body {
 }
 
 .find__pw__id {
-  height: 50px;
+  /* height: 50px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -178,4 +182,31 @@ body {
   margin-left: 16px;
   box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-color: var(--color-gray);
+}
+
+.check{
+	height: 20px;
+	font-size: var(--font-small);
+	text-align: center;
+	padding-right: 30px;
+	line-height: 24.5px;
+}
+
+.code__check {
+	padding-right: 45px;
+}
+
+
+
+.code {
+	margin-left: 24px;
+}
+
+
+.code__text{
+	margin-left: 5px;
+}
+
+.code__button{
+	padding-right: 6px;
 }

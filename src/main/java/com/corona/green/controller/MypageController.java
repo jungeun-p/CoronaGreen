@@ -8,7 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.corona.green.api.UserSha256;
 import com.corona.green.model.biz.MemberBiz;
 import com.corona.green.model.biz.MypageBiz;
 import com.corona.green.model.dto.MemberDto;
@@ -29,8 +32,8 @@ public class MypageController {
 	@RequestMapping("/mypage_updateres.do")
 	public String mypage_updateres(MemberDto dto , Model model,HttpSession session) {
 		logger.info("mypage_updateres");
-		logger.info(dto.getId());
-		logger.info(dto.getPw());
+		String encryPassword = UserSha256.encrypt(dto.getPw());
+		dto.setPw(encryPassword);
 		int res= biz.myupdate(dto);
 		
 		if(res>0) {
@@ -44,6 +47,18 @@ public class MypageController {
 			session.invalidate();
 			return "redirect";
 		}
+	}
+	
+	@RequestMapping("/pw_check.do")
+	@ResponseBody
+	public boolean pw_check(@RequestParam String pw ,HttpSession session) {
+		boolean ck=false;
+		MemberDto dto=(MemberDto) session.getAttribute("dto");
+		String pw_encrypt=UserSha256.encrypt(pw);
+		if(dto.getPw().equals(pw_encrypt)){
+			ck=true;
+		}
+		return ck;
 	}
 	
 }

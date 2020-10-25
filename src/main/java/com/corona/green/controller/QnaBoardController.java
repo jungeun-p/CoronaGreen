@@ -24,13 +24,15 @@ public class QnaBoardController {
 	@Autowired
 	private QnaBoardReBiz qnaReBiz;
 
-	/*
-	 * @RequestMapping("/qnalist.do") public String qnalist(Model model) {
-	 * 
-	 * model.addAttribute("list", qnaBiz.selectList());
-	 * 
-	 * return "green_qna_list"; }
-	 */
+	
+	@RequestMapping("/qnaserchlist.do") 
+	public String qnalist(Model model) {
+	 
+		model.addAttribute("list", qnaBiz.selectList());
+		 
+		return "green_qna_list"; 
+	 }
+	 
 	
 	@RequestMapping("/qnadetail.do")
 	public String qnadetail(Model model, int boardno) {
@@ -96,16 +98,53 @@ public class QnaBoardController {
 	}
 	
 	@RequestMapping("/serch.do")
-	public String qnasherch(String serchselect, String serchtext, Model model) {
+	public String qnasherch(String serchselect, String serchtext, Model model, Paging vo
+			, @RequestParam(value="nowPage", required=false)String nowPage
+			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
 		
-		System.out.println(serchselect+"옵션:::::::"+serchtext);		
+		System.out.println(serchselect+"옵션:::::::"+serchtext);	
 		
 		if(serchselect.equals("title")) {
-			model.addAttribute("list",qnaBiz.selectSerchList_title(serchtext));
+			
+			int total = qnaBiz.countSerchBoard_title(serchtext);
+			
+			if (nowPage == null && cntPerPage == null) {
+				nowPage = "1";
+				cntPerPage = "5";
+			} else if (nowPage == null) {
+				nowPage = "1";
+			} else if (cntPerPage == null) { 
+				cntPerPage = "5";
+			}
+			
+			vo = new Paging(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+			
+			model.addAttribute("serchtext", serchtext);
+			model.addAttribute("paging", vo);
+			model.addAttribute("viewAll",qnaBiz.selectSerchList_title(serchtext,vo));
 			return "green_qna_list";
+			
 		} else if(serchselect.equals("id")) {
-			model.addAttribute("list",qnaBiz.selectSerchList_id(serchtext));
+			
+			int total = qnaBiz.countSerchBoard_id(serchtext);
+			
+			if (nowPage == null && cntPerPage == null) {
+				nowPage = "1";
+				cntPerPage = "5";
+			} else if (nowPage == null) {
+				nowPage = "1";
+			} else if (cntPerPage == null) { 
+				cntPerPage = "5";
+			}
+			
+			vo = new Paging(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+			
+			model.addAttribute("serchtext", serchtext);
+			model.addAttribute("paging", vo);
+			model.addAttribute("viewAll",qnaBiz.selectSerchList_id(serchtext,vo));
+			
 			return "green_qna_list";
+			
 		} else {
 			System.out.println("null serchselect");
 			return "qnalist.do";

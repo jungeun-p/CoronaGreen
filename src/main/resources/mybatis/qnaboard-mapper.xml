@@ -30,11 +30,28 @@
 		WHERE BOARDNO = #{boardno}
 	</delete>
 	
-	<select id="selectSerchTitle" parameterType="String" resultType="QnaBoardDto">
-		SELECT ID, BOARDNO, TITLE, CONTENT, REGDATE, SECRET
-		FROM QNA_BOARD
-		WHERE TITLE LIKE '%'||#{title}||'%'
-		ORDER BY BOARDNO
+	<!-- 갯수 출력 title -->
+	<select id="serchcountBoardTitle" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM (SELECT* FROM QNA_BOARD WHERE TITLE LIKE '%'||#{title}||'%')
+	</select>
+	
+	<!-- 갯수 출력 id -->
+	<select id="serchcountBoardId" resultType="int" parameterType="String">
+		SELECT COUNT(*) FROM (SELECT* FROM QNA_BOARD WHERE TITLE LIKE '%'||#{id}||'%')
+	</select>
+	
+	<select id="selectSerchTitle" parameterType="hashMap" resultType="QnaBoardDto">
+		SELECT * 
+			FROM (
+				SELECT ROWNUM RN, A.* 
+					FROM (
+							SELECT * 
+							FROM QNA_BOARD
+							WHERE TITLE LIKE '%'||#{title}||'%'
+							ORDER BY BOARDNO
+							) A
+					)
+		WHERE RN BETWEEN #{vo.start} AND #{vo.end}
 	</select>
 	
 	<select id="selectSerchId" parameterType="String" resultType="QnaBoardDto">
