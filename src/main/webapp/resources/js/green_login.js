@@ -15,8 +15,6 @@ $(function() {
 						location.href="kakaoregist.do?email="+email;
 					}
 				})
-				console.log(authObj);
-				var token = authObj.access_token;
 			},
 			fail : function(err) {
 				alert(JSON.stringify(err));
