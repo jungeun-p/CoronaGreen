@@ -21,7 +21,7 @@ public class SendId {
 		 	// SMTP 서버 설정
 		    final String host = "smtp.gmail.com"; // 사용할 smtp host, naver라면 smtp.naver.com
 		    final String accountId = "dndrldzk@gmail.com";
-		    final String accountPwd = "qndhkz45";
+		    final String accountPwd = "rmflszhfhsk12#";
 		    final int port = 465; // SMTP 포트
 		     
 			String receiver = email; // 받는사람 이메일
