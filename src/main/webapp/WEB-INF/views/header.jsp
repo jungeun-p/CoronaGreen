@@ -23,7 +23,11 @@
 	<!--header_1-->
 	<nav class="menubar">
 		<div class="menubar__menu">
-			<a href="main.do"><p class="menubar__logo">CORONA GREEN</p></a>
+			<a href="main.do">
+			 	<p class="menubar__logo">CORONA GREEN</p>
+                <p class="menubar__title">ALL ABOUT INFORMATION OF COVID 19</p>
+                <p class="menubar__title">Provides information that is updated in real-time updates.</p>
+			</a>
 			<div class="menubar__category">
 				<a href="#"><p class="category__name">ABOUT</p></a>
 				<a href="#"><p class="category__name">NEWS</p></a>
@@ -38,6 +42,7 @@
 			</div>
 			</div>
 			</nav>
+			<div class="background" style="background-image: URL(./resources/img/corona-green-logo.png);"></div>
 			<%
 				} else {
 			%>
@@ -54,14 +59,21 @@
 		</div>
 	</div>
 </nav>
+<div class="background" style="background-image: URL(./resources/img/corona-green-logo.png);"></div>
 			<%
 				}
 			%>
 	<!--chat-->
 	<section class="chatbot">
 		<div class="chatbot__box">
-			<p>🙋‍♀ASK</p>
+			<p>🙋‍♀ ASK</p>
 		</div>
 	</section>
+	<!-- donation -->
+	    <section class="donation">
+        <div class="donation__box">
+            <p>💰  DONATION</p>
+        </div>
+    </section>
 </body>
 </html>
