@@ -6,6 +6,7 @@
 		<typeAlias type="com.corona.green.model.dto.MemberDto" alias="MemberDto"/>
 		<typeAlias type="com.corona.green.model.dto.QnaBoardDto" alias="QnaBoardDto"/>
 		<typeAlias type="com.corona.green.model.dto.QnaBoardReDto" alias="QnaBoardReDto"/>
+		<typeAlias type="com.corona.green.model.dto.DonationDto" alias="DonationDto"/>
 	</typeAliases>
 	
 	<mappers>
@@ -13,6 +14,7 @@
 		<mapper resource="/mybatis/qnaboard-mapper.xml"/>
 		<mapper resource="/mybatis/qnare-mapper.xml"/>
 		<mapper resource="/mybatis/mypage-mapper.xml"/>
+		<mapper resource="/mybatis/donation-mapper.xml"/>
 	</mappers>
 
 </configuration>
