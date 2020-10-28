@@ -1,12 +1,12 @@
 'use strict';
 
-let userBtn = document.querySelector('.menubar__sign');
-let userMenu = document.querySelector('.menubar__user');
-userBtn.addEventListener('mouseover', () => {
-    if(userMenu.style.visibility==='hidden'){
-        userMenu.style.visibility='visible';
-        
-    } else {
-        userMenu.style.visibility='hidden';
-    }
-});
+    const userBtn = document.querySelector('.menubar__sign');
+    const userMenu = document.querySelector('.menubar__user');
+    const menuPar = document.querySelector('.menubar__user__menu');
+
+    menuPar.addEventListener('mouseover', () => {
+        userMenu.style.visibility = 'visible';
+    })
+    menuPar.addEventListener('mouseout', () => {
+        userMenu.style.visibility = 'hidden';
+    })
