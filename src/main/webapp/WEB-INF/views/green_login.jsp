@@ -51,7 +51,6 @@
 					<input class="login_select_button" type="button" value="REGIST" onclick="location.href='regist.do'"/>
 				</div>
 			</div>
-			
 			<div class="login_sns login">
 				<div id="naver_id_login" class="login_sns_naver sns_button">
 					<a href="${url}">

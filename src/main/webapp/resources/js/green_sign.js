@@ -188,6 +188,7 @@ $("input").blur(function() {
 	}
 })
 
+var user_email = $('#email').val().trim();
 if ($("#email").val() != "") {
 	$.ajax({
 				url : 'emailcheck.do?email=' + user_email,
@@ -511,9 +512,8 @@ var email = function() {
 		array[5] = false;
 	}
 
-	var user_email = $('#email').val().trim();
-	$
-			.ajax({
+	
+	$.ajax({
 				url : 'emailcheck.do?email=' + user_email,
 				type : 'get',
 				success : function(data) {
@@ -637,6 +637,7 @@ $("#email").blur(function() {
 	email();
 })
 
+// 휴대폰 인증
 var code = "";
 var code_check_keyup = false;
 var code_check = false;

@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Template</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!-- menubar css -->
 <link href="resources/css/header.css" rel="stylesheet" type="text/css" />
 <!-- menubar js -->
@@ -71,7 +72,7 @@
 	</section>
 	<!-- donation -->
 	    <section class="donation">
-        <div class="donation__box">
+        <div class="donation__box" onclick="donation();">
             <p>💰  DONATION</p>
         </div>
     </section>
