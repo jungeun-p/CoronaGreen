@@ -32,7 +32,7 @@
 			<div class="menubar__category">
 				<a href="#"><p class="category__name">ABOUT</p></a>
 				<a href="#"><p class="category__name">NEWS</p></a>
-				<a href="#"><p class="category__name">POLICY</p></a>
+				<a href="policylist.do"><p class="category__name">POLICY</p></a>
 				<a href="qnalist.do"><p class="category__name">QnA</p></a>
 			</div>
 			<div class="menubar__user__menu">
