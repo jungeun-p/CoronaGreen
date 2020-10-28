@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 <link href="resources/css/green_main.css?after" rel="stylesheet" type="text/css" />
 <link href="resources/css/green_map.css" rel="stylesheet" type="text/css"/>
+<!-- d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<link href="resources/css/green_chart.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header.jsp"%>
@@ -30,6 +33,7 @@
 		</div>
 		<div class="chart__wrap">
 			<p>일일확진자</p>
+			<div class="canvas"></div>
 		</div>
 		<!-- 선별진료소 -->
 		<div class="chart__wrap">
@@ -55,4 +59,6 @@
 </body>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=95fe911fd6cd905e50198f215562879d&libraries=services"></script>
 	<script src="resources/js/green_map.js"></script>
+	<!-- d3.js -->
+	<script src="resources/js/green_chart.js"></script>
 </html>
