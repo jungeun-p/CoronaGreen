@@ -10,3 +10,8 @@
     menuPar.addEventListener('mouseout', () => {
         userMenu.style.visibility = 'hidden';
     })
+    
+function donation() {
+    	location.href="donationform.do";
+    }
+    

@@ -25,10 +25,21 @@ public class green_interceptor implements HandlerInterceptor {
 			
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
-            out.println("<script>alert('글을 작성하려면 로그인해주세요');history.go(-1);</script>");
+            out.println("<script>alert('글을 작성하려면 로그인이 필요합니다.');history.go(-1);</script>");
             out.flush();
             
 			return false;
+		} else if (request.getRequestURI().contains("/donationform.do") &&
+						request.getSession().getAttribute("dto") == null) {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+            out.println("<script>"
+            		+ "alert('후원을 하려면 로그인이 필요합니다.');"
+            		+ "location.href='loginform.do';"
+            		+ "</script>");
+            out.flush();
+            
+            return false;
 		}
 		
 		return true;
