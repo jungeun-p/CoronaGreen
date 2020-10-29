@@ -10,4 +10,7 @@ public interface NewsDao {
 	String NAMESPACE = "news.";
 	
 	public List<NewsDto> bookmarkList(String id);
+	public int bookmarkCheck(String id, String link);
+	public int bookmarkInert(NewsDto dto);
+	public int bookmarkDelete(NewsDto dto);
 }
