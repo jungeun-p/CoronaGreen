@@ -10,14 +10,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap" rel="stylesheet">
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script type="text/javascript" src="resources/js/header.js"></script>
+<script src="resources/js/green_donation.js" defer></script>
 
 </head>
 <body>
 
 	<%@ include file="/WEB-INF/views/header.jsp" %>
-	
-	<section class="donation">
+	<input type="hidden" id="id" value="<%=dto.getId() %>"/>
+	<input type="hidden" id="phone" value="<%=dto.getPhone() %>"/>
+	<input type="hidden" id="email" value="<%=dto.getEmail() %>"/>
+	<input type="hidden" id="addr" value="<%=dto.getAddress() %>"/>
+	<section class="donation_wrap">
 		<div class="dona_border">
 			<h3>DONATION</h3>
 			
@@ -30,9 +35,10 @@
 			    <div class="Money_1 Donation_Money"><input type="text" name="WON" id="mywon" placeholder="후원 할 금액을 정하세요." required="required" title="n" /></div>
 			    <div class="Money_2 Donation_Money" id="won_t">WON</div>
 			</div>
+			<div id="donation_check"></div>
 			
 			<div class="div_Button">
-			    <div class="Button_1 Donation_Button"><input type="button" value="DONATION" id="button_t" onclick=""/></div>
+			    <div class="Button_1 Donation_Button"><input type="button" value="DONATION" id="button_t" onclick="payment();" disabled="disabled"/></div>
 			</div>
 				
 		</div>
