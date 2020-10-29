@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.corona.green.model.biz.NewsBiz;
 import com.corona.green.model.dto.MemberDto;
@@ -34,17 +36,45 @@ public class NewsController {
 			List<NewsDto> list = new ArrayList<NewsDto>();
 			
 			list = biz.bookmarkList(dto.getId());
-			
 			List<String> reallist = new ArrayList<String>();
 			for (int i = 0; i < list.size(); i++) {
-				reallist.add("\"" +list.get(i).getTitle()+ "\"");
+				if (list.get(i).getTitle().length() > 40) {
+					reallist.add("\"" +list.get(i).getTitle().substring(0,39)+"..."+ "\"");
+				} else {
+					reallist.add("\"" +list.get(i).getTitle() + "\"");
+				}
 			}
 			map.put("list",reallist);
 			model.addAttribute("map",map);
+			model.addAttribute("id","\"" +dto.getId() + "\"");
 			
 			return "green_news";
-		} 
+		} else {
+			Map<String,Object> map = new HashMap<String, Object>();
+			List<String> reallist = new ArrayList<String>();
+			reallist.add("\"alalaldhdh\"");
+			map.put("list", reallist);
+			model.addAttribute("map", map);
+			model.addAttribute("id","null");
+			return "green_news";
+		}
 		
-		return "green_news";
+	}
+	
+	@RequestMapping(value="bookmarkcheck.do", method=RequestMethod.GET)
+	@ResponseBody
+	public String bookmarkCheck(NewsDto dto) {
+		String result = "";
+		int res = biz.bookmarkCheck(dto.getId(), dto.getLink());
+		System.out.println("과연 체크!!" + res);
+		if (res > 0) {
+			result = "DELETE";
+			biz.bookmarkDelete(dto);
+			return result;
+		} else {
+			result = "INSERT";
+			biz.bookmarkInert(dto);
+			return result;
+		}
 	}
 }

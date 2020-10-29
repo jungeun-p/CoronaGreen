@@ -19,4 +19,22 @@ public class NewsBizImpl implements NewsBiz {
 		// TODO Auto-generated method stub
 		return dao.bookmarkList(id);
 	}
+
+	@Override
+	public int bookmarkCheck(String id, String link) {
+		// TODO Auto-generated method stub
+		return dao.bookmarkCheck(id, link);
+	}
+
+	@Override
+	public int bookmarkInert(NewsDto dto) {
+		// TODO Auto-generated method stub
+		return dao.bookmarkInert(dto);
+	}
+
+	@Override
+	public int bookmarkDelete(NewsDto dto) {
+		// TODO Auto-generated method stub
+		return dao.bookmarkDelete(dto);
+	}
 }
