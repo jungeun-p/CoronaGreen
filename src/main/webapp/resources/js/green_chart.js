@@ -1,4 +1,4 @@
- const svg = d3
+    const svg = d3
         .select(".canvas")
         .append("svg")
         .attr("width", 600)
