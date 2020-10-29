@@ -13,7 +13,6 @@ function policy() {
 		success: function(data) {
 			for (var i = 0; i < data.policy.length; i++) {
 				var link_url = data.policy[i].link.trim();
-				console.log(link_url);
 				$(".policy__module__wrap").append(
 						"<div class='policy__module' onclick='origin(\"" + link_url + "\");'>" +
 						"<p class='module__name'>" + data.policy[i].title + "</p>" +
