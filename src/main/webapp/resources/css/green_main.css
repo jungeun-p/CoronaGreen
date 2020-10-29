@@ -42,7 +42,8 @@ a {
 
 .chart__wrap {
   background-color: var(--color-gray);
-  min-width: 800px;
+  /* min-width: 800px; */
+  width : 800px;
   /*height: auto;*/
   height: 550px;
   color: var(--color-black);
@@ -51,3 +52,6 @@ a {
   border-radius: 30px;
 }
 
+#mask_img{
+	width: 100%;
+}

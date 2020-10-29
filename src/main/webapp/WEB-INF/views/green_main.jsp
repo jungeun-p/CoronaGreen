@@ -30,6 +30,7 @@
 	<section class="charts">
 		<div class="chart__wrap">
 			<p>word cloud chart</p>
+			<img alt="mask" src="resources/img/mask.png" id="mask_img">
 		</div>
 		<div class="chart__wrap">
 			<p>일일확진자</p>

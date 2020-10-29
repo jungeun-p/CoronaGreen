@@ -244,12 +244,12 @@
 			<version>2.2</version>
 		</dependency>
 
-		<!-- 자이썬 -->
+		<!-- 자이썬
 		<dependency>
 		    <groupId>org.python</groupId>
 		    <artifactId>jython-standalone</artifactId>
 		    <version>2.7.2</version>
-		</dependency>
+		</dependency> -->
 
 	</dependencies>
 	<build>

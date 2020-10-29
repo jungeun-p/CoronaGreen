@@ -5,7 +5,7 @@
 	<select id="qnalist" parameterType="QnaBoardDto" resultType="QnaBoardDto">
 		SELECT ID, BOARDNO, TITLE, CONTENT, REGDATE, SECRET
 		FROM QNA_BOARD
-		ORDER BY BOARDNO
+		ORDER BY BOARDNO DESC
 	</select>
 	
 	<select id="selectOne" parameterType="int" resultType="QnaBoardDto">
@@ -48,7 +48,7 @@
 							SELECT * 
 							FROM QNA_BOARD
 							WHERE TITLE LIKE '%'||#{title}||'%'
-							ORDER BY BOARDNO
+							ORDER BY BOARDNO DESC
 							) A
 					)
 		WHERE RN BETWEEN #{vo.start} AND #{vo.end}
@@ -58,7 +58,7 @@
 		SELECT ID, BOARDNO, TITLE, CONTENT, REGDATE, SECRET
 		FROM QNA_BOARD
 		WHERE ID LIKE '%'||#{id}||'%'
-		ORDER BY BOARDNO
+		ORDER BY BOARDNO DESC
 	</select>
 	
 	<!-- 총 게시글 갯수 출력 -->
@@ -74,7 +74,7 @@
 					FROM (
 							SELECT * 
 							FROM QNA_BOARD
-							ORDER BY BOARDNO
+							ORDER BY BOARDNO DESC
 							) A
 					)
 		WHERE RN BETWEEN #{start} AND #{end}
