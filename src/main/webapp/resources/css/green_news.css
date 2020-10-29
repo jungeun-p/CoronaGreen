@@ -3,8 +3,7 @@
 /* * */
 *{
     box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
-	font-family: 'Open Sans', sans-serif;   
+	font-family: 'Roboto', sans-serif;
 }
 img{
     vertical-align: middle;
@@ -40,15 +39,15 @@ li,ul,ol{
 }
 
 body {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
 }
 
 
-
-
 /* section */
 
+/*
 .news{
     width: 80%;
     margin: auto;
@@ -57,62 +56,68 @@ body {
 }
 
 .news__section{
-    border: 1px solid black;/**/
+    border: 1px solid black;
     width: 100%;
     display: flex;
 	align-items: center;
 	justify-content: space-between;
+}*/
+.news{
+	margin: 120px 0;
 }
-
-.news__section > li{
-    border: 1px solid yellow;/**/
-    width: 30%;
-    display: inline-block;
-    padding : 3%;
+.news__section1__news__section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 200px;
 }
 
 .news__section1__content{
-    
-}
-
-.content__img__box{
-    border: 1px solid green;/**/
-    position: relative;
-    width: 100%;
-    height: 250px;
+	width: 300px;
+    height: 370px;
+    border-radius:13px;
+    margin: 20px 20px;
+    display: flex;
+    flex-direction: column;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    margin-bottom: 15px;
+    background-color: var(--color-white);
 }
 
-.content__img__box > img{
-    width: 100%;
-}
-
-.content__heart{
-    width: 30px;
+.content__heart {
+	z-index:3;
+    text-align: right;
+    width: 300px;
     height: 30px;
-    border: 1px solid red;
-    position: absolute;
-    right: 10px;
-    top: 10px;
+    background-color: transparent;
+    border-radius: 13px;
 }
 
-.content__heart > img {
+.heart{
+    margin: 20px 20px;
+    cursor: pointer;
+    width: 10%;
+}
+
+.content__box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px 20px;
+}
+
+.content__img__box {
     width: 100%;
+    height: 140px;
+    background-color: lavender;
 }
-
 .content__text{
-    width: 100%;
+    margin-top: 10px;
 }
-.content__text__p{
-    width: 100%;
-    text-align: left;
-    font-size: var(--font-regular);
-    font-weight: var(--weight-thin);
+.content__text > p{
+    margin:0;
+    padding-bottom: 20px;
 }
-
-.heart {
-	z-index: 20px;
-	cursor: pointer;
+.content__title{
+    font-weight: var(--weight-bold);
 }

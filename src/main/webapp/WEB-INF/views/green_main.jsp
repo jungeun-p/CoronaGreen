@@ -34,7 +34,6 @@
 		</div>
 		<div class="chart__wrap">
 			<p>일일확진자</p>
-			<div class="canvas"></div>
 		</div>
 		<!-- 선별진료소 -->
 		<div class="chart__wrap">
