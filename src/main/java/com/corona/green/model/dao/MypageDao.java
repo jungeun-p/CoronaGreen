@@ -7,5 +7,5 @@ public interface MypageDao {
 	String NAMESPACE="mypage.";
 	
 	public int myupdate(MemberDto dto);	
-	
 }
+

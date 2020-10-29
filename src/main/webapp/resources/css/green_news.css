@@ -111,3 +111,8 @@ body {
     font-size: var(--font-regular);
     font-weight: var(--weight-thin);
 }
+
+.heart {
+	z-index: 20px;
+	cursor: pointer;
+}
