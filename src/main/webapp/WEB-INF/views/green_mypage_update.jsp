@@ -54,7 +54,7 @@
 	                </li>
 	                <li class="update_                                                                                                                  _form__li">
                         <span class="form__text">P.H</span>
-	                    <input type="text" name="phone" readonly value="${dto.phone }">
+	                    <input type="text" name="phone" readonly value="${dto.phone }" id="phon__input">
 	                </li>
 	                <li class="update__form__li">
                         <span class="form__text">ADDRESS</span>
