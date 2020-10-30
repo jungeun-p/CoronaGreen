@@ -65,6 +65,11 @@ public class NewsController {
 	@ResponseBody
 	public String bookmarkCheck(NewsDto dto) {
 		String result = "";
+		System.out.println(dto.getId());
+		System.out.println(dto.getTitle());
+		System.out.println(dto.getLink());
+		System.out.println(dto.getImg());
+		System.out.println(dto.getContent());
 		int res = biz.bookmarkCheck(dto.getId(), dto.getLink());
 		System.out.println("과연 체크!!" + res);
 		if (res > 0) {

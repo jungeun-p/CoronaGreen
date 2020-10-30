@@ -1,8 +1,8 @@
 
 function bookmarkDel(del, id) {
-	var link = $(del).parent().next().children().children().children('input').val();
+	var link = $(del).parent().prev().children().children().children('input').val();
 	var id = id;
-	
+	console.log(id + " " + link);
 	$.ajax({
 		url: "bookmarkdelete.do?id=" + id + "&link=" + encodeURIComponent(link),
 		type: "get",
@@ -16,4 +16,8 @@ function bookmarkDel(del, id) {
 			alert("실패");
 		}
 	})
+}
+
+function origin(url) {
+	window.open(url);
 }
