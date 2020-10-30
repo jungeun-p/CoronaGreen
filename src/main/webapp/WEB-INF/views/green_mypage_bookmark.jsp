@@ -38,22 +38,21 @@
 			</c:when>
 			<c:otherwise>
 				<c:forEach items="${list }" var="bookmarklist">
-					<div class="news__section1__content">
-						<div class="content__heart">
-							<img class="heart" src="resources/img/heart(empty).png" onclick="bookmarkDel(this, '${dto.id}')">
-						</div>
-						<div class="content__box">
-							<div class="content__img__box" onclick="origin('${bookmarklist.link}');">
-								<a> 
-								<input type="hidden" value="${bookmarklist.link }"/>
-								<img src="${bookmarklist.img }">
-								</a>
-							</div>
-							<div class="content__text">
-								<p class="content__title">${bookmarklist.title }</p>
-							</div>
-						</div>
+				<div class="news__section1__content">
+				<div class="content__box">
+					<div class="content__img__box">
+						<a>
+						<input type="hidden" value="${bookmarklist.link }"/> 
+						<img src="${bookmarklist.img }">
+						</a>
 					</div>
+				</div>
+				<div class="content__heart">
+					<div class="background__bg"></div>
+					<img src="resources/img/heart(empty).png" class="heart" onclick="bookmarkDel(this, '${dto.id}')"/>
+					<p class="content__title" onclick="origin('${bookmarklist.link}');">${bookmarklist.title }</p>
+				</div>
+				</div>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
@@ -163,6 +162,16 @@
 	</section>
 
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
+<script>
+const content = document.querySelector('.news__section1__content');
+const heart = document.querySelector('.content__heart');
 
+content.addEventListener('mouseover', () => {
+    heart.style.visibility = 'visible';
+})
+content.addEventListener('mouseout', () => {
+    heart.style.visibility = 'hidden';
+})
+</script>
 </body>
 </html>

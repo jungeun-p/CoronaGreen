@@ -13,18 +13,13 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
-	/*$(function() {
-		var list = $
-		{
-			map.list
-		}
-		;
+	$(function() {
+		var list = ${map.list};
 		var array = new Array();
 		$.each(list, function(index, value) {
 			array[index] = value;
 		})
-		$
-				.ajax({
+		$.ajax({
 					type : "post",
 					url : "resources/json/navernews.json",
 					data : "json",
@@ -35,10 +30,6 @@
 							var title = data.news[i].title.trim();
 							var link = data.news[i].link.trim();
 							var img = data.news[i].img.trim();
-							var content = data.news[i].content.trim();
-							if (content.length > 87) {
-								content = content.substr(0, 86) + "...";
-							}
 							if (title.length > 40) {
 								title = title.substr(0, 39) + "...";
 							}
@@ -47,48 +38,39 @@
 								$(".news__section1__news__section")
 										.append(
 												"<div class='news__section1__content'>"
-														+ "<div class='content__heart'>"
-														+ "<img onclick='bookmarkChk(this)'class='heart' src='resources/img/heart(empty).png'>"
-														+ "</div>"
-														+ "<div class='content__box' onclick='origin(\""
-														+ link
-														+ "\")'>"
+														+ "<div class='content__box'>"
 														+ "<div class='content__img__box'>"
-														+ "<a> <input id='link' type='hidden' value=\"" + link + "\"/>"
+														+ "<a>"
+														+ "<input type='hidden' value=\"" + link + "\"/>"
 														+ "<img src=\"" + img + "\">"
 														+ "</a>"
 														+ "</div>"
-														+ "<div class='content__text'>"
-														+ "<p class='content__title'>"
-														+ title
-														+ "</p>"
-														+ "<p class='content__content'>"
-														+ content + "</p>"
-														+ "</div>" + "</div>"
-														+ "</div>");
+														+ "</div>"
+														+ "<div class='content__heart'>"
+														+ "<div class='background__bg'></div>"
+														+ "<img src='resources/img/heart(empty).png' class='heart' onclick='bookmarkChk(this)'/>"
+														+ "<p class='content__title' onclick='origin(\"" + link + "\");''>${bookmarklist.title }" + title + "</p>"
+														+ "</div>"
+														+ "</div>"
+										);
 							} else {
 								$(".news__section1__news__section")
 										.append(
 												"<div class='news__section1__content'>"
-														+ "<div class='content__heart'>"
-														+ "<img onclick='bookmarkChk(this)' class='heart' src='resources/img/heart.png'>"
-														+ "</div>"
-														+ "<div class='content__box' onclick='origin(\""
-														+ link
-														+ "\")'>"
-														+ "<div class='content__img__box'>"
-														+ "<a> <input id='link' type='hidden' value=\"" + link + "\"/>"
-														+ "<img src=\"" + img + "\">"
-														+ "</a>"
-														+ "</div>"
-														+ "<div class='content__text'>"
-														+ "<p class='content__title'>"
-														+ title
-														+ "</p>"
-														+ "<p class='content__content'>"
-														+ content + "</p>"
-														+ "</div>" + "</div>"
-														+ "</div>");
+												+ "<div class='content__box'>"
+												+ "<div class='content__img__box'>"
+												+ "<a>"
+												+ "<input type='hidden' value=\"" + link + "\"/>"
+												+ "<img src=\"" + img + "\">"
+												+ "</a>"
+												+ "</div>"
+												+ "</div>"
+												+ "<div class='content__heart'>"
+												+ "<div class='background__bg'></div>"
+												+ "<img src='resources/img/heart.png' class='heart' onclick='bookmarkChk(this)'/>"
+												+ "<p class='content__title' onclick='origin(\"" + link + "\");''>${bookmarklist.title }" + title + "</p>"
+												+ "</div>"
+												+ "</div>");
 							}
 						}
 
@@ -101,27 +83,19 @@
 	})
 	
 	function bookmarkChk(heart) {
-		var link = $(heart).parent().next().children().children().children(
-				'input').val();
-		var img = $(heart).parent().next().children().children('a').children()
-				.attr('src');
-		var title = $(heart).parent().next().children().next().children(
-				'.content__title').text();
-		var content = $(heart).parent().next().children().next().children(
-				'.content__content').text();
-		var id = $
-		{
-			id
-		}
-		;
+		var link = $(heart).parent().prev().children().children().children('input').val();
+		var img = $(heart).parent().prev().children().children().children('img').attr('src');
+		var title = $(heart).next('.content__title').text();
+		var id = ${id};
+		console.log(id + " " + title + " " + img + " " + link);
+		
 		if (id == null) {
 			alert("북마크는 로그인 후 이용 가능합니다.");
 			location.href = "loginform.do";
 		} else {
 			$.ajax({
 				url : "bookmarkcheck.do?id=" + encodeURIComponent(id)
-						+ "&title=" + encodeURIComponent(title) + "&content="
-						+ encodeURIComponent(content) + "&link="
+						+ "&title=" + encodeURIComponent(title) + "&link="
 						+ encodeURIComponent(link) + "&img="
 						+ encodeURIComponent(img),
 				type : "get",
@@ -144,7 +118,7 @@
 
 	function origin(url) {
 		window.open(url);
-	}*/
+	}
 </script>
 </head>
 <body>
@@ -153,7 +127,7 @@
 
 	<section class="news">
 		<section class="news__section1__news__section">
-			<div class="news__section1__content">
+			<!-- <div class="news__section1__content">
 				<div class="content__box">
 					<div class="content__img__box">
 						<a href=""> <img src="" alt="">
@@ -165,13 +139,13 @@
 					<img src="resources/img/heart(empty).png" class="heart" />
 					<p class="content__title">+ title +</p>
 				</div>
-			</div>
+			</div> -->
 		</section>
 	</section>
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
 </body>
-<script>
+<!-- <script>
 const content = document.querySelector('.news__section1__content');
 const heart = document.querySelector('.content__heart');
 
@@ -181,5 +155,5 @@ content.addEventListener('mouseover', () => {
 content.addEventListener('mouseout', () => {
     heart.style.visibility = 'hidden';
 })
-</script>
+</script> -->
 </html>

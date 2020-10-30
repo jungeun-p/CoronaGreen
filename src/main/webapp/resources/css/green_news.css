@@ -115,10 +115,11 @@ body {
     font-weight: var(--weight-bold);
     color:var(--color-white);
     cursor:pointer;
+    text-align: center;
+    margin: 35px 20px;
 }
 .content__heart {
-    visibility: hidden;
-    position: fixed;
+    visibility: visible;
     transform: translateY(-100%);
     width: 300px;
     height: 200px;

@@ -18,7 +18,7 @@
 	<!-- 북마크 등록 -->
 	<insert id="insert" parameterType="NewsDto">
 		INSERT INTO BOOKMARK 
-		VALUES(BOOKMARKNO_SEQ.NEXTVAL, #{id}, #{link}, #{img}, #{title}, #{content})
+		VALUES(BOOKMARKNO_SEQ.NEXTVAL, #{id}, #{link}, #{img}, #{title}, null)
 	</insert>
 	
 	<!-- 북마크 해제 -->
