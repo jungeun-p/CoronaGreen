@@ -26,6 +26,10 @@ body {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 /*사용예시*/
 
 /*-> var() 안에 root로 정해준 값을 넣어주면 적용됩니다. */

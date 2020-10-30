@@ -11,6 +11,9 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="resources/js/green_mypage_bookmark.js" defer></script>
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
