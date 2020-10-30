@@ -34,8 +34,10 @@
 		</div>
 		<div class="chart__wrap">
 			<p>일일확진자</p>
+			<div class="canvas"></div>
 		</div>
 		<!-- 선별진료소 -->
+		
 		<div class="chart__wrap">
 			<div class="map_wrap">
     			<div id="map" style="width:100%;height:100%;position:relative;overflow:hidden; color: black; border-radius: 30px;"></div>
@@ -49,11 +51,13 @@
 			            </div>
 	        		</div>
 	        	<hr>
+	        	<div id="map_header"></div>
 	        	<ul id="placesList"></ul>
 	        	<div id="pagination"></div>
-			    </div>
+			    </div>	    
 			</div>
 		</div>
+		
 	</section>
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
