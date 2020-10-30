@@ -7,18 +7,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <link href="resources/css/green_qna_list.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-<style type="text/css">
-#serchpaging{
-	display:none;
-}
-
-#paging{
-	display: block;
-}
-</style>
 <script>
 	$(document).ready(function(){
 		<c:if test="${serchtext == null}">
@@ -38,6 +30,35 @@
 		</c:if>
 	}
 </script>
+<!-- 부트스트랩 -->
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- 부트스트랩 -->
+
+
+<style type="text/css">
+#serchpaging{
+	display:none;
+}
+
+#paging{
+	display: block;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+	vertical-align: middle;
+	text-align: center;
+	border: 1px solid lightgray;
+}
+.qnalist__section2__border__title{
+	width: 21%;
+	margin-bottom: 30px;
+}
+
+</style>
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header.jsp"%>	
@@ -66,12 +87,12 @@
 			
 			<div class="qnalist__section2__border">
 				<div class="qnalist__section2__border__title">QNA 게시판</div>
-				<table border=1 class="qnalist__section2__border__table">
-					<col width="5%">
-					<col width="5%">
+				<table border=1 class="qnalist__section2__border__table table table-striped">
+					<col width="10%">
+					<col width="10%">
 					<col width="50%">
-					<col width="20%">
-					<col width="20%">
+					<col width="15%">
+					<col width="15%">
 					<tr>
 						<th>번호</th>
 						<th>비밀글</th>

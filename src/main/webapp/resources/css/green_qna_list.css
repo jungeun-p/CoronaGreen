@@ -62,7 +62,7 @@ body {
 
 /*QNA 리스트*/
 .qnalist__section2__border {
-	margin-bottom: 100px;
+	margin-bottom: 10px;
 }
 .qnalist__section2__border__title{
 	margin: 0 auto;
@@ -76,13 +76,22 @@ body {
 	width:100%;
 }
 .qnalist__section2__border__btnwrap{
-	margin: 10px auto;
+	margin: 20px auto;
 	width:50%;
-	text-align: right;
+	text-align: center;
 }
 
 #outter{
 	margin: 0 auto;
     border-collapse: collapse;
     width: 50%;
+}
+
+.qnalist__wrap{
+	margin-bottom: 200px;
+}
+
+
+.qnalist__section2__border__btnwrap > form{
+	display: inline-block;
 }
