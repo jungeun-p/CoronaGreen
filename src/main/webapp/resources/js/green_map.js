@@ -1,7 +1,7 @@
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = { 
 	        center: new kakao.maps.LatLng(), // 지도의 중심좌표
-	        level: 3 // 지도의 확대 레벨 
+	        level: 8 // 지도의 확대 레벨 
 	    }; 
 	
 		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -17,6 +17,36 @@
 		        
 		        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 		            message = '<div style="padding:5px;">현재위치</div>'; // 인포윈도우에 표시될 내용입니다
+		        
+		       
+				// 지도를 재설정할 범위정보를 가지고 있을 LatLngBounds 객체를 생성합니다
+				var bounds = new kakao.maps.LatLngBounds();
+
+				var marker = new kakao.maps.Marker({
+					position : locPosition
+				});
+
+				marker.setMap(map);
+				bounds.extend(locPosition);
+
+				var current = document.createElement('button');
+				var currentClick = document.createTextNode('현재위치 재설정');
+				var mapHeader = document.getElementById('map_header');
+				current.appendChild(currentClick);
+				mapHeader.appendChild(current);
+
+				
+				console.log(mapHeader);
+
+				current.addEventListener('click', function() {
+					setBounds();
+				})
+
+				function setBounds() {
+					// LatLngBounds 객체에 추가된 좌표들을 기준으로 지도의 범위를 재설정합니다
+					// 이때 지도의 중심좌표와 레벨이 변경될 수 있습니다
+					map.setBounds(bounds);
+				}
 		        
 		        // 마커와 인포윈도우를 표시합니다
 		        displayMarker(locPosition, message);
@@ -53,7 +83,9 @@
 		    infowindow.open(map, marker);
 		    
 		    // 지도 중심좌표를 접속위치로 변경합니다
-		    map.setCenter(locPosition);      
+		    map.setCenter(locPosition);  
+		    
+		        
 		}   
 ///////////////▲현재위치 마크///▼선별진료소위치 마크////////////////////////////////////////////////////////////////////////////////////
 	 	// 마커를 담을 배열입니다
@@ -62,11 +94,20 @@
 	    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	        mapOption = {
 	            center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-	            level: 6 // 지도의 확대 레벨
+	            level: 8 // 지도의 확대 레벨
 	        };  
 	
 	    // 지도를 생성합니다    
 	    var map = new kakao.maps.Map(mapContainer, mapOption); 
+	    
+	    // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+		var zoomControl = new kakao.maps.ZoomControl();
+		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+		
+		// 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
+		kakao.maps.event.addListener(map, 'zoom_changed', function() {        
+		    	    
+		});
 	
 	    // 장소 검색 객체를 생성합니다
 	    var ps = new kakao.maps.services.Places();  
@@ -272,3 +313,5 @@
 	            el.removeChild (el.lastChild);
 	        }
 	    }
+	    
+	    
