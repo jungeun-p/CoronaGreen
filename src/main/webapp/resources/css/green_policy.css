@@ -41,6 +41,7 @@ body {
   flex-direction: row;
   justify-content: space-around;
 }
+/*
 .category {
   margin: 20px;
   width: 180px;
@@ -62,6 +63,7 @@ body {
   font-size: var(--font-small);
   font-weight: var(--weight-bold);
 }
+*/
 /*policy__module__wrap*/
 .policy__module__wrap {
   display: flex;

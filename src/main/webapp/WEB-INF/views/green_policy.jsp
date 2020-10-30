@@ -12,11 +12,6 @@
 <body>
 	<%@ include file="/WEB-INF/views/header.jsp" %>
     <section class="policy">
-        <nav class="policy__category">
-            <div class="category"><p>CATE1</p></div>
-            <div class="category"><p>CATE2</p></div>
-            <div class="category"><p>CATE3</p></div>
-        </nav> 
         <section class="policy__module__wrap">
             <!-- <div class="policy__module">
                 <p class="module__name">
