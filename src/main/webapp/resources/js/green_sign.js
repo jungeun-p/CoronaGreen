@@ -504,6 +504,7 @@ var phone = function() {
 
 // 이메일 체크
 var email = function() {
+	var user_email1 = $("#email").val().trim();
 	if ($('#email').val() == "") {
 		$('#email_check').text('이메일을 입력해주세요');
 		$('#email_check').css('color', 'red');
@@ -511,16 +512,13 @@ var email = function() {
 		$('#email').css("border", "1px solid red");
 		array[5] = false;
 	}
-
-	
 	$.ajax({
-				url : 'emailcheck.do?email=' + user_email,
+				url : 'emailcheck.do?email=' + user_email1,
 				type : 'get',
 				success : function(data) {
 					var mailJ = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 
 					if (data == 1) {
-						// 1 : 아이디가 중복되는 문구
 						$("#email_check").text("사용중인 이메일입니다.");
 						$("#email_check").css("color", "red");
 						$('#email').css("outline-color", "red");
@@ -528,15 +526,14 @@ var email = function() {
 						array[5] = false;
 					} else {
 
-						if (mailJ.test(user_email)) {
-							// 0 : 아이디 길이 / 문자열 검사
+						if (mailJ.test(user_email1)) {
 							$("#email_check").text("사용가능한 이메일입니다.");
 							$('#email_check').css('color', 'blue');
 							$('#email').css("outline-color", "#ddd");
 							$('#email').css("border", "1px solid #ddd");
 							// $("#reg_submit").prop("disabled", false);
 							array[5] = true;
-						} else if (user_email == "") {
+						} else if (user_email1 == "") {
 
 							$('#email_check').text('이메일을 입력해주세요.');
 							$('#email_check').css('color', 'red');
@@ -649,6 +646,7 @@ $("#phone_code_send").click(function(){
 		type : 'get',
 		success: function(data) {
 			code = data;
+			console.log(code);
 			alert("인증번호가 발송되었습니다.");
 			$("#phone_code_check").text("인증번호를 입력해주세요.");
 			$("#phone_code_check").css("color","red");
@@ -762,12 +760,18 @@ $("#reg_submit").click(function() {
 
 
 $("#phonecode").blur(function(){
-	if ($.trim(code) == $("#phonecode").val()) {
+	if (($.trim(code) !="") && ($.trim(code) == $("#phonecode").val())) {
 		$("#phone_code_check").text("인증번호가 일치합니다");
 		$("#phone_code_check").css("color", "blue");
 		$("#phonecode").css("outline-color", "#ddd");
 		$("#phonecode").css("border", "1px solid #ddd");
 		$("#phone_code_check_button").prop("disabled",false);
+	} else if ($("#phonecode").val() == "") { 
+		$("#phone_code_check").text("인증번호를 입력해주세요.");
+		$("#phone_code_check").css("color", "red");
+		$("#phonecode").css("outline-color", "red");
+		$("#phonecode").css("border", "1px solid red");
+		$("#phone_code_check_button").prop("disabled",true);
 	} else {
 		$("#phone_code_check").text("인증번호가 일치하지 않습니다.");
 		$("#phone_code_check").css("color", "red");

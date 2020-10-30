@@ -1,5 +1,8 @@
 package com.corona.green.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -8,12 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.corona.green.api.UserSha256;
+import com.corona.green.model.biz.BookMarkBiz;
 import com.corona.green.model.biz.MemberBiz;
 import com.corona.green.model.biz.MypageBiz;
+import com.corona.green.model.dto.BookMarkDto;
 import com.corona.green.model.dto.MemberDto;
 
 @Controller
@@ -21,6 +27,9 @@ public class MypageController {
 
 	@Autowired
 	private MypageBiz biz;
+	
+	@Autowired
+	private BookMarkBiz bookmarkbiz;
 	
 	Logger logger = LoggerFactory.getLogger(MemberLoginController.class);
 	
@@ -59,6 +68,37 @@ public class MypageController {
 			ck=true;
 		}
 		return ck;
+	}
+	
+	// 북마크 리스트출력
+	@RequestMapping("bookmarklist.do")
+	public String bookmarkList(Model model,HttpSession session) {
+		MemberDto dto = (MemberDto)session.getAttribute("dto");
+		if (dto != null) {
+			List<BookMarkDto> list = new ArrayList<BookMarkDto>();
+			list = bookmarkbiz.selectList(dto.getId());
+			model.addAttribute("list", list);
+			return "green_mypage_bookmark";
+		} else {
+			model.addAttribute("msg", "로그인을 해주세요.");
+			model.addAttribute("url", "/loginform.do");
+			return "redirect";
+		}
+	}
+	
+	@RequestMapping(value="bookmarkdelete.do", method=RequestMethod.GET)
+	@ResponseBody
+	public String bookmarkDel(BookMarkDto dto) {
+		System.out.println(dto.getId());
+		System.out.println(dto.getLink());
+		
+		int res = bookmarkbiz.delete(dto);
+		if (res > 0) {
+			return "SUCCESS";
+		} else {
+			return "FAIL";
+		}
+		
 	}
 	
 }

@@ -15,11 +15,13 @@
 		AND LINK = #{link}
 	</select>
 	
+	<!-- 북마크 등록 -->
 	<insert id="insert" parameterType="NewsDto">
 		INSERT INTO BOOKMARK 
 		VALUES(BOOKMARKNO_SEQ.NEXTVAL, #{id}, #{link}, #{img}, #{title}, #{content})
 	</insert>
 	
+	<!-- 북마크 해제 -->
 	<delete id="delete" parameterType="NewsDto">
 		DELETE FROM BOOKMARK
 		WHERE ID = #{id}
