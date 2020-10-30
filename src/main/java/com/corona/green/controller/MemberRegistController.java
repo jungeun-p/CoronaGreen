@@ -58,6 +58,7 @@ public class MemberRegistController {
 	@RequestMapping(value="emailcheck.do", method=RequestMethod.GET)
 	@ResponseBody
 	public String emailCheck(@RequestParam("email") String email) {
+		System.out.println("야양러ㅣㅇ너리ㅏㄴ어ㅏㅣㄹ너아ㅣ런아ㅣ러ㅏ");
 		System.out.println(email);
 		int res= biz.EmailCheck(email);
 		String res1 = Integer.toString(res);
@@ -72,7 +73,7 @@ public class MemberRegistController {
 		PhoneCodeSend send = new PhoneCodeSend();
 		RandomCode code = new RandomCode();
 		String phonecode = code.excuteGenerate();
-		send.certifiedPhoneNumber(phone, phonecode);
+		//send.certifiedPhoneNumber(phone, phonecode);
 		
 		return phonecode;
 	}

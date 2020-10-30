@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="bookmark">
+
+	<select id="list" parameterType="String" resultType="BookMarkDto">
+		SELECT BOOKMARKNO, ID, LINK, IMG, TITLE, CONTENT
+		FROM BOOKMARK
+		WHERE ID = #{id}
+		ORDER BY BOOKMARKNO DESC
+	</select>
+	
+	<delete id="delete" parameterType="BookMarkDto">
+		DELETE FROM BOOKMARK
+		WHERE ID = #{id}
+		AND LINK = #{link}
+	</delete>
+</mapper>

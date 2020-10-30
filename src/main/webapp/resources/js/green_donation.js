@@ -38,7 +38,7 @@ function payment() {
 
 			// 결제 성공하고나서 controller가서 후원 목록에 인서트해주고 main으로 간다. (영석 파이널)
 		} else {
-			alert("결제에 실패하였습니다. 에러 내용: " + rsp.error_msg);
+			//alert("결제에 실패하였습니다. 에러 내용: " + rsp.error_msg);
 			self.close();
 		}
 	});

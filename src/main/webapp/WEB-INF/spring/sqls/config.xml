@@ -8,6 +8,7 @@
 		<typeAlias type="com.corona.green.model.dto.QnaBoardReDto" alias="QnaBoardReDto"/>
 		<typeAlias type="com.corona.green.model.dto.DonationDto" alias="DonationDto"/>
 		<typeAlias type="com.corona.green.model.dto.NewsDto" alias="NewsDto"/>
+		<typeAlias type="com.corona.green.model.dto.BookMarkDto" alias="BookMarkDto"/>
 	</typeAliases>
 	
 	<mappers>
@@ -17,6 +18,7 @@
 		<mapper resource="/mybatis/mypage-mapper.xml"/>
 		<mapper resource="/mybatis/donation-mapper.xml"/>
 		<mapper resource="/mybatis/news-mapper.xml"/>
+		<mapper resource="/mybatis/bookmark-mapper.xml"/>
 	</mappers>
 
 </configuration>

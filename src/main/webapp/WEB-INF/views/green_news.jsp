@@ -83,7 +83,7 @@
 	})
 		function bookmarkChk(heart) {
 			var link = $(heart).parent().next().children().children().children('input').val();
-			var img = $(heart).parent().next().children().children('a').children().attr('src');
+			var img = $(heart).parent().next().children().children().children('img').attr('src');
 			var title = $(heart).parent().next().children().next().children('.content__title').text();
 			var content = $(heart).parent().next().children().next().children('.content__content').text();
 			var id = ${id};

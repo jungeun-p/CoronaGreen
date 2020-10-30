@@ -18,10 +18,10 @@
 	<section class="update__section">
         <nav class="update__side__nav">
             <p class="update__side__nav__p">
-                <a href="myprofile_update.do" class="nav__link">EDIT MY PROFILE</a>
+                <a href="mypage_update.do" class="nav__link">EDIT MY PROFILE</a>
             </p>
             <p class="update__side__nav__p">
-                <a href="#" class="nav__link">BOOKMARK</a>
+                <a href="bookmarklist.do" class="nav__link">BOOKMARK</a>
             </p>
         </nav>
 	    <div class="update__form__wrap">
