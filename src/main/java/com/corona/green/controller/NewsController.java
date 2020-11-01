@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.corona.green.model.biz.NewsBiz;
@@ -65,11 +66,6 @@ public class NewsController {
 	@ResponseBody
 	public String bookmarkCheck(NewsDto dto) {
 		String result = "";
-		System.out.println(dto.getId());
-		System.out.println(dto.getTitle());
-		System.out.println(dto.getLink());
-		System.out.println(dto.getImg());
-		System.out.println(dto.getContent());
 		int res = biz.bookmarkCheck(dto.getId(), dto.getLink());
 		System.out.println("과연 체크!!" + res);
 		if (res > 0) {
@@ -80,6 +76,41 @@ public class NewsController {
 			result = "INSERT";
 			biz.bookmarkInert(dto);
 			return result;
+		}
+	}
+	
+	@RequestMapping("keywordsearch.do")
+	public String KeyWordSearch (@RequestParam("keyword") String keyword, Model model, HttpSession session) {
+		System.out.println(keyword);
+		MemberDto dto = (MemberDto)session.getAttribute("dto");
+		if (dto != null) {
+			Map<String,Object> map = new HashMap<String, Object>();
+			List<NewsDto> list = new ArrayList<NewsDto>();
+			
+			list = biz.bookmarkList(dto.getId());
+			List<String> reallist = new ArrayList<String>();
+			for (int i = 0; i < list.size(); i++) {
+				if (list.get(i).getTitle().length() > 40) {
+					reallist.add("\"" +list.get(i).getTitle().substring(0,39)+"..."+ "\"");
+				} else {
+					reallist.add("\"" +list.get(i).getTitle() + "\"");
+				}
+			}
+			map.put("list",reallist);
+			model.addAttribute("map",map);
+			model.addAttribute("id","\"" +dto.getId() + "\"");
+			model.addAttribute("keyword", "\"" + keyword + "\"");
+			
+			return "green_news_keyword";
+		} else {
+			Map<String,Object> map = new HashMap<String, Object>();
+			List<String> reallist = new ArrayList<String>();
+			reallist.add("\"alalaldhdh\"");
+			map.put("list", reallist);
+			model.addAttribute("map", map);
+			model.addAttribute("id","null");
+			model.addAttribute("keyword", "\"" + keyword + "\"");
+			return "green_news_keyword";
 		}
 	}
 }

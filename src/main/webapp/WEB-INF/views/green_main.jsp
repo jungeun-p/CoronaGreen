@@ -65,4 +65,5 @@
 	<script src="resources/js/green_map.js"></script>
 	<!-- d3.js -->
 	<script src="resources/js/green_chart.js"></script>
+	<script src="resources/js/green_main.js"></script>
 </html>
