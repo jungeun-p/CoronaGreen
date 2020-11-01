@@ -9,6 +9,7 @@
 		<typeAlias type="com.corona.green.model.dto.DonationDto" alias="DonationDto"/>
 		<typeAlias type="com.corona.green.model.dto.NewsDto" alias="NewsDto"/>
 		<typeAlias type="com.corona.green.model.dto.BookMarkDto" alias="BookMarkDto"/>
+		<typeAlias type="com.corona.green.model.dto.LogDto" alias="LogDto"/>
 	</typeAliases>
 	
 	<mappers>
@@ -19,6 +20,7 @@
 		<mapper resource="/mybatis/donation-mapper.xml"/>
 		<mapper resource="/mybatis/news-mapper.xml"/>
 		<mapper resource="/mybatis/bookmark-mapper.xml"/>
+		<mapper resource="/mybatis/log-mapper.xml"/>
 	</mappers>
 
 </configuration>
