@@ -163,15 +163,16 @@
 
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 <script>
-const content = document.querySelector('.news__section1__content');
-const heart = document.querySelector('.content__heart');
-
-content.addEventListener('mouseover', () => {
-    heart.style.visibility = 'visible';
-})
-content.addEventListener('mouseout', () => {
-    heart.style.visibility = 'hidden';
-})
+const contents = document.querySelectorAll('.news__section1__content');
+contents.forEach((con) => {
+    let heart = con.childNodes[3];
+    con.addEventListener('mouseover', (event) => {
+        heart.style.visibility = 'visible';
+    })
+    con.addEventListener('mouseout', (event) => {
+        heart.style.visibility = 'hidden';
+    })
+}) 
 </script>
 </body>
 </html>
