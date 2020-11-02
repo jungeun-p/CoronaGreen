@@ -41,7 +41,8 @@ public class MemberLoginController {
 	@Autowired
 	private MemberBiz biz;
 	
-	@Autowired
+	//@Autowired
+	@Resource(name="logbiz")
 	private LogBiz logbiz;
 
 	Logger logger = LoggerFactory.getLogger(MemberLoginController.class);
@@ -182,23 +183,22 @@ public class MemberLoginController {
 
 	@RequestMapping("/logout1.do")
 	public String logout(HttpSession session) {
+		MemberDto res = (MemberDto)session.getAttribute("dto");
+		if (res != null) {
 		logger.info("로그아웃 성공");
 		LogDto dto = new LogDto(0, session.getId(),null,null,null);
 		logbiz.LogOut(dto);
+		System.out.println(session.getId());
 		System.out.println("로그아웃해서 세션 없어져서 시간저장!");
 		session.invalidate();
 		return "redirect:main.do";
+		}
+		return "main.do";
 	}
 
 	@RequestMapping("regist.do")
 	public String regist() {
 		return "green_sign";
-	}
-	
-	@RequestMapping("gogogo.do")
-	public void gogogogo() {
-		System.out.println("레알되냐??");
-		
 	}
 
 }

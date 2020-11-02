@@ -8,4 +8,5 @@ public interface LogDao {
 	
 	public int LogEnter(LogDto dto);
 	public int LogOut(LogDto dto);
+	public int TimeLogOut(String sessionid);
 }

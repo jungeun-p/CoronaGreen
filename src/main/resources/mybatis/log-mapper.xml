@@ -7,9 +7,15 @@
 		VALUES (LOGNO_SEQ.NEXTVAL, #{sessionid}, #{id}, SYSDATE, null)
 	</insert>
 	
-	<delete id="out" parameterType="LogDto">
+	<update id="out" parameterType="LogDto">
 		UPDATE LOG SET
 		OUT = SYSDATE
 		WHERE SESSIONID = #{sessionid}
-	</delete>
+	</update>
+	
+	<update id="timeout" parameterType="String">
+		UPDATE LOG SET
+		OUT = SYSDATE
+		WHERE SESSIONID = #{sessionid}
+	</update>
 </mapper>

@@ -3,5 +3,5 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- <bean id="logbiz1" class="com.corona.green.model.biz.LogBizImpl"/> -->
+	<!-- <bean id="logbiz1" class="com.corona.green.model.biz.LogBizImpl"/>  -->
 </beans>

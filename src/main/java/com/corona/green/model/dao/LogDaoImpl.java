@@ -12,14 +12,14 @@ import com.corona.green.model.dto.LogDto;
 public class LogDaoImpl implements LogDao {
 
 	Logger logger = LoggerFactory.getLogger(LogDaoImpl.class);
-	
+
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
 	@Override
 	public int LogEnter(LogDto dto) {
 		int res = 0;
-		
+
 		try {
 			res = sqlSession.insert(NAMESPACE + "enter", dto);
 		} catch (Exception e) {
@@ -32,11 +32,25 @@ public class LogDaoImpl implements LogDao {
 	@Override
 	public int LogOut(LogDto dto) {
 		int res = 0;
-		
+
 		try {
 			res = sqlSession.update(NAMESPACE + "out", dto);
 		} catch (Exception e) {
 			logger.info("ERROR LOGOUTUPDATE");
+			e.printStackTrace();
+		}
+		return res;
+	}
+
+	@Override
+	public int TimeLogOut(String sessionid) {
+		int res = 0;
+
+		try {
+			res = sqlSession.update(NAMESPACE + "timeout", sessionid);
+			System.out.println("res의 값" + res);
+		} catch (Exception e) {
+			logger.info("ERROR TIMELOGOUTUPDATE");
 			e.printStackTrace();
 		}
 		return res;

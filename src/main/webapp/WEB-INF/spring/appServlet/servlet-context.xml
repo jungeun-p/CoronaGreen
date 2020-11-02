@@ -47,6 +47,6 @@
 	<beans:bean id="naverLoginBO"
 		class="com.corona.green.api.NaverLoginBo" />
 	
-	<!-- <beans:bean id="logbiz" class="com.corona.green.model.biz.LogBizImpl"/>
-	<beans:bean id="logbiz1" class="com.corona.green.model.biz.LogBizImpl"/> -->
+	<beans:bean id="logbiz" class="com.corona.green.model.biz.LogBizImpl"/>
+	<beans:bean id="logbiz1" class="com.corona.green.log.Log"/>
 </beans:beans>
