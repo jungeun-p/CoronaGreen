@@ -7,11 +7,30 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/green_news.css">
 <!-- google font -->
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap"
-	rel="stylesheet">
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<%@ include file="/WEB-INF/views/header.jsp"%>
+
+	<section class="news">
+		<section class="news__section1__news__section">
+			<!-- <div class="news__section1__content">
+				<div class="content__box">
+					<div class="content__img__box">
+						<a href=""> <img src="" alt="">
+						</a>
+					</div>
+				</div>
+				<div class="content__heart">
+					<div class="background__bg"></div>
+					<img src="resources/img/heart(empty).png" class="heart" />
+					<p class="content__title">+ title +</p>
+				</div>
+			</div> -->
+		</section>
+	</section>
+	<%@ include file="/WEB-INF/views/footer.jsp"%>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		var list = ${map.list};
@@ -78,7 +97,20 @@
 					error : function() {
 						alert("실패");
 					}
-				})
+					// ajax실행 완료 후 green_news js 실행
+				}).done(function(){
+
+				    const contents = document.querySelectorAll('.news__section1__content');
+				    contents.forEach((con) => {
+				        let heart = con.childNodes[3];
+				        con.addEventListener('mouseover', (event) => {
+				            heart.style.visibility = 'visible';
+				        })
+				        con.addEventListener('mouseout', (event) => {
+				            heart.style.visibility = 'hidden';
+				        })
+				    })
+});
 
 	})
 	
@@ -119,41 +151,7 @@
 	function origin(url) {
 		window.open(url);
 	}
+
 </script>
-</head>
-<body>
-
-	<%@ include file="/WEB-INF/views/header.jsp"%>
-
-	<section class="news">
-		<section class="news__section1__news__section">
-			<!-- <div class="news__section1__content">
-				<div class="content__box">
-					<div class="content__img__box">
-						<a href=""> <img src="" alt="">
-						</a>
-					</div>
-				</div>
-				<div class="content__heart">
-					<div class="background__bg"></div>
-					<img src="resources/img/heart(empty).png" class="heart" />
-					<p class="content__title">+ title +</p>
-				</div>
-			</div> -->
-		</section>
-	</section>
-	<%@ include file="/WEB-INF/views/footer.jsp"%>
-
 </body>
-<!-- <script>
-const content = document.querySelector('.news__section1__content');
-const heart = document.querySelector('.content__heart');
-
-content.addEventListener('mouseover', () => {
-    heart.style.visibility = 'visible';
-})
-content.addEventListener('mouseout', () => {
-    heart.style.visibility = 'hidden';
-})
-</script> -->
 </html>

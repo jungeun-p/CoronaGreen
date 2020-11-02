@@ -20,6 +20,7 @@
 		
 			<div class="regist__title">SIGN</div>
 			
+			<!-- ID -->
 			<div class="regist__id regist__all">
 				<div class="regist__id__title" id="id_t">ID</div>
 				<div class="regist__id__input regist__input">
@@ -27,7 +28,8 @@
 				</div>
 			</div>
 			<div class="check__font" id="id_check"></div>
-
+			
+			<!-- PW -->
 			<div class="regist__pw regist__all">
 				<div class="regist__pw__title" id="pw_t">PW</div>
 				<div class="regist__pw__input regist__input">
@@ -36,7 +38,8 @@
 				</div>
 			</div>
 			<div class="check__font check__pw" id="pw_check1"></div>
-				
+			
+			<!-- PW CHECK -->
 			<div class="regist__pwchk regist__all">	
 				<div class="regist__pwchk__input regist__input">		
 						<input type="text" id="mypw2" class="pw__chk check__1"
@@ -46,7 +49,8 @@
 			</div>	
 			<div class="check__font check__pwchk" id="pw_check2"></div>
 		
-
+		
+			<!-- ADDR -->
 			<div class="regist__addr regist__all">
 				<div class="regist__addr__title" id="addr_t">ADDR</div>
 				<div class="regist__addr__post">
@@ -71,6 +75,7 @@
 			</div>
 			<div class="check__font check__addr" id="addr_check"></div>
 			
+			<!-- PHONE -->
 
 			<div class="regist__phone regist__all">
 				<div class="regist__phone__title" id="phone_t">P.H</div>
@@ -83,7 +88,8 @@
 				</div>
 			</div>
 			<div class="check__font check__phone" id="myph_check"></div>
-			
+				
+			<!-- CODE -->
 			<div class="regist__phone__cer regist__all">
 				<div class="regist__phone__cer__title">CODE</div>
 				<div class="regist__phone__cer__input regist__input">
@@ -94,7 +100,9 @@
 				</div>
 			</div>
 			<div class="check__font check__phone__code" id="phone_code_check"></div>
-
+	
+			
+			<!-- MAIL -->
 			<div class="regist_email regist__all">
 				<div class="regist__email__title" id="email_t">EMAIL</div>
 				<div class="regist__email__input regist__input">
@@ -124,7 +132,8 @@
 				</div>
 			</div>
 			<div class="check__font check__email" id="email_check"></div>
-
+			
+			<!-- REGIST -->
 			<div class="regist__cofirm">
 				<div class="regist__confirm__input">
 					<input class="regist__confirm__button regist__button" type="submit" value="SIGN" id="reg_submit" class=""/>
