@@ -11,6 +11,8 @@
 	type="text/css" />
 <!-- d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
+<!-- d3.js cloud -->
+<script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
 <link href="resources/css/green_chart.css" rel="stylesheet"
 	type="text/css" />
 </head>
@@ -33,16 +35,13 @@
 	<section class="charts">
 		<div class="chart__wrap">
 			<p>word cloud chart</p>
-			<img alt="mask" src="resources/img/mask.png" id="mask_img">
+			<div id="cloud"></div>
 		</div>
 		<div class="chart__wrap">
 			<p>일일확진자</p>
-
 			<div class="canvas" id="svg1"></div>
-
 		</div>
 		<!-- 선별진료소 -->
-		
 		<div class="chart__wrap">
 			<div class="map_wrap">
 
@@ -61,18 +60,16 @@
 					<ul id="placesList"></ul>
 					<div id="pagination"></div>
 				</div>
-
 			</div>
 		</div>
-		
 	</section>
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
-
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=95fe911fd6cd905e50198f215562879d&libraries=services"></script>
 <script src="resources/js/green_map.js"></script>
 <!-- d3.js -->
 <script src="resources/js/green_chart.js"></script>
-
+<!-- d3.js_colud -->
+<script src="resources/js/green_chart_word.js"></script>
 </html>
