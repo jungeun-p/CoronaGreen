@@ -22,4 +22,10 @@ public class LogBizImpl implements LogBiz {
 		// TODO Auto-generated method stub
 		return dao.LogOut(dto);
 	}
+
+	@Override
+	public int TimeLogOut(String sessionid) {
+		// TODO Auto-generated method stub
+		return dao.TimeLogOut(sessionid);
+	}
 }
