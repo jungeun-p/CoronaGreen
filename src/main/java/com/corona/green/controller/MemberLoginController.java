@@ -2,6 +2,7 @@ package com.corona.green.controller;
 
 import java.io.IOException;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
@@ -10,6 +11,7 @@ import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.corona.green.api.NaverLoginBo;
 import com.corona.green.api.UserSha256;
+import com.corona.green.model.biz.LogBiz;
 import com.corona.green.model.biz.MemberBiz;
+import com.corona.green.model.dto.LogDto;
 import com.corona.green.model.dto.MemberDto;
 import com.github.scribejava.core.model.OAuth2AccessToken;
 
@@ -36,6 +40,9 @@ public class MemberLoginController {
 
 	@Autowired
 	private MemberBiz biz;
+	
+	@Autowired
+	private LogBiz logbiz;
 
 	Logger logger = LoggerFactory.getLogger(MemberLoginController.class);
 
@@ -45,7 +52,6 @@ public class MemberLoginController {
 		logger.info("Login Page");
 		String naverAuthUrl = naverLoginBO.getAuthorizationUrl(session);
 		model.addAttribute("url", naverAuthUrl);
-		System.out.println("네이버:" + naverAuthUrl);
 		return "green_login";
 	}
 
@@ -71,7 +77,6 @@ public class MemberLoginController {
 		JSONObject response_obj = (JSONObject) jsonObj.get("response");
 		// response의 nickname값 파싱
 		String email = (String) response_obj.get("email");
-		System.out.println(email);
 		// 4.파싱 닉네임 세션으로 저장
 		model.addAttribute("naveremail", email); // 세션 생성
 		model.addAttribute("result", apiResult);
@@ -94,12 +99,9 @@ public class MemberLoginController {
 	@RequestMapping("/login.do")
 	public String login(MemberDto dto, Model model, HttpSession session, @RequestParam("code") String code) {
 		logger.info("login");
-		System.out.println("코드뭐냐" + code);
 		if (code != null) {
-			System.out.println("코드 있네?");
 			// 네이버 로그인 ( 이메일 존재시 )
 			if (code.equals("naver")) {
-				System.out.println("네이버 일때");
 				MemberDto res = biz.login(dto);
 				if (res != null) {
 					if (res.getEnabled().equals("Y")) {
@@ -118,7 +120,6 @@ public class MemberLoginController {
 				}
 				// 카카오 로그인 ( 이메일 존재시 )
 			} else if (code.equals("kakao")) {
-				System.out.println("카카오 일때");
 				MemberDto res = biz.login(dto);
 				if (res != null) {
 					if (res.getEnabled().equals("Y")) {
@@ -138,10 +139,7 @@ public class MemberLoginController {
 
 			} else {
 				// 일반 로그인
-				System.out.println("일반 로그인");
-				System.out.println("암호화 전 : " + dto.getPw());
 				String encryPassword = UserSha256.encrypt(dto.getPw());
-				System.out.println("암호화 후 : " + encryPassword);
 				dto.setPw(encryPassword);
 				MemberDto res = biz.login(dto);
 				if (res != null) {
@@ -152,6 +150,9 @@ public class MemberLoginController {
 						return "redirect";
 					} else {
 						session.setAttribute("dto", res);
+						MemberDto member_login_dto = (MemberDto)session.getAttribute("dto");
+						LogDto logdto = new LogDto(0,session.getId(), member_login_dto.getId(), null, null);
+						logbiz.LogEnter(logdto);
 						return "redirect:main.do";
 					}
 				} else {
@@ -182,7 +183,9 @@ public class MemberLoginController {
 	@RequestMapping("/logout1.do")
 	public String logout(HttpSession session) {
 		logger.info("로그아웃 성공");
-		System.out.println("asdjlsakdjlsakdj");
+		LogDto dto = new LogDto(0, session.getId(),null,null,null);
+		logbiz.LogOut(dto);
+		System.out.println("로그아웃해서 세션 없어져서 시간저장!");
 		session.invalidate();
 		return "redirect:main.do";
 	}
@@ -190,6 +193,12 @@ public class MemberLoginController {
 	@RequestMapping("regist.do")
 	public String regist() {
 		return "green_sign";
+	}
+	
+	@RequestMapping("gogogo.do")
+	public void gogogogo() {
+		System.out.println("레알되냐??");
+		
 	}
 
 }

@@ -34,5 +34,6 @@
 		class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSession" />
 	</bean>
-
+	
+	<!-- <bean id="logbiz" class="com.corona.green.model.biz.LogBizImpl"/> -->
 </beans>

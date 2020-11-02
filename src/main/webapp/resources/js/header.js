@@ -14,4 +14,14 @@
 function donation() {
     	location.href="donationform.do";
     }
+
+    Ext.EventManager.on(window, 'beforeunload', function() {
+        Ext.Ajax.request({
+          url: 'gogogo.do',
+          timeout: 60000
+        });
+   });
+
+
+
     

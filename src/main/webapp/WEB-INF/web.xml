@@ -18,8 +18,16 @@
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
 	</listener>
+
+	<!-- <listener>
+		<listener-class>
+			com.corona.green.log.SessionConfig
+		</listener-class>
+	</listener> -->
 
 	<!-- Processes application requests -->
 	<servlet>
