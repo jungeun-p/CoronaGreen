@@ -72,6 +72,7 @@
 														+ "</div>"
 														+ "</div>"
 										);
+								
 							} else {
 								$(".news__section1__news__section")
 										.append(
@@ -90,6 +91,7 @@
 												+ "<p class='content__title' onclick='origin(\"" + link + "\");''>${bookmarklist.title }" + title + "</p>"
 												+ "</div>"
 												+ "</div>");
+								
 							}
 						}
 
@@ -98,20 +100,19 @@
 						alert("실패");
 					}
 					// ajax실행 완료 후 green_news js 실행
-				}).done(function(){
+				}) .done(function(){
 
 				    const contents = document.querySelectorAll('.news__section1__content');
 				    contents.forEach((con) => {
-				        let heart = con.childNodes[3];
+				        let heart = con.childNodes[1];
 				        con.addEventListener('mouseover', (event) => {
 				            heart.style.visibility = 'visible';
 				        })
 				        con.addEventListener('mouseout', (event) => {
 				            heart.style.visibility = 'hidden';
 				        })
-				    })
-});
-
+				    }) 
+		});
 	})
 	
 	function bookmarkChk(heart) {
