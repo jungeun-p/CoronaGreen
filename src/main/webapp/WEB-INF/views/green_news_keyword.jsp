@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/green_news_keyword.css">
+<!-- google font -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
@@ -24,16 +27,15 @@ $(function() {
 				success : function(data) {
 					for (var i = 0; i < data.news.length; i++) {
 						var title = data.news[i].title.trim();
-						var content = data.news[i].content.trim();
 						var link = data.news[i].link.trim();
 						var img = data.news[i].img.trim();
+						var content = data.news[i].content.trim();
 						if (title.length > 40) {
 							title = title.substr(0, 39) + "...";
 						}
-
-						if (list.indexOf(title) > 0 || list.indexOf(content) > 0) { 
-							if (array.indexOf(title) == -1) {
-								$(".news__section1__news__section")
+						if (title.indexOf(word) > 0 || content.indexOf(word) > 0) { 
+						if (array.indexOf(title) == -1) {
+							$(".news__section1__news__section")
 									.append(
 											"<div class='news__section1__content'>"
 													+ "<div class='content__box'>"
@@ -51,6 +53,7 @@ $(function() {
 													+ "</div>"
 													+ "</div>"
 									);
+							
 						} else {
 							$(".news__section1__news__section")
 									.append(
@@ -69,7 +72,10 @@ $(function() {
 											+ "<p class='content__title' onclick='origin(\"" + link + "\");''>${bookmarklist.title }" + title + "</p>"
 											+ "</div>"
 											+ "</div>");
-							}
+							
+						}
+						} else {
+							
 						}
 					}
 
@@ -77,8 +83,20 @@ $(function() {
 				error : function() {
 					alert("실패");
 				}
-			})
+				// ajax실행 완료 후 green_news js 실행
+			}) .done(function(){
 
+			    const contents = document.querySelectorAll('.news__section1__content');
+			    contents.forEach((con) => {
+			        let heart = con.childNodes[1];
+			        con.addEventListener('mouseover', (event) => {
+			            heart.style.visibility = 'visible';
+			        })
+			        con.addEventListener('mouseout', (event) => {
+			            heart.style.visibility = 'hidden';
+			        })
+			    }) 
+	});
 })
 
 function bookmarkChk(heart) {
