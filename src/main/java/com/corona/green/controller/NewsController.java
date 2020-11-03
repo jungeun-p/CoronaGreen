@@ -40,14 +40,14 @@ public class NewsController {
 			List<String> reallist = new ArrayList<String>();
 			for (int i = 0; i < list.size(); i++) {
 				if (list.get(i).getTitle().length() > 40) {
-					reallist.add("\"" +list.get(i).getTitle().substring(0,39)+"..."+ "\"");
+					reallist.add("'" +list.get(i).getTitle().substring(0,39)+"..."+ "'");
 				} else {
-					reallist.add("\"" +list.get(i).getTitle() + "\"");
+					reallist.add("'" +list.get(i).getTitle() + "'");
 				}
 			}
 			map.put("list",reallist);
 			model.addAttribute("map",map);
-			model.addAttribute("id","\"" +dto.getId() + "\"");
+			model.addAttribute("id","'" +dto.getId() + "'");
 			
 			return "green_news";
 		} else {
@@ -92,15 +92,15 @@ public class NewsController {
 			List<String> reallist = new ArrayList<String>();
 			for (int i = 0; i < list.size(); i++) {
 				if (list.get(i).getTitle().length() > 40) {
-					reallist.add("\"" +list.get(i).getTitle().substring(0,39)+"..."+ "\"");
+					reallist.add("'" +list.get(i).getTitle().substring(0,39)+"..."+ "'");
 				} else {
-					reallist.add("\"" +list.get(i).getTitle() + "\"");
+					reallist.add("'" +list.get(i).getTitle() + "'");
 				}
 			}
 			map.put("list",reallist);
 			model.addAttribute("map",map);
-			model.addAttribute("id","\"" +dto.getId() + "\"");
-			model.addAttribute("keyword", "\"" + keyword + "\"");
+			model.addAttribute("id","'" +dto.getId() + "'");
+			model.addAttribute("keyword", "'" + keyword + "'");
 			
 			return "green_news_keyword";
 		} else {
@@ -111,7 +111,7 @@ public class NewsController {
 			map.put("list", reallist);
 			model.addAttribute("map", map);
 			model.addAttribute("id","null");
-			model.addAttribute("keyword", "\"" + keyword + "\"");
+			model.addAttribute("keyword", "'" + keyword + "'");
 			return "green_news_keyword";
 		}
 	}
