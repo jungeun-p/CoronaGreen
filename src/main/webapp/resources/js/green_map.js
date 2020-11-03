@@ -12,10 +12,10 @@
 		    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
 		    navigator.geolocation.getCurrentPosition(function(position) {
 		        
-		        var lat = position.coords.latitude, // 위도
-		            lon = position.coords.longitude; // 경도
+		        var latitude = position.coords.latitude, // 위도
+		            longitude = position.coords.longitude; // 경도
 		        
-		        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+		        var locPosition = new kakao.maps.LatLng(latitude, longitude), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
 		            message = '<div style="padding:5px;">현재위치</div>'; // 인포윈도우에 표시될 내용입니다
 		        
 		       
@@ -30,22 +30,20 @@
 				bounds.extend(locPosition);
 
 				var current = document.createElement('button');
-				var currentClick = document.createTextNode('현재위치 재설정');
+				var currentClick = document.createTextNode('현재위치');
 				var mapHeader = document.getElementById('map_header');
 				current.appendChild(currentClick);
 				mapHeader.appendChild(current);
 
 				
-				console.log(mapHeader);
 
 				current.addEventListener('click', function() {
-					setBounds();
+					setCenter();
 				})
 
-				function setBounds() {
+				function setCenter() {
 					// LatLngBounds 객체에 추가된 좌표들을 기준으로 지도의 범위를 재설정합니다
-					// 이때 지도의 중심좌표와 레벨이 변경될 수 있습니다
-					map.setBounds(bounds);
+					map.setCenter(locPosition);
 				}
 		        
 		        // 마커와 인포윈도우를 표시합니다
@@ -100,8 +98,13 @@
 	    // 지도를 생성합니다    
 	    var map = new kakao.maps.Map(mapContainer, mapOption); 
 	    
+	    // 마우스 휠과 모바일 터치를 이용한 지도 확대, 축소를 막는다
+	    map.setZoomable(false);
+	    
 	    // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 		var zoomControl = new kakao.maps.ZoomControl();
+		
+		// 지도의 우측에 확대 축소 컨트롤을 추가한다
 		map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 		
 		// 지도가 확대 또는 축소되면 마지막 파라미터로 넘어온 함수를 호출하도록 이벤트를 등록합니다
@@ -186,19 +189,19 @@
 	            // 해당 장소에 인포윈도우에 장소명을 표시합니다
 	            // mouseout 했을 때는 인포윈도우를 닫습니다
 	            (function(marker, title) {
-	                kakao.maps.event.addListener(marker, 'mouseover', function() {
+	                kakao.maps.event.addListener(marker, 'click', function() {
 	                    displayInfowindow(marker, title);
 	                });
 	
-	                kakao.maps.event.addListener(marker, 'mouseout', function() {
+	                kakao.maps.event.addListener(marker, 'change', function() {
 	                    infowindow.close();
 	                });
 	
-	                itemEl.onmouseover =  function () {
+	                itemEl.onclick =  function () {
 	                    displayInfowindow(marker, title);
 	                };
 	
-	                itemEl.onmouseout =  function () {
+	                itemEl.onchange =  function () {
 	                    infowindow.close();
 	                };
 	            })(marker, places[i].place_name);
@@ -255,7 +258,7 @@
 	
 	        marker.setMap(map); // 지도 위에 마커를 표출합니다
 	        markers.push(marker);  // 배열에 생성된 마커를 추가합니다
-	
+			
 	        return marker;
 	    }
 	
@@ -313,5 +316,6 @@
 	            el.removeChild (el.lastChild);
 	        }
 	    }
+	    
 	    
 	    
