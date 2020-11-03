@@ -84,6 +84,7 @@ public class NewsController {
 		System.out.println(keyword);
 		MemberDto dto = (MemberDto)session.getAttribute("dto");
 		if (dto != null) {
+			System.out.println("로그인");
 			Map<String,Object> map = new HashMap<String, Object>();
 			List<NewsDto> list = new ArrayList<NewsDto>();
 			
@@ -103,6 +104,7 @@ public class NewsController {
 			
 			return "green_news_keyword";
 		} else {
+			System.out.println("비로그인");
 			Map<String,Object> map = new HashMap<String, Object>();
 			List<String> reallist = new ArrayList<String>();
 			reallist.add("\"alalaldhdh\"");
