@@ -44,6 +44,14 @@
 				<a href="loginform.do"><p class="menubar__sign">SIGN IN</p></a>
 			</div>
 		</div>
+		<div class="logo">
+			<a href="main.do">
+				<p class="menubar__logo">CORONA GREEN</p>
+				<p class="menubar__title">ALL ABOUT INFORMATION OF COVID 19</p>
+				<p class="menubar__title">Provides information that is updated
+					in real-time updates.</p>
+			</a>
+		</div>
 	</nav>
 	<div class="background"
 		style="background-image: URL(./resources/img/corona-green-logo.png);"></div>
@@ -61,6 +69,14 @@
 		</div>
 	</nav>
 	</div>
+	</div>
+	<div class="logo">
+		<a href="main.do">
+			<p class="menubar__logo">CORONA GREEN</p>
+			<p class="menubar__title">ALL ABOUT INFORMATION OF COVID 19</p>
+			<p class="menubar__title">Provides information that is updated in
+				real-time updates.</p>
+		</a>
 	</div>
 	</nav>
 	<div class="background"
