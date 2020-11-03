@@ -144,7 +144,11 @@ body {
     opacity: .4;
 }
 .heart{
-    margin: 20px 0 0 240px;
+    margin: 10px 0 0 240px;
     cursor: pointer;
-    width: 10%;
+    width: 13%;
+}
+.heart:hover{
+	opacity:.9;
+	transition:0.2s liner;
 }

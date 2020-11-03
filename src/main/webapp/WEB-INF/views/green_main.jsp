@@ -17,7 +17,7 @@
 	type="text/css" />
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/header.jsp"%>
+	<%@ include file="/WEB-INF/views/header_main.jsp"%>
 	<%
 		if (dto != null) {
 	%>
