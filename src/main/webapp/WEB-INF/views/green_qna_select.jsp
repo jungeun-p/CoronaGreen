@@ -39,7 +39,7 @@
 		            <div class="reply__comments">${relist.content }</div>
 		        </div>
 	        </c:when>
-	        <c:when test="${dto.id eq 'admin' }">
+	        <c:when test="${dto.role eq 'ADMIN' }">
 	        	<form action="qnaReinsert.do">
 			        <div class="line"></div>
 			        <div class="board__reply__insert">
