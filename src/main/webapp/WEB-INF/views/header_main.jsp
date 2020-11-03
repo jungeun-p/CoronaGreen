@@ -7,12 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Template</title>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!-- menubar css -->
 <link href="resources/css/header.css" rel="stylesheet" type="text/css" />
 <!-- menubar js -->
 <script src="resources/js/header.js" defer></script>
 <!--google font-->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap"
+	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <%
@@ -40,6 +44,14 @@
 				<a href="loginform.do"><p class="menubar__sign">SIGN IN</p></a>
 			</div>
 		</div>
+		<div class="logo">
+			<a href="main.do">
+				<p class="menubar__logo">CORONA GREEN</p>
+				<p class="menubar__title">ALL ABOUT INFORMATION OF COVID 19</p>
+				<p class="menubar__title">Provides information that is updated
+					in real-time updates.</p>
+			</a>
+		</div>
 	</nav>
 	<div class="background"
 		style="background-image: URL(./resources/img/corona-green-logo.png);"></div>
@@ -57,6 +69,14 @@
 		</div>
 	</nav>
 	</div>
+	</div>
+	<div class="logo">
+		<a href="main.do">
+			<p class="menubar__logo">CORONA GREEN</p>
+			<p class="menubar__title">ALL ABOUT INFORMATION OF COVID 19</p>
+			<p class="menubar__title">Provides information that is updated in
+				real-time updates.</p>
+		</a>
 	</div>
 	</nav>
 	<div class="background"

@@ -9,27 +9,6 @@
 <!-- google font -->
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
 </head>
-<body>
-	<%@ include file="/WEB-INF/views/header.jsp"%>
-
-	<section class="news">
-		<section class="news__section1__news__section">
-			<!-- <div class="news__section1__content">
-				<div class="content__box">
-					<div class="content__img__box">
-						<a href=""> <img src="" alt="">
-						</a>
-					</div>
-				</div>
-				<div class="content__heart">
-					<div class="background__bg"></div>
-					<img src="resources/img/heart(empty).png" class="heart" />
-					<p class="content__title">+ title +</p>
-				</div>
-			</div> -->
-		</section>
-	</section>
-	<%@ include file="/WEB-INF/views/footer.jsp"%>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -38,6 +17,7 @@
 		$.each(list, function(index, value) {
 			array[index] = value;
 		})
+		//addItem();
 		$.ajax({
 					type : "post",
 					url : "resources/json/navernews.json",
@@ -100,7 +80,7 @@
 						alert("실패");
 					}
 					// ajax실행 완료 후 green_news js 실행
-				}) .done(function(){
+				}).done(function(){
 
 				    const contents = document.querySelectorAll('.news__section1__content');
 				    contents.forEach((con) => {
@@ -154,5 +134,26 @@
 	}
 
 </script>
+<body>
+	<%@ include file="/WEB-INF/views/header.jsp"%>
+	<section class="news">
+		<section class="news__section1__news__section">
+			<!-- <div class="news__section1__content">
+				<div class="content__box">
+					<div class="content__img__box">
+						<a href=""> <img src="" alt="">
+						</a>
+					</div>
+				</div>
+				<div class="content__heart">
+					<div class="background__bg"></div>
+					<img src="resources/img/heart(empty).png" class="heart" />
+					<p class="content__title">+ title +</p>
+				</div>
+			</div> -->
+			
+		</section>
+	</section>
+	<%@ include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>
