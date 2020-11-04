@@ -36,8 +36,9 @@
 
 <!-- 부가적인 테마 -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<!-- 부트스트랩 -->
+<!-- 부트스트랩 끝 -->
 
+<script type="text/javascript" src="resources/js/green_qna_list.js"></script>
 
 <style type="text/css">
 #serchpaging{
@@ -65,9 +66,21 @@
 	<section class="qnalist">
 		<div class="qnalist__wrap">
 
-			<div class="qnalist__section1__frequent">
-				<div class="qnalist__section1__frequent__title">자주 받는 QNA</div>
-				<div class="qnalist__section1__frequent__content">내영</div>
+			<div class="qnalist__section__frequent">
+			   <ul class="qnalist__list">
+			     <li>
+			      <p class="qnalist__section__frequent__title">accodion-1</p>
+			      <div class="qnalist__section__frequent__content">임시데이터</div>
+			    </li>
+			    <li>
+			      <p class="qnalist__section__frequent__title">accodion-2</p>
+			      <div class="qnalist__section__frequent__content">임시데이터</div>
+			    </li>
+			    <li>
+			      <p class="qnalist__section__frequent__title">accodion-3</p>
+			      <div class="qnalist__section__frequent__content">임시데이터</div>
+			     </li>
+			    </ul>
 			</div>
 
 		<div id="outter">
