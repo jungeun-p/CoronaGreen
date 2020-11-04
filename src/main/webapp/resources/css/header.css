@@ -28,6 +28,9 @@ body {
   padding: 0;
 }
 
+a{
+	color : #333;
+}
 a:link, a:hover {
   text-decoration: none;
 }
