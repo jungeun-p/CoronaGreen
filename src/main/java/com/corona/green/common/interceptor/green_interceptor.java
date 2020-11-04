@@ -17,7 +17,6 @@ public class green_interceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		
 		logger.info("[Interceptor] preHandle");
 		
 		if(request.getRequestURI().contains("/qnainsertForm.do") &&
