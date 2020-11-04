@@ -46,7 +46,7 @@
 	<%
 		} else {
 	%>
-	<a href="#"><p class="menubar__sign"><%=dto.getId()%></p></a>
+	<a href="#"><p class="menubar__sign"><%=dto.getId() %> </p></a>
 	<!--user menu-->
 	<!--login:visible-->
 	<%
