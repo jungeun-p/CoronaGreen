@@ -49,6 +49,9 @@
 	<a href="#"><p class="menubar__sign"><%=dto.getId()%></p></a>
 	<!--user menu-->
 	<!--login:visible-->
+	<%
+		if (dto.getRole().equals("USER")) {
+	%>
 	<nav class="menubar__user">
 		<div class="user__category">
 			<!-- 현모 마이페이지 부분 -->
@@ -56,6 +59,20 @@
 				href="logout1.do"><p class="category">SIGN OUT</p></a>
 		</div>
 	</nav>
+	<%
+		} else {
+	%>
+		<nav class="menubar__user">
+		<div class="user__category">
+			<!-- 현모 마이페이지 부분 -->
+			<a href="javascript:adminpage();"><p class="admin__category">ADMIN PAGE</p></a> 
+			<input id="role" type="hidden" value="<%=dto.getRole() %>"/>
+			<a href="logout1.do"><p class="admin__category">SIGN OUT</p></a>
+		</div>
+	</nav>
+	<%
+		}
+	%>
 	</div>
 	</div>
 	</nav>
