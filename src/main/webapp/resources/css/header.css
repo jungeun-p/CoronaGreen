@@ -160,6 +160,7 @@ a:link, a:hover {
   transform: translateY(850%);
   right: 50px;
   cursor: pointer;
+  z-index:1;
 }
 
 .chatbot__box {
@@ -189,6 +190,7 @@ a:link, a:hover {
   transform: translateY(960%);
   right: 50px;
   cursor: pointer;
+  z-index:1;
 }
 
 .donation__box {
@@ -222,4 +224,19 @@ a:link, a:hover {
   position: fixed;
   right: -50px;
   z-index: -7;
+}
+
+.admin__category {
+  margin: 0;
+  text-decoration: none;
+  color: var(--color-black);
+  font-weight: var(--weight-regular);
+  padding: 13px 0px 13px 20px;
+  border-radius: 8px;
+}
+
+.admin__category:hover {
+  background-color: var(--color-gray);
+  color: var(--color-green);
+  transition: 0.2s linear;
 }

@@ -200,5 +200,10 @@ public class MemberLoginController {
 	public String regist() {
 		return "green_sign";
 	}
+	
+	@RequestMapping("gogo.do")
+	public String gogo() {
+		return "index";
+	}
 
 }

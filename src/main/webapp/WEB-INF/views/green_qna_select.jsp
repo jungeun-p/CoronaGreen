@@ -8,6 +8,8 @@
 <title>QnA SELECT</title>
 <link href="resources/css/green_qna_select.css" rel="stylesheet" type="text/css"/>
 <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap" rel="stylesheet">
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="resources/js/green_qnare.js"></script>
 </head>
 <body>
 
@@ -40,7 +42,7 @@
 		        </div>
 	        </c:when>
 	        <c:when test="${dto.role eq 'ADMIN' }">
-	        	<form action="qnaReinsert.do">
+	        	<form action="qnaReinsert.do" class="class__qnaReinsert">
 			        <div class="line"></div>
 			        <div class="board__reply__insert">
 			            <div class="reply__admin">Admin</div>
@@ -48,7 +50,7 @@
 			            	<input type="hidden" name="boardno" value="${list.boardno }">
 			                <textarea class="comments__text" required="required" name="content">text</textarea>
 			                <div class="reply__buttons">
-			                    <input class="button" type="submit" value="SUBMIT" />
+			                    <input class="button" type="button" value="SUBMIT" onclick="sendMessage()" />
 			                </div>
 			            </div>
 			        </div>

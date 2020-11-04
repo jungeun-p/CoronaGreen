@@ -48,7 +48,7 @@
 				</div>
 				<div class="content__heart">
 					<div class="background__bg"></div>
-					<img src="resources/img/heart(empty).png" class="heart" onclick="bookmarkDel(this, '${dto.id}')"/>
+					<img src="resources/img/close.png" class="heart" onclick="bookmarkDel(this, '${dto.id}')"/>
 					<p class="content__title" onclick="origin('${bookmarklist.link}');">${bookmarklist.title }</p>
 				</div>
 				</div>

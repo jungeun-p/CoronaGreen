@@ -24,7 +24,7 @@ public class QnaBoardReController {
 		int res = qnaReBiz.insert(dto);
 		
 		if(res > 0) {
-			return "redirect:qnalist.do";
+			return "redirect:qnadetail.do?boardno="+boardno;
 		} else {
 			return "redirect:qnadetail.do?boardno="+boardno;
 		}
