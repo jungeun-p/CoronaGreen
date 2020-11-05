@@ -65,9 +65,9 @@ public class MemberFindController {
 
 	@RequestMapping("changepwres.do")
 	public String ChangePwRes(MemberDto dto, Model model) {
-		System.out.println("아이디 : " + dto.getId() + "비밀번호 : " + dto.getPw());
+		//System.out.println("아이디 : " + dto.getId() + "비밀번호 : " + dto.getPw());
 		String encryPassword = UserSha256.encrypt(dto.getPw());
-		System.out.println(encryPassword);
+		//System.out.println(encryPassword);
 		dto.setPw(encryPassword);
 		
 		int res = 0;

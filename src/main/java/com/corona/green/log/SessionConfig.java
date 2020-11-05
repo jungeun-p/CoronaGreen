@@ -51,6 +51,6 @@ public class SessionConfig implements HttpSessionListener {
 		}
 		
 
-		System.out.println("세션이 파괴됐다... 30분빼자");
+		//System.out.println("세션이 파괴됐다... 30분빼자");
 	}
 }
