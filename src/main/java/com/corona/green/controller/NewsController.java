@@ -40,11 +40,25 @@ public class NewsController {
 			List<String> reallist = new ArrayList<String>();
 			for (int i = 0; i < list.size(); i++) {
 				if (list.get(i).getTitle().length() > 40) {
-					reallist.add("'" +list.get(i).getTitle().substring(0,39)+"..."+ "'");
+					if (list.get(i).getTitle().indexOf("\'") != -1) {
+						reallist.add("'" +list.get(i).getTitle().substring(0,39).replace("\'", "\"")+"..."+ "'");
+					} else {
+						reallist.add("'" +list.get(i).getTitle().substring(0,39)+"..."+ "'");
+					}
 				} else {
-					reallist.add("'" +list.get(i).getTitle() + "'");
+					if (list.get(i).getTitle().indexOf("\'") != -1) {
+						reallist.add("'" +list.get(i).getTitle().replace("\'", "\"") + "'");
+					} else {
+						reallist.add("'" +list.get(i).getTitle() + "'");
+					}
 				}
 			}
+			
+			/*for (int i = 0; i < reallist.size(); i++) {
+				if (reallist.get(i).indexOf("\'") != -1) {
+					reallist.get(i) = reallist
+				}
+			}*/
 			map.put("list",reallist);
 			model.addAttribute("map",map);
 			model.addAttribute("id","'" +dto.getId() + "'");
