@@ -102,7 +102,8 @@ public class Notification extends TextWebSocketHandler {
 	//연결 해제될때
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
-		//System.out.println("afterConnectionClosed " + session + ", " + status);
+		System.out.println("연결해제갑니다");
+		System.out.println("afterConnectionClosed " + session + ", " + status+"키값:"+session.getId());
 		userSessionsMap.remove(session.getId());
 		sessions.remove(session);
 	}

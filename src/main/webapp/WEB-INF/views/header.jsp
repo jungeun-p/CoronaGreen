@@ -36,17 +36,19 @@
 //   };
 
 $(document).ready(function (){
-	console.log("socket전")
-    connectWs();
-	console.log("socket후")
+	 if(WebSocket.readyState!==0){
+			console.log("연결된게 없다~");
+			 connectWs();
+			 }else{
+			console.log("연결된게 있다~")
+			 }
 });
 
 function connectWs(){
-	console.log("sock만들어졌다~")
-	 /* sock = new SockJS("http://localhost:8787/green/socket.do"); */ 
- 	 sock = new WebSocket("ws://localhost:8787/green/socket.do");  
-	console.log("sock만들어졌다~2");
+ 	console.log("sock만들어졌다~")
+	 sock = new WebSocket("ws://localhost:8787/green/socket.do");  
 	 socket = sock; 
+	 
 
 
 //웹 소켓이 열리면 호출 
