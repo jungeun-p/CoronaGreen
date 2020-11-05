@@ -210,10 +210,10 @@
 				type : "get",
 				success : function(data) {
 					if (data == "DELETE") {
-						alert("북마크가 삭제 되었습니다.");
+						//alert("북마크가 삭제 되었습니다.");
 						$(heart).attr('src', 'resources/img/heart(empty).png');
 					} else {
-						alert("북마크가 추가 되었습니다.");
+						//alert("북마크가 추가 되었습니다.");
 						$(heart).attr('src', 'resources/img/heart.png');
 					}
 				},
