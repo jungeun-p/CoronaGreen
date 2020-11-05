@@ -14,6 +14,7 @@
 <!--google font-->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
+
 </head>
 <%
 	MemberDto dto = (MemberDto) session.getAttribute("dto");
