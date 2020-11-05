@@ -13,7 +13,7 @@
             "translate(" + mar.left + "," + mar.top + ")");
 
     d3.json("resources/json/corona_wordcloud.json", function (data) {
-        console.log(data);
+        // console.log(data);
         // Constructs a new cloud layout instance. It run an algorithm to find the position of words that suits your requirements
         // Wordcloud features that are different from one word to the other must be here
 

@@ -81,7 +81,7 @@ public class NewsController {
 	public String bookmarkCheck(NewsDto dto) {
 		String result = "";
 		int res = biz.bookmarkCheck(dto.getId(), dto.getLink());
-		System.out.println("과연 체크!!" + res);
+		//System.out.println("과연 체크!!" + res);
 		if (res > 0) {
 			result = "DELETE";
 			biz.bookmarkDelete(dto);
@@ -95,10 +95,10 @@ public class NewsController {
 	
 	@RequestMapping("keywordsearch.do")
 	public String KeyWordSearch (@RequestParam("keyword") String keyword, Model model, HttpSession session) {
-		System.out.println(keyword);
+		//System.out.println(keyword);
 		MemberDto dto = (MemberDto)session.getAttribute("dto");
 		if (dto != null) {
-			System.out.println("로그인");
+			//System.out.println("로그인");
 			Map<String,Object> map = new HashMap<String, Object>();
 			List<NewsDto> list = new ArrayList<NewsDto>();
 			
@@ -118,7 +118,7 @@ public class NewsController {
 			
 			return "green_news_keyword";
 		} else {
-			System.out.println("비로그인");
+			//System.out.println("비로그인");
 			Map<String,Object> map = new HashMap<String, Object>();
 			List<String> reallist = new ArrayList<String>();
 			reallist.add("\"alalaldhdh\"");
