@@ -70,6 +70,7 @@ public class MemberRegistController {
 		PhoneCodeSend send = new PhoneCodeSend();
 		RandomCode code = new RandomCode();
 		String phonecode = code.excuteGenerate();
+		// 시연할때는 여기 주석 풀어주자!
 		//send.certifiedPhoneNumber(phone, phonecode);
 		
 		return phonecode;

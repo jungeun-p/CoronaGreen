@@ -14,6 +14,7 @@
 <!--google font-->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
+
 </head>
 <%
 	MemberDto dto = (MemberDto) session.getAttribute("dto");
@@ -46,9 +47,12 @@
 	<%
 		} else {
 	%>
-	<a href="#"><p class="menubar__sign"><%=dto.getId()%></p></a>
+	<a href="#"><p class="menubar__sign"><%=dto.getId() %> </p></a>
 	<!--user menu-->
 	<!--login:visible-->
+	<%
+		if (dto.getRole().equals("USER")) {
+	%>
 	<nav class="menubar__user">
 		<div class="user__category">
 			<!-- 현모 마이페이지 부분 -->
@@ -56,6 +60,20 @@
 				href="logout1.do"><p class="category">SIGN OUT</p></a>
 		</div>
 	</nav>
+	<%
+		} else {
+	%>
+		<nav class="menubar__user">
+		<div class="user__category">
+			<!-- 현모 마이페이지 부분 -->
+			<a href="javascript:adminpage();"><p class="admin__category">ADMIN PAGE</p></a> 
+			<input id="role" type="hidden" value="<%=dto.getRole() %>"/>
+			<a href="logout1.do"><p class="admin__category">SIGN OUT</p></a>
+		</div>
+	</nav>
+	<%
+		}
+	%>
 	</div>
 	</div>
 	</nav>
@@ -67,7 +85,7 @@
 	<!--chat-->
 	<section class="chatbot">
 		<div class="chatbot__box">
-			<p>🙋‍♀ ASK</p>
+			<p><a href="http://pf.kakao.com/_lxiWGK/chat" target="_blank">🙋‍♀ ASK</a></p>
 		</div>
 	</section>
 	<!-- donation -->

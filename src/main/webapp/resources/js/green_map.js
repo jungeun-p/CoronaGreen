@@ -243,6 +243,7 @@
 	
 	    // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 	    function addMarker(position, idx, title) {
+	    
 	        var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
 	            imageSize = new kakao.maps.Size(36, 37),  // 마커 이미지의 크기
 	            imgOptions =  {
@@ -272,6 +273,7 @@
 	
 	    // 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
 	    function displayPagination(pagination) {
+	    
 	        var paginationEl = document.getElementById('pagination'),
 	            fragment = document.createDocumentFragment(),
 	            i; 

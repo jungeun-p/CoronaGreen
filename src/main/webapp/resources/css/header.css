@@ -28,6 +28,9 @@ body {
   padding: 0;
 }
 
+a{
+	color : #333;
+}
 a:link, a:hover {
   text-decoration: none;
 }
@@ -221,4 +224,19 @@ a:link, a:hover {
   position: fixed;
   right: -50px;
   z-index: -7;
+}
+
+.admin__category {
+  margin: 0;
+  text-decoration: none;
+  color: var(--color-black);
+  font-weight: var(--weight-regular);
+  padding: 13px 0px 13px 20px;
+  border-radius: 8px;
+}
+
+.admin__category:hover {
+  background-color: var(--color-gray);
+  color: var(--color-green);
+  transition: 0.2s linear;
 }
