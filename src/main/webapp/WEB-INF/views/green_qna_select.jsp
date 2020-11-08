@@ -9,13 +9,20 @@
 <link href="resources/css/green_qna_select.css" rel="stylesheet" type="text/css"/>
 <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap" rel="stylesheet">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="resources/js/green_qnare.js"></script>
+
+ 
 </head>
 <body>
 
-    <%@ include file="/WEB-INF/views/header.jsp" %>
 	
+	
+    <%@ include file="/WEB-INF/views/header.jsp" %>
+    
     <section class="green__board__select">
+    <input type="hidden" id="alarm_boardno" value="${list.boardno }">
+	<input type="hidden" id="recipient" value="${list.id }"/>
+	<input type="hidden" id="sender" value="${dto.id }"/>
+	<input type="hidden" id="qna_title" value="${list.title}"/>
         <div class="board__title">
             <div class="title"><p>TITLE</p></div>
             <div class="title__name">${list.title }</div>
@@ -58,6 +65,7 @@
 	        </c:when>
 	        <c:otherwise></c:otherwise>
         </c:choose>
+        <script src="resources/js/green_socket_qnare.js"></script>
     </section> 
 	
 	<%@ include file="/WEB-INF/views/footer.jsp" %>

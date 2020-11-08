@@ -14,10 +14,15 @@
 <!-- menubar js -->
 <script src="resources/js/header.js" defer></script>
 <!--google font-->
-<link
-	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap"	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
+
+<!-- notification -->
+<script src="resources/js/green_notification.js"></script>
+<script src="resources/js/green_socket.js"></script>
+
+
+
 </head>
 <%
 	MemberDto dto = (MemberDto) session.getAttribute("dto");
