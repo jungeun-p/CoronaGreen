@@ -20,6 +20,6 @@ User의 입장에서 필요한 정보만 모을 수 있는 저장소 구축(북�
 - 사용 기술 : Jquery, BootStrap, WebSoket, React, 크롤링
 - 사용 API : 아이엠포트API(결제), 도로명주소검색API, 섬머노트, 네이버로그인, 카카오 로그인, 챗봇API, 구글차트, D3, 지도API, 보건복지부API, 네이버실시간뉴스API, 웹노티피케이션API, 다날인증API
 - 사용 도구 : 이클립스 Jee
-- 사용 서버 : tomcat, AWS
+- 사용 서버 : tomcat, AWS ec2
 - 사용 데이터베이스 : Oracle DB 11g
 - 협업 툴 : GitHub
