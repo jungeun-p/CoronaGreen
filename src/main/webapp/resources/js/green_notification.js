@@ -2,12 +2,49 @@
 		if(window.Notification){
 			Notification.requestPermission();
 		}
+		//안본알람이있으면 보여준다 
+		$.ajax({
+		type:'post',
+		url :'qnareAlarm_check.do',
+		datatype:'json',
+		success: function(data){
+			if(data!=null&&data!=""){
+			console.log("안본알람있음");
+		console.log(JSON.stringify(data))
+		console.log("length"+data.length);
+		for(var i=0;i<data.length;i++){
+		console.log(i);
+		console.log(data[i]["RECIPIENT"])
+		console.log(data[i]["BOARDNO"]);
+		console.log(data[i]["SENDER"]);
+		console.log(data[i]["ALARM_TITLE"]);
+		console.log(data[i]["ALARM_CONFIRM"]);
+		console.log(data[i]["ALARMNO"]);
+		console.log(data[i]["ALARM_DATE"]);
+						var param={
+					"recipient":data[i]["RECIPIENT"],
+					"alarm_boardno":data[i]["BOARDNO"],
+					"sender":data[i]["SENDER"],
+					"alarm_title":data[i]["ALARM_TITLE"],
+					"alarm_confirm":data[i]["ALARM_CONFIRM"],
+					"alarmno":data[i]["ALARMNO"],
+					"alarm_date":data[i]["ALARM_DATE"],
+					"alarm_content":"작성하신  '"+data[i]["ALARM_TITLE"]+"' 글에 답글이 작성되었습니다."
+					}
+					
+
+			notify(JSON.stringify(param));
+			
+			}//for문 끝
+		}//if 문 끝
+		
+		},
+		error: function(err){
+		console.log("에러발생:"+err);
+		}
+		});
 	}
-	function calculate(){
-		setTimeout(function(){
-			notify();
-		},500)
-	}
+
 	
 	function notify(data){
 		console.log("notification:"+data);
@@ -38,6 +75,23 @@
 			 notification.onclick=function(){
 				location.href="qnadetail.do?boardno="+alarm_boardno; 
 			 }
+			 console.log(alarm_boardno)
+			 //읽음처리
+			 $.ajax({
+			 type:'post',
+			 url:'confirm.do',
+			 data:{"alarm_boardno":alarm_boardno},
+			 success:function(data){
+			 	if(data>0){
+			 	console.log("읽음완료");
+			 	}else{
+			 	console.log("읽음실패");
+			 	}
+			 },
+			 error:function(err){
+			 console.log(err);
+			 }
+			 });
 			 
 			 
 		}

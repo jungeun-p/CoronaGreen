@@ -91,6 +91,8 @@ public class Notification extends TextWebSocketHandler {
 				if(boardWriterSession != null) {
 					TextMessage tmpMsg = new TextMessage(msg);
 					boardWriterSession.sendMessage(tmpMsg);
+				}else {
+					System.out.println("로그아웃한 회원입니다 ");
 				}
 
 			}

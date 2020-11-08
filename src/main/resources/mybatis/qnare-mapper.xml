@@ -12,5 +12,15 @@
 		INSERT INTO QNA_BOARD_RE
 		VALUES(#{boardno}, #{content}, SYSDATE)
 	</insert>
-	
+	<insert id="alarmInsert" parameterType="hashmap">
+		INSERT INTO ALARM(ALARMNO,RECIPIENT,SENDER,ALARM_TITLE,ALARM_CONTENT,ALARM_DATE,ALARM_CONFIRM,BOARDNO) 
+		VALUES(SEQ_ALARMNO.NEXTVAL , #{recipient} , #{sender} , #{alarm_title} , #{alarm_content} , SYSDATE , 'N' , #{alarm_boardno})
+	</insert>
+	<update id="alarmUpdate" parameterType="string">
+		UPDATE ALARM SET ALARM_CONFIRM='Y' WHERE BOARDNO=#{alarm_boardno}
+	</update>
+	<select id="alarmlist" resultType="hashmap">
+	SELECT ALARMNO,RECIPIENT,SENDER,ALARM_TITLE,ALARM_DATE,ALARM_CONFIRM,BOARDNO 
+	FROM ALARM WHERE ALARM_CONFIRM='N' AND RECIPIENT=#{recipient}
+	</select>
 </mapper>
