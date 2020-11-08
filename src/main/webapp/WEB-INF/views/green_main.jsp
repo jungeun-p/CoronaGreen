@@ -15,6 +15,10 @@
 <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
 <link href="resources/css/green_chart.css" rel="stylesheet"
 	type="text/css" />
+	
+<!-- favicon -->
+<link rel="shortcut icon" href="resources/img/favicon.ico"/>
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header_main.jsp"%>

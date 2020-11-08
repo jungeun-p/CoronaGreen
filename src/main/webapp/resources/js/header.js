@@ -11,10 +11,31 @@
         userMenu.style.visibility = 'hidden';
     })
     
-function donation() {
+    function donation() {
     	location.href="donationform.do";
     }
     
+    function adminpage() {
+    	var obj1 = document.getElementById('role').value;
+    	
+    	alert(obj1);
+    	
+    	var form = document.createElement("form");
+    	form.setAttribute("charset", "UTF-8");
+    	form.setAttribute("method", "Post"); // Get 또는 Post 입력
+    	//form.setAttribute("action", "/boot");
+    	form.setAttribute("action", "/spring-boot-back/index");
+    	
+    	var hiddenField = document.createElement("input");
+    	hiddenField.setAttribute("type", "hidden");
+    	hiddenField.setAttribute("name", "role");
+    	hiddenField.setAttribute("value", obj1);
+    	form.appendChild(hiddenField);
+    	
+    	document.body.appendChild(form);
+    	
+    	form.submit();
+    }
     /*var MouseEventObj = new Object();
 
 

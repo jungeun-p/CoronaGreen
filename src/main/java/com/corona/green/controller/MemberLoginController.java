@@ -188,8 +188,8 @@ public class MemberLoginController {
 		logger.info("로그아웃 성공");
 		LogDto dto = new LogDto(0, session.getId(),null,null,null);
 		logbiz.LogOut(dto);
-		System.out.println(session.getId());
-		System.out.println("로그아웃해서 세션 없어져서 시간저장!");
+		//System.out.println(session.getId());
+		//System.out.println("로그아웃해서 세션 없어져서 시간저장!");
 		session.invalidate();
 		return "redirect:main.do";
 		}

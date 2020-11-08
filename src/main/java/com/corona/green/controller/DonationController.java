@@ -26,7 +26,7 @@ public class DonationController {
 	
 	@RequestMapping("donationres.do")
 	public String DonationRes(@RequestParam("id") String id, @RequestParam("won") String won, Model model) {
-		System.out.println("여기로왔니!?");
+		//System.out.println("여기로왔니!?");
 		int payment = Integer.parseInt(won);
 		DonationDto dto = new DonationDto();
 		dto.setId(id);

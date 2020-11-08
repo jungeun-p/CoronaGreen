@@ -40,11 +40,25 @@ public class NewsController {
 			List<String> reallist = new ArrayList<String>();
 			for (int i = 0; i < list.size(); i++) {
 				if (list.get(i).getTitle().length() > 40) {
-					reallist.add("'" +list.get(i).getTitle().substring(0,39)+"..."+ "'");
+					if (list.get(i).getTitle().indexOf("\'") != -1) {
+						reallist.add("'" +list.get(i).getTitle().substring(0,39).replace("\'", "\"")+"..."+ "'");
+					} else {
+						reallist.add("'" +list.get(i).getTitle().substring(0,39)+"..."+ "'");
+					}
 				} else {
-					reallist.add("'" +list.get(i).getTitle() + "'");
+					if (list.get(i).getTitle().indexOf("\'") != -1) {
+						reallist.add("'" +list.get(i).getTitle().replace("\'", "\"") + "'");
+					} else {
+						reallist.add("'" +list.get(i).getTitle() + "'");
+					}
 				}
 			}
+			
+			/*for (int i = 0; i < reallist.size(); i++) {
+				if (reallist.get(i).indexOf("\'") != -1) {
+					reallist.get(i) = reallist
+				}
+			}*/
 			map.put("list",reallist);
 			model.addAttribute("map",map);
 			model.addAttribute("id","'" +dto.getId() + "'");
@@ -67,7 +81,7 @@ public class NewsController {
 	public String bookmarkCheck(NewsDto dto) {
 		String result = "";
 		int res = biz.bookmarkCheck(dto.getId(), dto.getLink());
-		System.out.println("과연 체크!!" + res);
+		//System.out.println("과연 체크!!" + res);
 		if (res > 0) {
 			result = "DELETE";
 			biz.bookmarkDelete(dto);
@@ -81,10 +95,10 @@ public class NewsController {
 	
 	@RequestMapping("keywordsearch.do")
 	public String KeyWordSearch (@RequestParam("keyword") String keyword, Model model, HttpSession session) {
-		System.out.println(keyword);
+		//System.out.println(keyword);
 		MemberDto dto = (MemberDto)session.getAttribute("dto");
 		if (dto != null) {
-			System.out.println("로그인");
+			//System.out.println("로그인");
 			Map<String,Object> map = new HashMap<String, Object>();
 			List<NewsDto> list = new ArrayList<NewsDto>();
 			
@@ -104,7 +118,7 @@ public class NewsController {
 			
 			return "green_news_keyword";
 		} else {
-			System.out.println("비로그인");
+			//System.out.println("비로그인");
 			Map<String,Object> map = new HashMap<String, Object>();
 			List<String> reallist = new ArrayList<String>();
 			reallist.add("\"alalaldhdh\"");
