@@ -18,6 +18,19 @@ function bookmarkDel(del, id) {
 	})
 }
 
+
+	/*$.ajax({
+		url: "bookmarklist.do",
+		type: "get",
+		success: function(data) {
+			var list = "${list}";
+			alert(list);
+		}, error: function(data) {
+			alert("실패!");
+		}
+	})*/
+
+
 function origin(url) {
 	window.open(url);
 }

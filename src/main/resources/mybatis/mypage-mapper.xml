@@ -4,4 +4,8 @@
 	<update id="myupdate" parameterType="MemberDto">
 		UPDATE MEMBER SET PW= #{pw} WHERE ID= #{id}
 	</update>
+	
+	<update id="secession" parameterType="String">
+		UPDATE MEMBER SET ENABLED = 'Y' WHERE ID = #{id}
+	</update>
 </mapper>

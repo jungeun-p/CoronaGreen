@@ -15,4 +15,10 @@ public class MypageBizImpl implements MypageBiz {
 		return dao.myupdate(dto);
 	}
 
+	@Override
+	public int secession(String id) {
+		// TODO Auto-generated method stub
+		return dao.secession(id);
+	}
+
 }

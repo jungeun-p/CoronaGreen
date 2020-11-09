@@ -70,7 +70,7 @@
 		<nav class="menubar__user">
 		<div class="user__category">
 			<!-- 현모 마이페이지 부분 -->
-			<a href="javascript:adminpage();"><p class="admin__category">ADMIN PAGE</p></a> 
+			<a href="http://3.35.112.5:8081"><p class="admin__category">ADMIN PAGE</p></a> 
 			<input id="role" type="hidden" value="<%=dto.getRole() %>"/>
 			<a href="logout1.do"><p class="admin__category">SIGN OUT</p></a>
 		</div>

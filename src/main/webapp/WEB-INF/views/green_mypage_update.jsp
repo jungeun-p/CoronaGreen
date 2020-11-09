@@ -61,9 +61,10 @@
 	                    <input type="text" name="address" readonly value="${dto.address }">
 	                </li>
 	                <li class="update__form__li update__form__li__submit">
-<!-- 	                   <input class="update__submit" type="button" value="UPDATE" onclick="pw_check()"/> -->
+<!-- 	               <input class="update__submit" type="button" value="UPDATE" onclick="pw_check()"/> -->
 	                   <input id="change" class="update__submit changepw__button__input" type="button" value="UPDATE" disabled="disabled" onclick="pw_check()"/>
-	                   
+	                   <!-- 탈퇴버튼 이거 써야됨! -->
+	                 <%-- <input type="button" value="SECESSION" class="update__submit changepw__button__input" onclick='secession("<%=dto.getId() %>");'/> --%>
 	                </li>
 	                <li>
 	                	<div class="update__message"></div>
@@ -76,4 +77,15 @@
 	<%@ include file="/WEB-INF/views/footer.jsp" %>
 
 </body>
+<script type="text/javascript">
+function secession(id) {
+	 var confirm_test = confirm("정말로 탈퇴 하시겠습니까?");
+	  if ( confirm_test == true ) {
+	        // 확인(예) 버튼 클릭 시 이벤트
+		  location.href = "secession.do?id="+id;
+	    } else if ( confirm_test == false ) {
+	        // 취소(아니오) 버튼 클릭 시 이벤트
+	    }
+}
+</script>
 </html>

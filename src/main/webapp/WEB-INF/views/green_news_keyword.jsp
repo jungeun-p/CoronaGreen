@@ -18,6 +18,10 @@ $(function() {
 	$.each(list, function(index, value) {
 		array[index] = value;
 	})
+	var array_title = new Array();
+	var array_link = new Array();
+	var array_img = new Array();
+	var cnt = 0;
 	$.ajax({
 				type : "post",
 				url : "resources/json/navernews.json",
@@ -34,6 +38,8 @@ $(function() {
 							title = title.substr(0, 39) + "...";
 						}
 						if (title.indexOf(word) > 0 || content.indexOf(word) > 0) { 
+							cnt++;
+						if ( cnt < 9 ) {
 						if (array.indexOf(title) == -1) {
 							$(".news__section1__news__section")
 									.append(
@@ -75,6 +81,11 @@ $(function() {
 							
 						}
 						} else {
+							array_title.push(title);
+							array_img.push(img);
+							array_link.push(link);
+						}
+						} else {
 							
 						}
 					}
@@ -96,6 +107,83 @@ $(function() {
 			            heart.style.visibility = 'hidden';
 			        })
 			    }) 
+	});
+	
+	
+	
+	var page = 0;
+	var startNum = function() {
+		return (page * 9 >= array_title.length) ? array_title.length-1 : page*9;
+	}
+	var endNum = function() {
+		return (startNum() + 8 >= array_title.length) ? array_title.length-1 : startNum()+8;
+	}
+	
+	$(window).scroll(function(){   //스크롤이 최하단 으로 내려가면 리스트를 조회하고 page를 증가시킨다.
+    	 if($(window).scrollTop() >= $(document).height() - $(window).height()){
+          var start = startNum();
+          var end = endNum();
+          //console.log(start);
+          //console.log(end);
+          if (start == array_title.length - 1) {
+        	  return;
+          } else {
+          for (var i = start; i <= end; i++) {
+        	  if (array.indexOf(array_title[i]) == -1) {
+					$(".news__section1__news__section")
+							.append(
+									"<div class='news__section1__content'>"
+											+ "<div class='content__box'>"
+											+ "<div class='content__img__box'>"
+											+ "<a>"
+											+ "<input type='hidden' value=\"" + array_link[i] + "\"/>"
+											+ "<img src=\"" + array_img[i] + "\">"
+											+ "</a>"
+											+ "</div>"
+											+ "</div>"
+											+ "<div class='content__heart'>"
+											+ "<div class='background__bg'></div>"
+											+ "<img src='resources/img/heart(empty).png' class='heart' onclick='bookmarkChk(this)'/>"
+											+ "<p class='content__title' onclick='origin(\"" + array_link[i] + "\");''>${bookmarklist.title }" + array_title[i] + "</p>"
+											+ "</div>"
+											+ "</div>"
+							);
+					
+				} else {
+					$(".news__section1__news__section")
+							.append(
+									"<div class='news__section1__content'>"
+									+ "<div class='content__box'>"
+									+ "<div class='content__img__box'>"
+									+ "<a>"
+									+ "<input type='hidden' value=\"" + array_link[i] + "\"/>"
+									+ "<img src=\"" + array_img[i] + "\">"
+									+ "</a>"
+									+ "</div>"
+									+ "</div>"
+									+ "<div class='content__heart'>"
+									+ "<div class='background__bg'></div>"
+									+ "<img src='resources/img/heart.png' class='heart' onclick='bookmarkChk(this)'/>"
+									+ "<p class='content__title' onclick='origin(\"" + array_link[i] + "\");''>${bookmarklist.title }" + array_title[i] + "</p>"
+									+ "</div>"
+									+ "</div>");
+					
+				}
+          	}
+          }
+          
+          page++;
+          const contents = document.querySelectorAll('.news__section1__content');
+		    contents.forEach((con) => {
+		        let heart = con.childNodes[1];
+		        con.addEventListener('mouseover', (event) => {
+		            heart.style.visibility = 'visible';
+		        })
+		        con.addEventListener('mouseout', (event) => {
+		            heart.style.visibility = 'hidden';
+		        })
+		    }) 
+     	} 
 	});
 })
 

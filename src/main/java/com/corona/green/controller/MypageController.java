@@ -101,4 +101,11 @@ public class MypageController {
 		
 	}
 	
+	@RequestMapping("secession.do")
+	public String Secession(String id) {
+		System.out.println(id);
+		biz.secession(id);
+		return "redirect:logout1.do";
+	}
+	
 }
