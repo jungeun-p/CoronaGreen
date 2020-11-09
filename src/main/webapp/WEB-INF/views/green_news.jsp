@@ -85,14 +85,12 @@
 							
 							
 						}
-
 					},
 					error : function() {
 						alert("실패");
 					}
 					// ajax실행 완료 후 green_news js 실행
 				}).done(function(){
-
 				    const contents = document.querySelectorAll('.news__section1__content');
 				    contents.forEach((con) => {
 				        let heart = con.childNodes[1];
@@ -183,11 +181,6 @@
      	} 
 	});
 	})
-
-
-
-
-
 	
 	
 	
@@ -222,13 +215,10 @@
 				}
 			})
 		}
-
 	}
-
 	function origin(url) {
 		window.open(url);
 	}
-
 </script>
 <body>
 	<%@ include file="/WEB-INF/views/header.jsp"%>
