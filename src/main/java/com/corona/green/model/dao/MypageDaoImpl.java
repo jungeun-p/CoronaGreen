@@ -28,4 +28,17 @@ public class MypageDaoImpl implements MypageDao {
 		return res;
 	}
 
+	@Override
+	public int secession(String id) {
+		int res = 0;
+		
+		try {
+			res = sqlSession.update(NAMESPACE + "secession",id);
+		} catch (Exception e) {
+			logger.info("ERROR SECESSION");
+			e.printStackTrace();
+		}
+		return res;
+	}
+
 }

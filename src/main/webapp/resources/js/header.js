@@ -15,7 +15,7 @@
     	location.href="donationform.do";
     }
     
-    function adminpage() {
+    /*function adminpage() {
     	var obj1 = document.getElementById('role').value;
     	
     	alert(obj1);
@@ -24,7 +24,7 @@
     	form.setAttribute("charset", "UTF-8");
     	form.setAttribute("method", "Post"); // Get 또는 Post 입력
     	//form.setAttribute("action", "/boot");
-    	form.setAttribute("action", "/spring-boot-back/index");
+    	form.setAttribute("action", "http://3.35.112.5:8081");
     	
     	var hiddenField = document.createElement("input");
     	hiddenField.setAttribute("type", "hidden");
@@ -35,7 +35,7 @@
     	document.body.appendChild(form);
     	
     	form.submit();
-    }
+    }*/
     /*var MouseEventObj = new Object();
 
 
