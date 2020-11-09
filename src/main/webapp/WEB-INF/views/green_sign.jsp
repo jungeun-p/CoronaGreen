@@ -33,11 +33,11 @@
 				<div class="regist__pw regist__all">
 					<p class="regist__pw__title" id="pw_t">PW</p>
 					<div class="regist__pw__check">
-						<input type="text" name="pw" id="mypw1" class="pw check__1"
+						<input type="password" name="pw" id="mypw1" class="pw check__1"
 							placeholder="비밀번호(숫자,영문,특수문자 2가지이상 조합 8~20자)" required="required" />
 						<div class="check__font check__pw" id="pw_check1"></div>
 						<!-- PW CHECK -->
-						<input type="text" id="mypw2" class="pw__chk check__1"
+						<input type="password" id="mypw2" class="pw__chk check__1"
 							placeholder="비밀번호 확인" required="required" /> <font id="Notice"
 							size="2"></font>
 						<div class="check__font check__pwchk" id="pw_check2"></div>
