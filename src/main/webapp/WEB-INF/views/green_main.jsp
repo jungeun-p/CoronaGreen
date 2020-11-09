@@ -18,6 +18,8 @@
 	
 <!-- favicon -->
 <link rel="shortcut icon" href="resources/img/favicon.ico"/>
+<!-- 맵사이드바 버튼때문에 넣었음 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -46,10 +48,17 @@
 			<div class="canvas" id="svg1"></div>
 		</div>
 		<!-- 선별진료소 -->
-		<div class="chart__wrap">
+		<div class="chart__wrap" style=" z-index: 0;">
 			<div class="map_wrap">
-				<div id="map" style="width: 100%; height: 100%; position: relative; overflow: hidden; color: black; border-radius: 30px;"></div>
+				<div class="anchorwrap">
+				<span class="closebtn" onclick='closeNav()'><i class="fa fa-angle-double-left fa-5" aria-hidden="true"></i></span>
+				<span class="openmenu" onclick='openNav()'><i class="fa fa-angle-double-right fa-5" aria-hidden="true"></i></span>
+				</div>
+				<div id="map" style="width: 100%; height: 100%; position: relative; overflow: hidden; color: black; border-radius: 30px;">
+				
+				</div>
 				<div id="menu_wrap" class="bg_white">
+				
 					<div class="option">
 						<div>
 							<form onsubmit="searchPlaces(); return false;">
