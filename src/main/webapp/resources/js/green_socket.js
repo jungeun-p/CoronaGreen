@@ -28,9 +28,7 @@ $(document).ready(function (){
 
 function connectWs(){
  	console.log("sock만들어졌다~")
-	 /*sock = new WebSocket("ws://localhost:8787/green/socket.do");*/  
-	 //sock = new WebSocket("ws://coronagreen.cf/coronagreen_websocket/socket.do");
-	 sock = new WebSocket("ws://3.35.112.5:8080/coronagreen_websocket/socket.do");  
+	 sock = new WebSocket("wss://coronagreen.cf/socket.do");  
 	 socket = sock; 
 	 
 
