@@ -204,7 +204,16 @@
 	                itemEl.onchange =  function () {
 	                    infowindow.close();
 	                };
-	            })(marker, places[i].place_name);
+	            })(marker, '<ul id="placesList2">' + 
+		            		   '<li class="item">' + 
+			            		   '<div class="info">' + 
+			            		   		'<h5>' + places[i].place_name + '</h5>' + 
+			            		   		'<span>' + places[i].road_address_name + '</span>' +  
+			            		   		'<span class="jibun gray">' + places[i].address_name + '</span>' + 
+			            		   		'<span class="tel">' + places[i].phone) + '</span>' + 
+			            		   '</div>' + 
+		            		   '</li>' + 
+	            		   '</ul>';
 	
 	            fragment.appendChild(itemEl);
 	        }
@@ -266,7 +275,7 @@
 	    // 지도 위에 표시되고 있는 마커를 모두 제거합니다
 	    function removeMarker() {
 	        for ( var i = 0; i < markers.length; i++ ) {
-	            markers[i].setMap(null);
+	            markers[i].setMap(map);
 	        }   
 	        markers = [];
 	    }
@@ -319,5 +328,13 @@
 	        }
 	    }
 	    
-	    
+///////////////////////////////////////////////맵 사이드바/////////////////////////////////////////////////////////////
+	  
+		function openNav() {
+			document.getElementById('menu_wrap').style.width = '250px';
+		}
+		function closeNav() {
+			document.getElementById('menu_wrap').style.width = '0';
+		}
+	 
 	    
