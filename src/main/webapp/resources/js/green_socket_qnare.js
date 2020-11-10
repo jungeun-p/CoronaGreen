@@ -21,35 +21,25 @@ function sendMessage(){
 
 	console.log("msg",alarm_message);
 	
-//	//스크랩 알림 DB저장
+//댓글 알림 DB저장
 	
  		$.ajax({
  			type : 'post',
+ 			
  			url : 'qnareAlarm.do',
  			data : JSON.stringify(alarm_message),
  			contentType: "application/json; charset=utf-8",
  			dataType : 'text',
  			success : function(data){
-	 				/*if(socket){
-	 					let socketMsg = "scrap," + memNickname +","+ memberSeq +","+ receiverEmail +","+ essayboard_seq;
-	 					console.log("msgmsg : " + socketMsg);
-	 					socket.send(socketMsg);
- 				}*/
-				if(data>0){
-					console.log(data+"insert완료")
-					}else{
-						console.log("insert실패")
-					}
  			},
  			error : function(err){
  				console.log(err);
  			}
  		});
-
+	//socket이 연결되어 있다면 
 	if(socket){
-	console.log("socket존재")
-	socket.send(JSON.stringify(alarm_message));		//json형태의 String으로 보내줌 
-	document.getElementsByClassName("class__qnaReinsert")[0].submit();
+	socket.send(JSON.stringify(alarm_message)); //json형태의 String으로 보내줌		 
+	document.getElementsByClassName("class__qnaReinsert")[0].submit(); //댓글 작성 마무리 
 	}
 	}
 	
