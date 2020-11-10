@@ -37,13 +37,11 @@
 
 	
 	function notify(data){
-		console.log("notification:"+data);
 		var js = JSON.parse(data);
 		var notification_title=js.alarm_title;
 		var notification_content=js.alarm_content +"\n"+js.alarm_date;
 		var alarm_boardno=js.alarm_boardno;
 		
-		console.log(notification_title+"sdsd"+notification_content)
 		if(Notification.permission !=='granted'){		
 			//권한값이 granted가 아닌경우
 			//granted: 사용자가 의도하여 어플리케이션이 알림을 보낼 수 있도록 허가.
@@ -66,18 +64,12 @@
 			 notification.onclick=function(){
 				location.href="qnadetail.do?boardno="+alarm_boardno; 
 			 }
-			 console.log(alarm_boardno)
 			 //읽음처리
 			 $.ajax({
 			 type:'post',
 			 url:'confirm.do',
 			 data:{"alarm_boardno":alarm_boardno},
 			 success:function(data){
-			 	if(data>0){
-			 	console.log("읽음완료");
-			 	}else{
-			 	console.log("읽음실패");
-			 	}
 			 },
 			 error:function(err){
 			 console.log(err);
