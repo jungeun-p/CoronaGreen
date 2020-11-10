@@ -63,6 +63,9 @@ public class MemberLoginController {
 
 		OAuth2AccessToken oauthToken;
 		oauthToken = naverLoginBO.getAccessToken(session, code, state);
+		if (code == null || oauthToken == null) {
+			return "green_main";
+		}
 		// 1. 로그인 사용자 정보를 읽어온다.
 		apiResult = naverLoginBO.getUserProfile(oauthToken); // String형식의 json데이터
 		/**
@@ -84,6 +87,9 @@ public class MemberLoginController {
 
 		MemberDto dto = biz.EmailCheckId(email);
 		// 아이디 비번 가지고와서 로그인으로 보내자
+		
+		
+		
 		if (dto != null) {
 			return "redirect:login.do?id=" + dto.getId() + "&pw=" + dto.getPw() + "&code=naver";
 		} else {
