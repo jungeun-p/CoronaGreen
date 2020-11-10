@@ -18,7 +18,7 @@ public class NaverLoginBo {
 
 	private final static String CLIENT_ID = "ZqTttmrGX275Ui02LdsP";
 	private final static String CLIENT_SECRET = "oEr2_ophml";
-	private final static String REDIRECT_URI = "http://localhost:8787/green/callback.do";
+	private final static String REDIRECT_URI = "https://coronagreen.cf/callback.do";
 	private final static String SESSION_STATE = "oauth_state";
 	/* 프로필 조회 API URL */
 	private final static String PROFILE_API_URL = "https://openapi.naver.com/v1/nid/me";

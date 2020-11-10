@@ -39,7 +39,7 @@ $(function() {
 						}
 						if (title.indexOf(word) > 0 || content.indexOf(word) > 0) { 
 							cnt++;
-						if ( cnt < 9 ) {
+						if ( cnt < 10 ) {
 						if (array.indexOf(title) == -1) {
 							$(".news__section1__news__section")
 									.append(
