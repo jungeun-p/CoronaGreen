@@ -109,7 +109,7 @@
 	<!--chat-->
 	<section class="chatbot">
 		<div class="chatbot__box">
-			<p>🙋‍♀ ASK</p>
+			<p><a href="http://pf.kakao.com/_lxiWGK/chat" target="_blank">🙋‍♀ ASK</a></p>
 		</div>
 	</section>
 	<!-- donation -->
