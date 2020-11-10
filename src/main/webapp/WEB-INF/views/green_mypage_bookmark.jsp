@@ -8,10 +8,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="resources/css/green_mypage_bookmark.css">
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="resources/js/green_mypage_bookmark.js" defer></script>
 <!-- google font -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap"
+	rel="stylesheet">
 
 </head>
 <body>
@@ -29,7 +32,6 @@
 		</nav>
 	</section>
 
-
 	<section class="news__section1__news__section">
 		<c:choose>
 			<c:when test="${empty list }">
@@ -37,26 +39,28 @@
 			</c:when>
 			<c:otherwise>
 				<c:forEach items="${list }" var="bookmarklist">
-				<div class="news__section1__content">
-				<div class="content__box">
-					<div class="content__img__box">
-						<a>
-						<input type="hidden" value="${bookmarklist.link }"/> 
-						<img src="${bookmarklist.img }">
-						</a>
+					<div class="news__section1__content">
+						<div class="content__box">
+							<div class="content__img__box">
+								<a> <input type="hidden" value="${bookmarklist.link }" /> <img
+									src="${bookmarklist.img }">
+								</a>
+							</div>
+						</div>
+						<div class="content__heart">
+							<div class="background__bg"></div>
+							<img src="resources/img/close.png" class="heart"
+								onclick="bookmarkDel(this, '${dto.id}')" />
+							<p class="content__title"
+								onclick="origin('${bookmarklist.link}');">${bookmarklist.title }</p>
+						</div>
 					</div>
-				</div>
-				<div class="content__heart">
-					<div class="background__bg"></div>
-					<img src="resources/img/close.png" class="heart" onclick="bookmarkDel(this, '${dto.id}')"/>
-					<p class="content__title" onclick="origin('${bookmarklist.link}');">${bookmarklist.title }</p>
-				</div>
-				</div>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
+	</section>
 
-		<!-- <div class="bookmark__section">
+	<!-- <div class="bookmark__section">
 	        <ul class="bookmark__section1 bookmark__section__ul">
 				<li class="bookmark__section1__content">
 					<div class="content__img__box">
@@ -158,20 +162,20 @@
 				</li>
 			</ul>
 		</div> -->
-	</section>
 
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
-<script>
-const contents = document.querySelectorAll('.news__section1__content');
-contents.forEach((con) => {
-    let heart = con.childNodes[3];
-    con.addEventListener('mouseover', (event) => {
-        heart.style.visibility = 'visible';
-    })
-    con.addEventListener('mouseout', (event) => {
-        heart.style.visibility = 'hidden';
-    })
-}) 
+	<script>
+    
+    const contents = document.querySelectorAll('.news__section1__content');
+    contents.forEach((con) => {
+        let heart = con.childNodes[3];
+        con.addEventListener('mouseover', (event) => {
+            heart.style.visibility = 'visible';
+        })
+        con.addEventListener('mouseout', (event) => {
+            heart.style.visibility = 'hidden';
+        })
+    }) 
 </script>
 </body>
 </html>
