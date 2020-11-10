@@ -275,7 +275,7 @@
 	    // 지도 위에 표시되고 있는 마커를 모두 제거합니다
 	    function removeMarker() {
 	        for ( var i = 0; i < markers.length; i++ ) {
-	            markers[i].setMap(map);
+	            markers[i].setMap();
 	        }   
 	        markers = [];
 	    }
@@ -316,7 +316,7 @@
 	    // 인포윈도우에 장소명을 표시합니다
 	    function displayInfowindow(marker, title) {
 	        var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
-	
+
 	        infowindow.setContent(content);
 	        infowindow.open(map, marker);
 	    }
