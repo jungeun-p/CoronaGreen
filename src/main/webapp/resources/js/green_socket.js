@@ -1,14 +1,18 @@
+
+
 $(document).ready(function (){
-	//WebSocket 연결의 현재 상태를 반환한다.
-	//연결되어 있지 않다면
 	 if(WebSocket.readyState!==0){
+			console.log("연결된게 없다~");
 			 connectWs();
+			 }else{
+			console.log("연결된게 있다~")
 			 }
 });
 
 function connectWs(){
-	//socket만들어짐
-	 sock = new WebSocket("ws://3.35.112.5:8080/coronagreen_websocket/socket.do");  
+ 	console.log("sock만들어졌다~")
+	   
+	 sock = new WebSocket("wss://coronagreen.cf/socket.do");
 	 socket = sock; 
 	 
 

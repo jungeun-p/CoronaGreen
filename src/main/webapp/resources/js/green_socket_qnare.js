@@ -19,7 +19,6 @@ function sendMessage(){
 	let alarm_date=today.toLocaleString();
 	alarm_message.alarm_date=alarm_date;	//날짜생성
 
-	console.log("msg",alarm_message);
 	
 //댓글 알림 DB저장
 	
