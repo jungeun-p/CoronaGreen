@@ -44,9 +44,7 @@ public class QnaBoardReController {
 	@RequestMapping("/qnareAlarm.do")
 	@ResponseBody
 	public int qnareAlarm(@RequestBody HashMap<String,Object> map) {
-		System.out.println("qnarealarm");
-		System.out.println(map.keySet());
-		System.out.println(map.values());
+		logger.info("qnarealarm");
 		int res=qnaReBiz.alarmInsert(map);
 		
 		return res;
@@ -56,9 +54,7 @@ public class QnaBoardReController {
 	@ResponseBody
 	public int qnareAlarm_confirm(String alarm_boardno) {
 		int res=0;
-		System.out.println("Alarm_confirm왔다!");
-		System.out.println(alarm_boardno);
-		 int alarm_boardno2=Integer.parseInt(alarm_boardno); 
+		logger.info("Alarm_confirm왔다!");
 		res=qnaReBiz.alarmUpdate(alarm_boardno);
 		return res; 
 	}
