@@ -44,7 +44,7 @@ public class QnaBoardReController {
 	@RequestMapping("/qnareAlarm.do")
 	@ResponseBody
 	public int qnareAlarm(@RequestBody HashMap<String,Object> map) {
-		logger.info("qnarealarm");
+		logger.info("<qnarealarm>");
 		int res=qnaReBiz.alarmInsert(map);
 		
 		return res;
@@ -54,7 +54,7 @@ public class QnaBoardReController {
 	@ResponseBody
 	public int qnareAlarm_confirm(String alarm_boardno) {
 		int res=0;
-		logger.info("Alarm_confirm왔다!");
+		logger.info("<Alarm_confirm>");
 		res=qnaReBiz.alarmUpdate(alarm_boardno);
 		return res; 
 	}
@@ -65,7 +65,6 @@ public class QnaBoardReController {
 		List<HashMap<String,Object>> map=null;
 		MemberDto dto=(MemberDto)session.getAttribute("dto");
 		if(dto!=null) {		//로그인 했을경우 
-			System.out.println(dto.getId());
 			try {
 				map=qnaReBiz.alarmlist(dto.getId());
 			} catch (Exception e) {
