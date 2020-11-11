@@ -1,5 +1,9 @@
 package com.corona.green.model.biz;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.mail.MessagingException;
+
 import com.corona.green.model.dto.MemberDto;
 
 public interface MemberBiz {

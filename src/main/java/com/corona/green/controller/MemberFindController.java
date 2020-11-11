@@ -1,5 +1,6 @@
 package com.corona.green.controller;
 
+import javax.annotation.Resource;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.corona.green.api.SendCode;
+import com.corona.green.api.SendCodeImpl;
 import com.corona.green.api.SendId;
+import com.corona.green.api.SendIdImpl;
 import com.corona.green.api.UserSha256;
 import com.corona.green.model.biz.MemberBiz;
 import com.corona.green.model.dto.MemberDto;
@@ -25,6 +28,12 @@ public class MemberFindController {
 
 	@Autowired
 	private MemberBiz biz;
+	
+	@Autowired
+	private SendId sendid;
+	
+	@Autowired
+	private SendCode sendcode;
 
 	@RequestMapping("find.do")
 	public String findForm(Model model) {
@@ -33,12 +42,12 @@ public class MemberFindController {
 
 	@RequestMapping("emailsend.do")
 	@ResponseBody
-	public boolean emailChk(@RequestParam("email") String email) throws AddressException, MessagingException {
+	public boolean emailChk(@RequestParam("email") String email) throws Exception {
 		int res = biz.EmailCheck(email);
 		MemberDto dto = biz.EmailCheckId(email);
 		boolean check = false;
+		
 		if (res > 0) {
-			SendId sendid = new SendId();
 			return sendid.IdSend(dto.getId(), email);
 		} else {
 			return check;
@@ -47,11 +56,10 @@ public class MemberFindController {
 
 	@RequestMapping("emailsendcode.do")
 	@ResponseBody
-	public String emailCode(MemberDto dto) throws AddressException, MessagingException {
+	public String emailCode(MemberDto dto) throws Exception {
 		int res = biz.EmailIdCheck(dto);
 		if (res > 0) {
-			SendCode code = new SendCode();
-			return code.getCode(dto.getEmail());
+			return sendcode.getCode(dto.getEmail());
 		} else {
 			return "NO";
 		}

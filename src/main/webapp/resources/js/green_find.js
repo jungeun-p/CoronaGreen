@@ -3,14 +3,25 @@ $("#id__email").keyup(function(){
 	var email_del = $("#id__email");
 	var email_check = email_del.val().replace(/(\s*)/g,"");
 	email_del.val(email_del.val().replace(/(\s*)/g,""));
-	if (mailJ.test(email_check)) {
+
+	if (email_check == "") {
+		$("#check1").text("이메일을 입력해주세요.");
+		$("#check1").css("color","red");
+		$("#emailsend").prop("disabled", true);
+	}else if (mailJ.test(email_check)) {
 		$("#check1").text("");
 		$("#emailsend").prop("disabled", false);
+	} else {
+		$("#check1").text("이메일 주소를 다시 확인해주세요.");
+		$("#check1").css("color","red");
+		$("#emailsend").prop("disabled", true);
+	}
+
+})
 	$("#emailsend").click(function(){
 		var email = $("#id__email").val();
-		var random = $("#random").val();
 		$.ajax({
-			url : "emailsend.do?email="+email + "&random=" + random,
+			url : "emailsend.do?email="+email,
 			type : 'POST',
 			success: function(data) {
 				if(data) {
@@ -21,19 +32,12 @@ $("#id__email").keyup(function(){
 					$("#check1").css("color","red");
 				}
 			},
-			error: function(data){
+			error: function(){
 				alert("에러 발생!");
-				return false;
 			}
 		})
 	})
-	} else {
-		$("#check1").text("이메일 주소를 다시 확인해주세요.");
-		$("#check1").css("color","red");
-		$("#emailsend").prop("disabled", true);
-	}
 
-})
 
 
 
@@ -119,7 +123,6 @@ $.ajax({
 		}
 	}, error: function() {
 		alert("통신실패");
-		return false;
 	}
 	})
 })
