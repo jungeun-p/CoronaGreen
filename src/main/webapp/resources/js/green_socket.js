@@ -26,6 +26,7 @@ sock.onmessage = function(evt) {
 };
 //서버와 연결을 끊었을때
 sock.onclose = function() {
+	 setTimeout(function(){conntectWs();} , 1000); 
 };
 
 sock.onerror = function (err) {console.log('Errors : ' , err);};
