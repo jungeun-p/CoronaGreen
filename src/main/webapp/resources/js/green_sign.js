@@ -646,7 +646,7 @@ $("#phone_code_send").click(function(){
 		type : 'get',
 		success: function(data) {
 			code = data;
-			console.log(code);
+			//console.log(code);
 			alert("인증번호가 발송되었습니다.");
 			$("#phone_code_check").text("인증번호를 입력해주세요.");
 			$("#phone_code_check").css("color","red");
