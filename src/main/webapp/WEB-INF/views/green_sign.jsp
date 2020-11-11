@@ -8,14 +8,13 @@
 
 <link href="resources/css/green_sign.css" rel="stylesheet"
 	type="text/css" />
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="resources/js/green_sign.js" defer></script>
+
 </head>
 <body>
 
 	<%@ include file="/WEB-INF/views/header_main.jsp"%>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="resources/js/green_sign.js" defer></script>
 	<form id="registform" action="registres.do" method="post">
 		<section class="regist__form">
 			<div class="regist__box" style="background-image: URL(./resources/img/color.jpg);">
