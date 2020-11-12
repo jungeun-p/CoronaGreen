@@ -4,11 +4,14 @@ const svg1 = d3
     .select("#svg1")
     .append("svg")
     .attr("width", 600)
-    .attr("height", 500);
+    .attr("height", 550);
 
-const margin = { top: 30, right: 60, bottom: 40, left: 80 };
+const margin = { top: 30, right: 60, bottom: 30, left: 80 };
 const graphWidth = 600 - margin.left - margin.right;
 const graphHeight = 500 - margin.top - margin.bottom;
+
+const now = new Date;
+const day = d3.timeDay(now);
 
 const graph = svg1
     .append("g")
@@ -20,6 +23,11 @@ const xAxisGroup = graph
     .append("g")
     .attr("transform", `translate(0, ${graphHeight})`);
 const yAxisGroup = graph.append("g");
+
+const sysdate = svg1
+    .append("text")
+    .attr("class", 'sysdate')
+    .text(day);
 
 d3.json("resources/json/corona_patient.json", function (data) {
     const rects = graph.selectAll("rect")

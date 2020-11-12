@@ -10,6 +10,10 @@
 <link rel="stylesheet" href="resources/css/green_mypage_update.css">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="resources/js/green_mypage_update.js" ></script>
+<!--google font-->
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap"
+	rel="stylesheet">
 </head>
 <body>
 

@@ -10,12 +10,16 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!-- menubar css -->
-<link href="resources/css/header.css" rel="stylesheet" type="text/css" />
+<link href="resources/css/header_main.css" rel="stylesheet" type="text/css" />
 <!-- menubar js -->
 <script src="resources/js/header.js" defer></script>
 <!--google font-->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap"	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap"
+	rel="stylesheet">
 
 <!-- notification -->
 <script src="resources/js/green_notification.js"></script>
@@ -37,7 +41,7 @@
 				</a>
 			</div>
 			<div class="menubar__category">
-				<a href="#"><p class="category__name">ABOUT</p></a> <a
+				<a href="greenabout.do"><p class="category__name">ABOUT</p></a> <a
 					href="news.do"><p class="category__name">NEWS</p></a> <a
 					href="policylist.do"><p class="category__name">POLICY</p></a> <a
 					href="qnalist.do"><p class="category__name">QnA</p></a>
@@ -76,14 +80,14 @@
 				href="logout1.do"><p class="category">SIGN OUT</p></a>
 		</div>
 	</nav>
-	<% 
+	<%
 		} else {
 	%>
 	<nav class="menubar__user">
 		<div class="user__category">
 			<!-- 현모 마이페이지 부분 -->
-			<a href="http://3.35.112.5:8081"><p class="admin__category">ADMIN PAGE</p></a> 
-			<input id="role" type="hidden" value="<%=dto.getRole() %>"/>
+			<a href="http://3.35.112.5:8081"><p class="admin__category">ADMIN
+					PAGE</p></a> <input id="role" type="hidden" value="<%=dto.getRole()%>" />
 			<a href="logout1.do"><p class="admin__category">SIGN OUT</p></a>
 		</div>
 	</nav>
@@ -108,14 +112,16 @@
 	%>
 	<!--chat-->
 	<section class="chatbot">
-		<div class="chatbot__box">
-			<p>🙋‍♀ ASK</p>
-		</div>
+		<a href="http://pf.kakao.com/_lxiWGK/chat" target="_blank">
+			<div class="chatbot__box">
+				<p class="chat__title">🙋‍♀ ASK</p>
+			</div>
+		</a>
 	</section>
 	<!-- donation -->
 	<section class="donation">
 		<div class="donation__box" onclick="donation();">
-			<p>💰 DONATION</p>
+			<p class="dona__title">💰 DONATION</p>
 		</div>
 	</section>
 </body>

@@ -116,6 +116,7 @@ a:link, a:hover {
   font-weight: var(--weight-bold);
   margin: 0;
   padding: 5px 30px;
+  visibility:hidden;
 }
 
 .category__name:hover {
@@ -158,7 +159,7 @@ a:link, a:hover {
 .chatbot {
   position: fixed;
   padding-left: 40px;
-  transform: translateY(850%);
+  transform: translate(0,850%);
   right: 50px;
   cursor: pointer;
   z-index:1;
@@ -176,7 +177,6 @@ a:link, a:hover {
   color: var(--color-black);
   transform: translate(30%, 10%);
   font-weight: var(--weight-bold);
-  font-size: var(--font-semi-regular);
 }
 
 .chatbot__box:hover {
@@ -208,7 +208,6 @@ a:link, a:hover {
   color: var(--color-black);
   transform: translate(20%, 10%);
   font-weight: var(--weight-bold);
-  font-size: var(--font-semi-regular);
 }
 
 .donation__box:hover {

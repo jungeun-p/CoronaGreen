@@ -69,16 +69,16 @@
 			<div class="qnalist__section__frequent">
 			   <ul class="qnalist__list">
 			     <li>
-			      <p class="qnalist__section__frequent__title">accodion-1</p>
-			      <div class="qnalist__section__frequent__content">임시데이터</div>
+			      <p class="qnalist__section__frequent__title">확진자수는 매일 업데이트 되나요?</p>
+			      <div class="qnalist__section__frequent__content">확진자수는 포털 사이트에서 업데이트되는 코로나 확진자 수를 매일 정각 오전 9시 기준으로 업데이트 됩니다.</div>
 			    </li>
 			    <li>
-			      <p class="qnalist__section__frequent__title">accodion-2</p>
-			      <div class="qnalist__section__frequent__content">임시데이터</div>
+			      <p class="qnalist__section__frequent__title">정책과 뉴스는 어디서 가져오나요?</p>
+			      <div class="qnalist__section__frequent__content">포털사이트와 정부 24에서 제공되는 데이터를 업데이트 하고 있습니다.</div>
 			    </li>
 			    <li>
-			      <p class="qnalist__section__frequent__title">accodion-3</p>
-			      <div class="qnalist__section__frequent__content">임시데이터</div>
+			      <p class="qnalist__section__frequent__title">정책과 뉴스를 가져올 때 특정한 기준이 있나요?</p>
+			      <div class="qnalist__section__frequent__content">포털사이트에서 가장 많이 검색된 뉴스와, 가장 빠르게 업로드 된 기사와 정책을 기준으로 데이터를 업데이트 하고 있습니다.</div>
 			     </li>
 			    </ul>
 			</div>
@@ -99,7 +99,7 @@
 			</div>
 			
 			<div class="qnalist__section2__border">
-				<div class="qnalist__section2__border__title">QNA 게시판</div>
+				<!-- <div class="qnalist__section2__border__title">QNA 게시판</div> -->
 				<table border=1 class="qnalist__section2__border__table table table-striped">
 					<col width="10%">
 					<col width="10%">

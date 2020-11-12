@@ -12,7 +12,7 @@
 </head>
 <body>
     <footer class="footer">
-        Copyright © 2020 CORONA GREEN you can contact us! contact@coronagreen19.com
+        <p class="footer__title">Copyright © 2020 CORONA GREEN you can contact us! <a href="#">contact@coronagreen19.com</a></p>
     </footer>
 </body>
 </html>

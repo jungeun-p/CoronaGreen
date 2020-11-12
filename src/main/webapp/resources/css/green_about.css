@@ -1,0 +1,152 @@
+@charset "UTF-8";
+
+:root {
+    /*color*/
+    --color-white: #ffffff;
+    --color-black: #212121;
+    --color-gray: #f4f4f4;
+    --color-dark-gray: #dddddd;
+  
+    /*font size*/
+    --font-logo: 100px;
+    --font-large: 30px;
+    --font--semi-regular: 22px;
+    --font-regular: 18px;
+    --font-small: 12px;
+  
+    /*font weight*/
+    --weight-bold: 700;
+    --weight-regular: 500;
+    --weight-thin: 300;
+  
+    /*Size*/
+    --size-border-radius: 13px;
+  }
+  
+  /*universal tags*/
+  
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    cursor: default;
+  }
+  a {
+    margin: 0;
+    text-decoration: none;
+    color: var(--color-black);
+  }
+
+  [aos="fade"] {
+    opacity: 0;
+    transition-property: opacity;
+}
+
+[aos="fade"].aos-animate {
+    opacity: 1;
+}
+  .about__image{
+      background:url(img/about_1.jpg);
+      background-size: 100%;
+      max-width: atuo;
+      height: 900px;
+      background-repeat: no-repeat;
+  }
+  .main__title{
+      width: 600px;
+      margin-left: 70px;
+      position: sticky;
+      top:10px;
+      color:var(--color-white);
+  }
+  .about__title{
+    font-size: var(--font-logo);
+    margin:0;
+    padding-top:140px;
+    padding-bottom: 30px;
+}
+  .about__sub{
+      font-size: var(--font-regular);
+      margin:0;
+  }
+   .about__first{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 700px;
+  }
+  .first__image{
+    display: flex;
+    flex-direction: column;
+  }
+  .first__image__ball{
+    height:200px;
+    width:900px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top:150px;
+  }
+  .image__ball{
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: #75ccb9;
+  }
+  .ball__sub{
+      font-family: 'Spoqa Han Sans';
+      text-align: center;
+      transform: translate(0%, 200%);
+      color: var(--color-white);
+      font-size: var(--font--semi-regular);
+      font-weight: var(--weight-thin);
+      opacity:.8;
+  }
+  .first__sub{
+      width: 600px;
+      height: auto;
+      padding-top:150px;
+      padding-right: 50px;
+      font-size: var(--font-logo);
+      color: var(--color-dark-gray);
+  }
+  .first__image__sub{
+ 	  font-family: 'Spoqa Han Sans';
+  	  font-size: var(--font-semi-regular);
+  	  font-weight: var(--weight-regular);
+  	  color: gray;
+  	  text-align: center;
+  	  margin-top:60px;
+  	  width: 400px;
+  	  padding-left: 250px;
+
+  }
+  
+.about__second{
+	height: 700px;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+ }
+ 
+ .second__image{
+	width: 1400px;
+ 	height: auto;
+ 	margin-left:100px;
+ }
+
+.second__image img{
+	width: 1400px;
+	height: auto;
+ 	display:block;
+}
+
+.test__title{
+    width: 700px;
+    font-family: 'Spoqa Han Sans';
+    font-size: var(--font-semi-regular);
+    font-weight: var(--weight-regular);
+    color: gray;
+    transform:translate(70%, -180%);
+    text-align:center;
+}
+

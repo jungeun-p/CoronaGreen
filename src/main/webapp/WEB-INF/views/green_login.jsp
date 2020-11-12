@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>LOGIN</title>
 
 <link href="resources/css/green_login.css" rel="stylesheet"
 	type="text/css" />
