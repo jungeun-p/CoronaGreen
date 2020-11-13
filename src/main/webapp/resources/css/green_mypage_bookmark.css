@@ -70,6 +70,15 @@ body {
     margin-top:100px;
 }
 
+.book__mark__check{
+	width: 500px;
+	height: 500px;
+}
+
+.book__mark__check>p{
+	text-align:center;
+}
+
 .news__section1__content{
 	width: 300px;
     height: 200px;

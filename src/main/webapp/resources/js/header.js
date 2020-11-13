@@ -2,8 +2,9 @@
 
     const userBtn = document.querySelector('.menubar__sign');
     const userMenu = document.querySelector('.menubar__user');
+    const adminMenu = document.querySelector('.menubar__admin');
     const menuPar = document.querySelector('.menubar__user__menu');
-
+	
     menuPar.addEventListener('mouseover', () => {
         userMenu.style.visibility = 'visible';
     })
@@ -11,6 +12,13 @@
         userMenu.style.visibility = 'hidden';
     })
     
+    menuPar.addEventListener('mouseover', () => {
+    	adminMenu.style.visibility = 'visible';
+    })
+
+    menuPar.addEventListener('mouseout', () => {
+        adminMenu.style.visibility = 'hidden';
+    })
     
     
     function donation() {

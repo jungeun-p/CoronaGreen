@@ -37,7 +37,7 @@
 		<section class="news__section1__news__section">
 			<c:choose>
 				<c:when test="${empty list }">
-					<div class="book__mark__check">NO BOOKMARK</div>
+					<div class="book__mark__check"><p>NO BOOKMARK</p></div>
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${list }" var="bookmarklist">
