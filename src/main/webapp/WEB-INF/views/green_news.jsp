@@ -18,6 +18,7 @@
 			array[index] = value;
 		})
 		//addItem();
+		console.log(list);
 		var array_title = new Array();
 		var array_link = new Array();
 		var array_img = new Array();
@@ -36,7 +37,7 @@
 								title = title.substr(0, 39) + "...";
 							}
 							
-							if ( i < 9 ) {
+							if ( i < 20 ) {
 								if (array.indexOf(title) == -1) {
 									$(".news__section1__news__section")
 											.append(
@@ -115,7 +116,7 @@
 	}
 	
 	$(window).scroll(function(){   //스크롤이 최하단 으로 내려가면 리스트를 조회하고 page를 증가시킨다.
-    	 if($(window).scrollTop() >= $(document).height() - $(window).height()){
+    	 if($(window).scrollTop() >= $(document).height() - $(window).height() -1){
           var start = startNum();
           var end = endNum();
           //console.log(start);
