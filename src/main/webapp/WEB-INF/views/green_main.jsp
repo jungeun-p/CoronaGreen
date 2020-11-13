@@ -58,18 +58,11 @@
 			<p class="chart__name__map">선별진료소</p>
 			<div class="map_wrap">
 				<div class="anchorwrap">
-					<span class="closebtn" onclick='closeNav()'><i
-						class="fa fa-angle-double-left fa-5" aria-hidden="true"></i></span> <span
-						class="openmenu" onclick='openNav()'><i
-						class="fa fa-angle-double-right fa-5" aria-hidden="true"></i></span>
+					<span class="closebtn" onclick='closeNav()'><i class="fa fa-angle-double-left fa-5" aria-hidden="true"></i></span> 
+					<span class="openmenu" onclick='openNav()'><i class="fa fa-angle-double-right fa-5" aria-hidden="true"></i></span>
 				</div>
-				<div id="map"
-					style="width: 100%; height: 100%; position: relative; overflow: hidden; color: black; border-radius: 30px;">
-					<div id="map"
-						style="width: 100%; height: 100%; position: relative; overflow: hidden; color: black; border-radius: 30px;">
-					</div>
+				<div id="map" style="width: 100%; height: 100%; position: relative; overflow: hidden; color: black; border-radius: 30px;"></div>
 					<div id="menu_wrap" class="bg_white">
-						<div id="menu_wrap" class="bg_white">
 							<div class="option">
 								<div>
 									<form onsubmit="searchPlaces(); return false;">
@@ -83,9 +76,7 @@
 							<ul id="placesList"></ul>
 							<div id="pagination"></div>
 						</div>
-					</div>
-				</div>
-			</div>
+				</div>			
 		</div>
 	</section>
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
