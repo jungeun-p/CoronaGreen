@@ -1,5 +1,37 @@
 @charset "UTF-8";
 
+:root {
+  /*color*/
+  --color-white: #ffffff;
+  --color-black: #212121;
+  --color-gray: #f5f5f5;
+  --color-dark-gray: #c4c4c4;
+  --color-green: #53e4be;
+
+  /*font size*/
+  --font-large: 60px;
+  --font-chart: 30px;
+  --font-regular: 20px;
+  --font-small: 14px;
+
+  /*font weight*/
+  --weight-bold: 700;
+  --weight-regular: 500;
+  --weight-thin: 300;
+
+  /*Size*/
+  --size-border-radius: 13px;
+}
+
+@font-face {
+	font-family: 'NEXON Lv1 Gothic OTF Light';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Light.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
 @font-face {
 	font-family: 'NEXON Lv1 Gothic OTF';
 	src:
@@ -9,25 +41,68 @@
 	font-style: normal;
 }
 
-#svg1 {
-	width: 600px;
-	border-radius: 10px;
-	background-color: #f5f5f5;
-	margin: 20px 20px;
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+
+
+/*aos*/
+[aos="fade"] {
+  opacity: 0;
+  transition-property: opacity;
+}
+
+[aos="fade"].aos-animate {
+  opacity: 1;
+}
+
+/*chart*/
+
+#cloud {
+	transform: translate(5%, 0%);
 }
 
 #svg2 {
-	width: 600px;
-	height: 600px;
-	border-radius: 10px;
-	background-color: #f5f5f5;
-	margin: 20px 20px;
+	width: 460px;
+	height: 460px;
 }
 
-#SVG1>p {
-	text-align: center;
-	margin: 0;
-	padding-top: 20px;
-	font-weight: bold;
-	color: black;
+.sysdate {
+	color: gray;
+	transform: translate(25%, 97%);
+}
+
+.chart__bar {
+	transform: translate(-20%, 0);
+}
+
+.chart__bubble {
+	transform: translate(0, 0%);
+}
+
+.chart__map {
+	visibility: hidden;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	width: 800px;
+	height: 500px;
+	background-color: var(--color-green);
+	border-radius: 20px;
+	margin-bottom: 200px;
+}
+
+.map {
+	width: 500px;
+	height: 400px;
+	transform: translate(3%, 12%);
+	border-radius: 15px;
+	background-color: white;
+}
+
+.map__title {
+	font-size: var(--font-chart);
+	font-weight: var(--weight-thin);
+	color: var(--color-white);
+	font-family: 'Spoqa Han Sans';
+	margin-right: 40px;
+	margin-top: 40px;
 }

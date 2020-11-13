@@ -12,10 +12,14 @@
 <!-- menubar js -->
 <script src="resources/js/header.js" defer></script>
 <!--google font-->
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500&display=swap"
+	rel="stylesheet">
 <!-- notification -->
- 
+
 <script src="resources/js/green_notification.js"></script>
 <script src="resources/js/green_socket.js"></script>
 
@@ -33,7 +37,7 @@
 				</a>
 			</div>
 			<div class="menubar__category">
-				<a href="#"><p class="category__name">ABOUT</p></a> <a
+				<a href="greenabout.do"><p class="category__name">ABOUT</p></a> <a
 					href="news.do"><p class="category__name">NEWS</p></a> <a
 					href="policylist.do"><p class="category__name">POLICY</p></a> <a
 					href="qnalist.do"><p class="category__name">QnA</p></a>
@@ -51,7 +55,8 @@
 	<%
 		} else {
 	%>
-	<a href="#"><p class="menubar__sign"><%=dto.getId() %> </p></a>
+	<a href="#"><p class="menubar__sign"><%=dto.getId()%>
+		</p></a>
 	<!--user menu-->
 	<!--login:visible-->
 	<%
@@ -67,11 +72,16 @@
 	<%
 		} else {
 	%>
-		<nav class="menubar__user">
+	<nav class="menubar__user">
 		<div class="user__category">
 			<!-- 현모 마이페이지 부분 -->
+<<<<<<< HEAD
+			<a href="http://3.35.112.5:8081"><p class="admin__category">ADMIN
+					PAGE</p></a> <input id="role" type="hidden" value="<%=dto.getRole()%>" />
+=======
 			<a href="http://3.35.112.5:8081" target="_blank"><p class="admin__category">ADMIN PAGE</p></a> 
 			<input id="role" type="hidden" value="<%=dto.getRole() %>"/>
+>>>>>>> branch 'develop' of https://github.com/duswn158/CoronaGreen.git
 			<a href="logout1.do"><p class="admin__category">SIGN OUT</p></a>
 		</div>
 	</nav>
@@ -88,14 +98,16 @@
 	%>
 	<!--chat-->
 	<section class="chatbot">
-		<div class="chatbot__box">
-			<p><a href="http://pf.kakao.com/_lxiWGK/chat" target="_blank">🙋‍♀ ASK</a></p>
-		</div>
+		<a href="http://pf.kakao.com/_lxiWGK/chat" target="_blank">
+			<div class="chatbot__box">
+				<p class="chat__title">🙋‍♀ ASK</p>
+			</div>
+		</a>
 	</section>
 	<!-- donation -->
 	<section class="donation">
 		<div class="donation__box" onclick="donation();">
-			<p>💰 DONATION</p>
+			<p class="dona__title">💰 DONATION</p>
 		</div>
 	</section>
 </body>

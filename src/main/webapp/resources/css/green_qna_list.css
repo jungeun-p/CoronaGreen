@@ -70,7 +70,7 @@ p.title{
 
 .qnalist__section__frequent {
 	margin: 120px auto 60px auto;
-	width: 50%;
+	width: 60%;
 }
 .qnalist__section__frequent__title{
 	width:100%;
@@ -112,15 +112,15 @@ p.title{
 #outter{
 	margin: 0 auto;
     border-collapse: collapse;
-    width: 50%;
+    width: 60%;
 }
 
 .qnalist{
-	margin-top: 200px;
+	margin-top: 40px;
 }
 
 .qnalist__wrap{
-	margin-bottom: 200px;
+	margin-bottom: 80px;
 }
 
 
