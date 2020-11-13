@@ -24,7 +24,7 @@
 	<%
 		
 	%>
-	<%@ include file="/WEB-INF/views/header_main.jsp"%>
+	<%@ include file="/WEB-INF/views/header_login.jsp"%>
 	<form action="login.do" method="post" onsubmit="return check()">
 		<input type="hidden" value="normal" name="code" />
 		<section class="login__form">
