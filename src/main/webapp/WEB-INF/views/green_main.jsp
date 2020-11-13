@@ -64,12 +64,20 @@
 						class="openmenu" onclick='openNav()'><i
 						class="fa fa-angle-double-right fa-5" aria-hidden="true"></i></span>
 				</div>
+<<<<<<< HEAD
 				<div id="map"
 					style="width: 100%; height: 100%; position: relative; overflow: hidden; color: black; border-radius: 30px;">
 
+=======
+				<div id="map" style="width: 100%; height: 100%; position: relative; overflow: hidden; color: black; border-radius: 30px;">
+>>>>>>> branch 'develop' of https://github.com/duswn158/CoronaGreen.git
 				</div>
+<<<<<<< HEAD
 				<div id="menu_wrap" class="bg_white">
 
+=======
+				<div id="menu_wrap" class="bg_white">			
+>>>>>>> branch 'develop' of https://github.com/duswn158/CoronaGreen.git
 					<div class="option">
 						<div>
 							<form onsubmit="searchPlaces(); return false;">

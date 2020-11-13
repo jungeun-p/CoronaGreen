@@ -12,25 +12,138 @@
 		#menu_wrap .option{text-align: center; display:none;}
 		#menu_wrap .option p {margin:10px 0;}  
 		#menu_wrap .option button {margin-left:5px;}
+
+		button {
+			padding: 5px;margin-bottom: 10px;width: 200px;
+		}	
 		
-		#placesList2 li {list-style: none;}
-		#placesList2 .item {position:relative; text-align:justify; overflow: hidden;min-height: 65px;}
-		#placesList2 .item span {display: block;margin-top:4px;}
-		#placesList2 .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-		#placesList2 .item .info{padding:10px 10px 10px 10px; color:black;}
-		#placesList2 .info .gray {color:#8a8a8a;}
-		#placesList2 .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
-		#placesList2 .info .tel {color:#009900;}
+		#map_header button {
+			border: 2px solid #324156; 
+			outline:none; 
+			background-color: #70acff;
+			color: white;
+			font-weight: bold;
+			text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; 
+			font-size:11pt;
+			border-radius: 15px;
+			padding: 10px 0px 10px 0px;
+			margin: 10px 10px 10px 10px;
+		}
 		
-		#placesList li {list-style: none;}
-		#placesList .item {position:relative; text-align:justify; border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
-		#placesList .item span {display: block;margin-top:4px;}
-		#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
-		#placesList .item .info{padding:10px 0 10px 55px; color:black;}
-		#placesList .info .gray {color:#8a8a8a;}
-		#placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
-		#placesList .info .tel {color:#009900;}
-		#placesList .item .markerbg {color: black; float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+		.map_wrap, .map_wrap * {
+			margin:0;
+			padding:0;
+			font-family:'Malgun Gothic',dotum,'돋움',sans-serif;
+			font-size:12px;
+		}
+		
+		.map_wrap a, .map_wrap a:hover, .map_wrap a:active {
+			color:#000;
+			text-decoration: none;
+		}
+		
+		.map_wrap {
+			position:relative; 
+			width:100%;
+			height:100%; 
+			border-radius: 30px;
+		}
+		
+		#menu_wrap {
+			position:absolute;
+			top:0;
+			left:0;
+			bottom:0;
+			width:0px;
+			margin:0px 0 0px 0px;
+			padding:0px;
+			overflow-y:auto;
+			background:rgba(255, 255, 255, 0.7);
+			z-index: 1;
+			font-size:12px;
+			border-radius: 10px;
+		}
+		
+		.bg_white {
+			background:#fff;
+		}
+		
+		/* 맵 메뉴 */
+		#menu_wrap hr {
+			display: block; 
+			height: 10px;
+			border: 0; 
+			border-top: 0px solid #5F5F5F;
+			margin:3px 0;
+		}
+		
+		#menu_wrap .option{
+			text-align: center; 
+			display:none;
+		}
+		
+		#menu_wrap .option p {
+			margin:10px 0;
+		}  
+		
+		#menu_wrap .option button {
+			margin-left:5px;
+		}
+		
+		
+		/* 맵 메뉴 리스트 목록*/
+		#placesList li {
+			list-style: none;
+		}
+		
+		#placesList .item {
+			position:relative; 
+			text-align:justify; 
+			border-bottom:1px solid #888;
+			overflow: hidden;
+			cursor: pointer;
+			min-height: 65px;
+		}
+		
+		#placesList .item span {
+			display: block;
+			margin-top:4px;
+		}
+		
+		#placesList .item h5, #placesList .item .info {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+		
+		#placesList .item .info {
+			padding:10px 0 10px 55px; 
+			color:black;
+		}
+		
+		#placesList .info .gray {
+			color:#8a8a8a;
+		}
+		
+		#placesList .info .jibun {
+			padding-left:26px;
+			background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;
+		}
+		
+		#placesList .info .tel {
+			color:#009900;
+		}
+		
+		#placesList .item .markerbg {
+			color: black; 
+			float:left;
+			position:absolute;
+			width:36px; 
+			height:37px;
+			margin:10px 0 0 10px;
+			background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;
+		}
+		
 		#placesList .item .marker_1 {background-position: 0 -10px;}
 		#placesList .item .marker_2 {background-position: 0 -56px;}
 		#placesList .item .marker_3 {background-position: 0 -102px}
@@ -46,9 +159,68 @@
 		#placesList .item .marker_13 {background-position: 0 -562px;}
 		#placesList .item .marker_14 {background-position: 0 -608px;}
 		#placesList .item .marker_15 {background-position: 0 -654px;}
-		#pagination {margin:10px auto;text-align: center;}
-		#pagination a {display:inline-block;margin-right:10px;}
-		#pagination .on {font-weight: bold; cursor: default;color:#777;}
+		
+		
+		/* 지도안에 마커 */
+		#placesList2 li {
+			list-style: none;
+		}
+		
+		#placesList2 .item {
+			position:relative; 
+			text-align:justify; 
+			overflow: hidden;
+			min-height: 65px;
+		}
+		
+		#placesList2 .item span {
+			display: block;
+			margin-top:4px;
+		}
+		
+		#placesList2 .item h5, #placesList .item .info {
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+		}
+		
+		#placesList2 .item .info {
+			padding:10px 10px 10px 10px; 
+			color:black;
+		}
+		
+		#placesList2 .info .gray {
+			color:#8a8a8a;
+		}
+		
+		#placesList2 .info .jibun {
+			padding-left:26px;
+			background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;
+		}
+		
+		#placesList2 .info .tel {
+			color:#009900;
+		}
+		
+		
+		
+		#pagination {
+			margin:10px auto;
+			text-align: center;
+		}
+		
+		#pagination a {
+			display:inline-block;
+			margin-right:10px;
+		}
+		
+		#pagination .on {
+			font-weight: bold; 
+			cursor: default;
+			color:#777;
+		}
+		
+		/* 맵 메뉴 */
 		.bg_white {
 			height:100%;
 			width: 0;
@@ -61,6 +233,7 @@
 			transition:0.5s ease-in-out;
 			padding-top: 60px;
 		}
+		
 		.bg_white a {
 			padding: 8px 8px 8px 32px;
 			text-decoration: none;
@@ -69,25 +242,32 @@
 			display: block;
 			transition: 0.2s ease-in-out;
 		}
+		
 		.bg_white a:hover, .offcanvas a:focus {
 			color: #000;
 		}
+		
+		/* 맵 메뉴 열고닫기 */
 		.closebtn {
 			font-size: 25px;
 			cursor:pointer;
 			transition:0.5s ease-in-out;
-		}		
+		}	
+			
 		.closebtn:hover {
 			color:rgb(0,154,200);
 			transition:0.5s ease-in-out;
 		}
+		
 		.closebtn > i {
 			font-size: 30px;
 		}
+		
 		.openmenu:hover {
 			color:rgb(0,154,200);
 			transition:0.5s ease-in-out;
 		}
+		
 		.openmenu {
 			font-size: 25px;
 			cursor:pointer;

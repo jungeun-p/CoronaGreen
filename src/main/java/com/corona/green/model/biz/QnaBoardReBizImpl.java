@@ -38,7 +38,6 @@ public class QnaBoardReBizImpl implements QnaBoardReBiz {
 
 	@Override
 	public List<HashMap<String, Object>> alarmlist(String recipient) {
-		// TODO Auto-generated method stub
 		return dao.alarmlist(recipient);
 	}
 	

@@ -44,3 +44,5 @@ for i in test:
 
     with open(r'/var/lib/tomcat9/webapps/CoronaGreen/resources/json/corona_patient.json', 'w', encoding='utf-8') as f:
         f.write(res_json)
+
+browser.close

@@ -75,8 +75,13 @@
 	<nav class="menubar__user">
 		<div class="user__category">
 			<!-- 현모 마이페이지 부분 -->
+<<<<<<< HEAD
 			<a href="http://3.35.112.5:8081"><p class="admin__category">ADMIN
 					PAGE</p></a> <input id="role" type="hidden" value="<%=dto.getRole()%>" />
+=======
+			<a href="http://3.35.112.5:8081" target="_blank"><p class="admin__category">ADMIN PAGE</p></a> 
+			<input id="role" type="hidden" value="<%=dto.getRole() %>"/>
+>>>>>>> branch 'develop' of https://github.com/duswn158/CoronaGreen.git
 			<a href="logout1.do"><p class="admin__category">SIGN OUT</p></a>
 		</div>
 	</nav>

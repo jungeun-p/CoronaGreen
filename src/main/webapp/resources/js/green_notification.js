@@ -9,18 +9,8 @@
 		datatype:'json',
 		success: function(data){
 			if(data!=null&&data!=""){
-			console.log("안본알람있음");
-		console.log(JSON.stringify(data))
-		console.log("length"+data.length);
+			
 		for(var i=0;i<data.length;i++){
-		console.log(i);
-		console.log(data[i]["RECIPIENT"])
-		console.log(data[i]["BOARDNO"]);
-		console.log(data[i]["SENDER"]);
-		console.log(data[i]["ALARM_TITLE"]);
-		console.log(data[i]["ALARM_CONFIRM"]);
-		console.log(data[i]["ALARMNO"]);
-		console.log(data[i]["ALARM_DATE"]);
 						var param={
 					"recipient":data[i]["RECIPIENT"],
 					"alarm_boardno":data[i]["BOARDNO"],
@@ -47,25 +37,24 @@
 
 	
 	function notify(data){
-		console.log("notification:"+data);
 		var js = JSON.parse(data);
 		var notification_title=js.alarm_title;
 		var notification_content=js.alarm_content +"\n"+js.alarm_date;
 		var alarm_boardno=js.alarm_boardno;
 		
-		console.log(notification_title+"sdsd"+notification_content)
 		if(Notification.permission !=='granted'){		
 			//권한값이 granted가 아닌경우
 			//granted: 사용자가 의도하여 어플리케이션이 알림을 보낼 수 있도록 허가.
 			//denied: 사용자가 의도하여 어플리케이션이 알림을 보내는 것을 거부.
 			//default: 사용자의 결정은 알 수 없으나, 어플리케이션 기본적으로 denied 와 같이 동작할 것 입니다.
 			//notification('제목',{ }')
+			
 			alert("알림을 허용해주세요")
 			
 		}
 		else {
 			//icon : 생성자의 옵션 파라메터 안에 명시된 알림의 아이콘으로 사용될 이미지의 URL
-			//body : 생성자의 옵션 파라메터 안에 명시된 알림의 보문
+			//body : 생성자의 옵션 파라메터 안에 명시된 알림의 본문
 			var notification =new Notification(notification_title,{
 				icon: ' http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
 			 	body: notification_content,
@@ -75,18 +64,12 @@
 			 notification.onclick=function(){
 				location.href="qnadetail.do?boardno="+alarm_boardno; 
 			 }
-			 console.log(alarm_boardno)
 			 //읽음처리
 			 $.ajax({
 			 type:'post',
 			 url:'confirm.do',
 			 data:{"alarm_boardno":alarm_boardno},
 			 success:function(data){
-			 	if(data>0){
-			 	console.log("읽음완료");
-			 	}else{
-			 	console.log("읽음실패");
-			 	}
 			 },
 			 error:function(err){
 			 console.log(err);
