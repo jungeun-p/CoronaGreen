@@ -13,13 +13,13 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script src="resources/js/green_login.js" defer></script>
 </head>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	history.pushState(null, null, "main.do");
 
 	window.onpopstate = function(event) {
 		history.go(1);
 	}
-</script>
+</script> -->
 <body>
 	<%
 		

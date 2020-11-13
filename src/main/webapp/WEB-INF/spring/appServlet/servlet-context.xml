@@ -32,9 +32,22 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
+
 	<context:component-scan
 		base-package="com.corona.green" />
+
+	<interceptors>
+		<interceptor>
+			<mapping path="/**/*" />
+			<beans:bean id="webContentInterceptor"
+				class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+				<beans:property name="cacheSeconds" value="0" />
+				<beans:property name="useExpiresHeader" value="true" />
+				<beans:property name="useCacheControlHeader" value="true" />
+				<beans:property name="useCacheControlNoStore" value="true" />
+			</beans:bean>
+		</interceptor>
+	</interceptors>
 
 	<!-- interceptor -->
 	<interceptors>
@@ -48,18 +61,22 @@
 	<!-- NaverLoginBO Class에 대한 Bean설정 추가 -->
 	<beans:bean id="naverLoginBO"
 		class="com.corona.green.api.NaverLoginBo" />
-	
-	<beans:bean id="logbiz" class="com.corona.green.model.biz.LogBizImpl"/>
-	<beans:bean id="logbiz1" class="com.corona.green.log.Log"/>
-	
-			<!-- websocket handler -->
-	<beans:bean id="echoHandler" class="com.corona.green.api.Notification" />
- 
+
+	<beans:bean id="logbiz"
+		class="com.corona.green.model.biz.LogBizImpl" />
+	<beans:bean id="logbiz1" class="com.corona.green.log.Log" />
+
+	<!-- websocket handler -->
+	<beans:bean id="echoHandler"
+		class="com.corona.green.api.Notification" />
+
 	<websocket:handlers allowed-origins="*">
-		<websocket:mapping handler="echoHandler" path="/socket.do" />
+		<websocket:mapping handler="echoHandler"
+			path="/socket.do" />
 		<websocket:handshake-interceptors>
-	         <beans:bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
-	      </websocket:handshake-interceptors>
-	 </websocket:handlers>
-	 
+			<beans:bean
+				class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor" />
+		</websocket:handshake-interceptors>
+	</websocket:handlers>
+
 </beans:beans>
