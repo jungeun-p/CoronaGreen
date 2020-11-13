@@ -24,7 +24,7 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header_main.jsp"%>
-	<%
+	<%-- <%
 		if (dto != null) {
 	%>
 	<script type="text/javascript">
@@ -36,7 +36,7 @@
 	</script>
 	<%
 		}
-	%>
+	%> --%>
 	<!-- charts -->
 	<section class="charts">
 		<div class="chart__wrap">
