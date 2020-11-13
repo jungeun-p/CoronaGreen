@@ -41,7 +41,7 @@
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${list }" var="bookmarklist">
-						<div class="news__section1__content">
+						<div id="bookmark__del" class="news__section1__content">
 							<div class="content__box">
 								<div class="content__img__box">
 									<a> <input type="hidden" value="${bookmarklist.link }" />
