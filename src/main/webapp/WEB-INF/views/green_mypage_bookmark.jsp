@@ -37,11 +37,11 @@
 		<section class="news__section1__news__section">
 			<c:choose>
 				<c:when test="${empty list }">
-					<div class="book__mark__check">NO BOOKMARK</div>
+					<div class="book__mark__check"><p>NO BOOKMARK</p></div>
 				</c:when>
 				<c:otherwise>
 					<c:forEach items="${list }" var="bookmarklist">
-						<div class="news__section1__content">
+						<div id="bookmark__del" class="news__section1__content">
 							<div class="content__box">
 								<div class="content__img__box">
 									<a> <input type="hidden" value="${bookmarklist.link }" />
