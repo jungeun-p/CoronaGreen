@@ -18,7 +18,7 @@
 			array[index] = value;
 		})
 		//addItem();
-		console.log(list);
+		//console.log(list);
 		var array_title = new Array();
 		var array_link = new Array();
 		var array_img = new Array();

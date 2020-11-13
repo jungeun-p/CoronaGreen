@@ -22,7 +22,7 @@ $(function() {
 	var array_link = new Array();
 	var array_img = new Array();
 	var cnt = 0;
-	console.log(word);
+	//console.log(word);
 	$.ajax({
 				type : "post",
 				url : "resources/json/navernews.json",
