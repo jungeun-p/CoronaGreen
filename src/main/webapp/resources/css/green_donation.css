@@ -26,17 +26,12 @@
 	.dona_border {
 		margin: 100px;
 		width: 500px;
+		background-color:var(--color-white);
 		/* height: 400px; */
-		border: 1px solid var(--color-white);
 		margin-left: auto;
 		margin-right: auto;
 		border-radius: var(--size-border-radius);
-		box-shadow: 0 1px 1px #c0c0c0,
-					0 2px 0 #a8a7a6, 
-					0 3px 0 #8b8a89, 
-					0 4px 0 #7d7b7a,
-					0 5px 0 #686766,
-					0 6px 3px #5f5e5d;
+        box-shadow: 14px 14px 30px 3px rgba(0, 0, 0, 0.1);
 	}
 	
 	/*메인텍스트*/
@@ -48,15 +43,14 @@
 	/*후원텍스트 DIV박스*/
 	.Donation_desciption{
 		display:inline-block;
-	    padding-top: 30px;
+	    padding-top: 10px;
 	}
 	
 	/*후원텍스트*/ /*div p하면 풋터랑 충돌나서 p태그에 id값 넣어줬습니다.*/
 	div #D_d{
 		display: block;
-		background-color: var(--color-dark-gray);
 		width: 350px;
-		height: 100px;
+		height: 20px;
 		line-height: 100px;
 		text-align: center;
 	}
@@ -133,4 +127,9 @@
 	
 	.div_Donation{
 		text-align: center;
+		height: 150px;
+	}
+	
+	.div_Button{
+		padding:20px 0;
 	}

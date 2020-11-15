@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Policy</title>
+<title>POLICY</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="resources/js/green_policy.js" defer></script>
 <link href="resources/css/green_policy.css" rel="stylesheet" type="text/css"/>
