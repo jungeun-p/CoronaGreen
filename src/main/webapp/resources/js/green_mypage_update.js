@@ -146,7 +146,7 @@ function pw_check(){
 			url : 'pw_check.do?pw='+pw,
 			type : 'get',
 			success: function(data) {
-			alert(data);
+			//alert(data);
 				if(pw != pw_check){
 				$(".update__message").text("※ 비밀번호가 서로 다릅니다");
 			$("input[name=pw]").val("");

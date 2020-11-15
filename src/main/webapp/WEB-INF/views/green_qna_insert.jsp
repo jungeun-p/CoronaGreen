@@ -72,4 +72,10 @@ $(document).ready(function() {
     </section>
     	<%@ include file="/WEB-INF/views/footer.jsp" %>
 </body>
+
+<style>
+p {
+	margin-top: 15px;
+}
+</style>
 </html>
