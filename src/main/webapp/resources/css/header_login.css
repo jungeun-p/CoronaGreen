@@ -138,7 +138,9 @@ a:link, a:hover {
   position:fixed;
 }
 
+
 .user__category {
+  display: none;
   font-size: var(--font-small);
 }
 
@@ -241,6 +243,7 @@ a:link, a:hover {
 }
 
 .admin__category:hover {
+  display: none;
   background-color: var(--color-gray);
   color: var(--color-green);
   transition: 0.2s linear;

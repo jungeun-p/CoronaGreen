@@ -58,6 +58,9 @@
 	margin-bottom: 30px;
 }
 
+p {
+	margin-top: 15px;
+}
 </style>
 
 </head>
