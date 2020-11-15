@@ -71,11 +71,11 @@
 }
 
 .chart__bar {
-	transform: translate(-20%, 0);
+	transform: translate(-20%, -10%);
 }
 
 .chart__bubble {
-	transform: translate(0, 0%);
+	transform: translate(0, 10%);
 }
 
 .chart__map {
@@ -88,21 +88,4 @@
 	background-color: var(--color-green);
 	border-radius: 20px;
 	margin-bottom: 200px;
-}
-
-.map {
-	width: 500px;
-	height: 400px;
-	transform: translate(3%, 12%);
-	border-radius: 15px;
-	background-color: white;
-}
-
-.map__title {
-	font-size: var(--font-chart);
-	font-weight: var(--weight-thin);
-	color: var(--color-white);
-	font-family: 'Spoqa Han Sans';
-	margin-right: 40px;
-	margin-top: 40px;
 }

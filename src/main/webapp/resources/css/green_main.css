@@ -45,13 +45,24 @@ a {
 
 .chart__wrap {
   min-width: 800px;
-  height: 620px;
+  height: 580px;
   color: var(--color-black);
   text-align: center;
   border-radius: 30px;
   transform: translate(10%, 0);
   margin-bottom: 40px;
 }
+
+.chart__wrap__cloud {
+  min-width: 800px;
+  height: 620px;
+  color: var(--color-black);
+  text-align: center;
+  border-radius: 30px;
+  transform: translate(10%, 0);
+  margin-bottom: 60px;
+}
+
 
 .chart__name {
 	font-size: var(--font-chart);
@@ -64,8 +75,8 @@ a {
 	font-size: var(--font-chart);
 	font-weight: var(--weight-thin);
 	color: var(--color-dark-gray);
-	margin:0;
-	transform:translate(10%, -140%);
+	margin-top:20px;
+	transform:translate(10%, 0%);
 }
 
 .map_wrap{
