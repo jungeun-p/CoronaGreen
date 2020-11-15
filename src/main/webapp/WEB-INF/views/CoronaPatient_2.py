@@ -38,12 +38,11 @@ for i in test:
     tmp['number']=num
     tmp['day'] = day
     lst.append(tmp)
+    print(lst)
 
-print(lst)
+    res_json = json.dumps(lst, ensure_ascii=False)
 
-res_json = json.dumps(lst, ensure_ascii=False)
-
-with open(r'/var/lib/tomcat9/webapps/CoronaGreen/resources/json/corona_patient.json', 'w', encoding='utf-8') as f:
-    f.write(res_json)
+    with open(r'/var/lib/tomcat9/webapps/CoronaGreen/resources/json/corona_patient.json', 'w', encoding='utf-8') as f:
+        f.write(res_json)
 
 browser.close

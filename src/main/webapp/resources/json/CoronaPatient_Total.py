@@ -40,8 +40,10 @@ for chd in title:
     tmp['num'] = nums
     lst.append(tmp)
 
-    print(lst)
-    res_json = json.dumps(lst, ensure_ascii=False)
+print(lst)
+res_json = json.dumps(lst, ensure_ascii=False)
 
-    with open(r'/var/lib/tomcat9/webapps/CoronaGreen/resources/json/corona_patient_total.json', 'w', encoding='utf-8') as f:
-        f.write(res_json)
+with open(r'/var/lib/tomcat9/webapps/CoronaGreen/resources/json/corona_patient_total.json', 'w', encoding='utf-8') as f:
+    f.write(res_json)
+
+browser.close
