@@ -11,7 +11,6 @@
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-<script type="text/javascript" src="resources/js/header.js"></script>
 <script src="resources/js/green_donation.js" defer></script>
 
 </head>
@@ -27,7 +26,7 @@
 			<h3>DONATION</h3>
 			
 			<div class="div_Donation">
-			    <div class="Donation Donation_desciption"><P id="D_d">💓💓💓</P></div> 
+			    <div class="Donation Donation_desciption"><p>💰💰💰 </p><p>후원 금액은</p><p>코로나 19 관련 단체에 기부됩니다</p></div> 
 			    <!-- div p하면 풋터랑 충돌나서 p태그에 id값 넣어줬습니다. -->
 			</div>
 			

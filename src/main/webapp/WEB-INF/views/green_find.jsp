@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>FIND</title>
 <link href="resources/css/green_find.css" rel="stylesheet"
 	type="text/css" />
 <script type="text/javascript"

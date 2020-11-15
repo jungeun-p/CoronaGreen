@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>MYPAGE / EDIT</title>
 
 
 <link rel="stylesheet" href="resources/css/green_mypage_update.css">
@@ -68,9 +68,9 @@
 <!-- 	               <input class="update__submit" type="button" value="UPDATE" onclick="pw_check()"/> -->
 	                   <input id="change" class="update__submit changepw__button__input" type="button" value="UPDATE" disabled="disabled" onclick="pw_check()"/>
 	                   <!-- 탈퇴버튼 이거 써야됨! -->
-	                 <%-- <input type="button" value="SECESSION" class="update__submit changepw__button__input" onclick='secession("<%=dto.getId() %>");'/> --%>
+	                 <input id="secession" type="button" value="SECESSION" class="update__submit changepw__button__input" onclick='secession("<%=dto.getId() %>");'/>
 	                </li>
-	                <li>
+	                <li class="update__form__li">
 	                	<div class="update__message"></div>
 	                </li>
 	            </ul>
