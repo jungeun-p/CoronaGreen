@@ -73,7 +73,7 @@ p {
 			   <ul class="qnalist__list">
 			     <li>
 			      <p class="qnalist__section__frequent__title">확진자수는 매일 업데이트 되나요?</p>
-			      <div class="qnalist__section__frequent__content">확진자수는 포털 사이트에서 업데이트되는 코로나 확진자 수를 매일 정각 오전 9시 기준으로 업데이트 됩니다.</div>
+			      <div class="qnalist__section__frequent__content">확진자수는 포털 사이트에서 업데이트되는 코로나 확진자 수를 매일 정각 오전 10시 기준으로 업데이트 됩니다.</div>
 			    </li>
 			    <li>
 			      <p class="qnalist__section__frequent__title">정책과 뉴스는 어디서 가져오나요?</p>
