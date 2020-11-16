@@ -19,7 +19,7 @@
 					"alarm_confirm":data[i]["ALARM_CONFIRM"],
 					"alarmno":data[i]["ALARMNO"],
 					"alarm_date":data[i]["ALARM_DATE"],
-					"alarm_content":"작성하신  '"+data[i]["ALARM_TITLE"]+"' 글에 답글이 작성되었습니다."
+					"alarm_content":data[i]["ALARM_DATE"]
 					}
 					
 
@@ -53,6 +53,18 @@
 			
 		}
 		else {
+				 //읽음처리
+			 $.ajax({
+			 type:'post',
+			 url:'confirm.do',
+			 data:{"alarm_boardno":alarm_boardno},
+			 success:function(data){
+			 },
+			 error:function(err){
+			 console.log(err);
+			 }
+			 });
+			
 			//icon : 생성자의 옵션 파라메터 안에 명시된 알림의 아이콘으로 사용될 이미지의 URL
 			//body : 생성자의 옵션 파라메터 안에 명시된 알림의 본문
 			var notification =new Notification(notification_title,{
@@ -64,17 +76,7 @@
 			 notification.onclick=function(){
 				location.href="qnadetail.do?boardno="+alarm_boardno; 
 			 }
-			 //읽음처리
-			 $.ajax({
-			 type:'post',
-			 url:'confirm.do',
-			 data:{"alarm_boardno":alarm_boardno},
-			 success:function(data){
-			 },
-			 error:function(err){
-			 console.log(err);
-			 }
-			 });
+		
 			 
 			 
 		}
