@@ -36,8 +36,8 @@ function sendMessage(){
  			}
  		});
 	//socket이 연결되어 있다면 
-	if(socket){
-	socket.send(JSON.stringify(alarm_message)); //json형태의 String으로 보내줌		 
+	if(sock){
+	sock.send(JSON.stringify(alarm_message)); //json형태의 String으로 보내줌		 
 	document.getElementsByClassName("class__qnaReinsert")[0].submit(); //댓글 작성 마무리 
 	}
 	}
