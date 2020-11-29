@@ -32,7 +32,7 @@ body {
   display: flex;
   flex-direction: column;
   align-content: center;
-  padding: 150px 150px;
+  padding: 150px 100px 250px 100px;
   margin-left:100px;
 }
 
@@ -108,8 +108,8 @@ body {
 
 .reply__comments__insert {
   text-align: right;
-  padding-right: 90px;
-  width: 70%;
+  padding: 0 130px;
+  width: 1050px;
 }
 
 .comments__text {
@@ -134,4 +134,16 @@ body {
   font-size: var(--font-small);
   border-radius: var(--size-border-radius);
   background-color: var(--color-dark-gray);
+}
+@media screen and (max-width: 1080px){
+.green__board__select {
+  padding: 150px 50px 300px 50px;
+  margin-left:50px;
+}
+}
+@media screen and (max-width: 700px){
+.green__board__select {
+  padding: 150px 20px 300px 20px;
+  margin-left:23px;
+}
 }

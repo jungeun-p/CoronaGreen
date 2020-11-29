@@ -40,8 +40,9 @@ a:link, a:hover {
   position: sticky;
   top:0;
   z-index: 1;
-  height: 0px;
-  background-color: transperant;
+  padding: 10px 0;
+  height: 30px;
+  background-color: var(--color-white);
   display:flex;
   flex-direction: column;
 }
@@ -65,7 +66,7 @@ a:link, a:hover {
   color: var(--color-black);
   font-size: var(--font-small);
   font-weight: var(--weight-regular);
-  margin: 10;
+  margin: 0;
   padding-left: 65px;
   transform: translateY(200%);
   width: 220px;
@@ -80,15 +81,14 @@ a:link, a:hover {
   font-size: var(--font-small);
   font-weight: var(--weight-bold);
   margin: 0;
-  padding: 5px 30px;
-  padding-right: 50px;
+  padding: 10px 30px;
+  padding-right: 30px;
 }
 
 .menubar__menu {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-top:10px;
 }
 
 .menubar__menu__logo{
@@ -107,7 +107,7 @@ a:link, a:hover {
   font-size: var(--font-small);
   font-weight: var(--weight-bold);
   margin: 0;
-  padding: 5px 20px;
+  padding: 10px 20px;
 }
 
 .category__name__logo{
@@ -115,13 +115,15 @@ a:link, a:hover {
   font-size: var(--font-regular);
   font-weight: var(--weight-bold);
   margin: 0;
-  padding: 5px 30px;
+  padding: 5px 10px 5px 20px;
+  width: 150px;
   visibility:hidden;
 }
 
 .category__name:hover {
   color: var(--color-green);
-  transition: 0.2s linear;
+  transition: 0.15s linear;
+  border-bottom: 3px solid var(--color-green);
 }
 
 /*user menu*/
@@ -135,6 +137,7 @@ a:link, a:hover {
   box-shadow: 10px 4px 80px rgba(0, 0, 0, 0.2);
   position:fixed;
 }
+
 .menubar__admin {
   visibility: hidden;
   background-color: var(--color-white);
@@ -169,7 +172,8 @@ a:link, a:hover {
 .chatbot {
   position: fixed;
   padding-left: 40px;
-  transform: translate(0,850%);
+  /*transform: translateY(850%);*/
+  bottom: 100px;
   right: 50px;
   cursor: pointer;
   z-index:1;
@@ -200,7 +204,8 @@ a:link, a:hover {
 .donation {
   position: fixed;
   padding-left: 40px;
-  transform: translateY(960%);
+  /*transform: translateY(960%);*/
+  bottom: 30px;
   right: 50px;
   cursor: pointer;
   z-index:1;
@@ -237,5 +242,82 @@ a:link, a:hover {
   position: fixed;
   right: -50px;
   z-index: -7;
+}
+
+@media screen and (max-width: 1080px){
+  .logo{
+    display: none;
+  }
+  .category__name__logo{
+    visibility: visible;
+    padding: 10px 20px;
+  }
+  .chatbot__box,
+  .donation__box{
+    width: 130px;
+  }
+  .chatbot__box > p{
+    color: var(--color-black);
+    transform: translate(25%, 10%);
+    font-weight: var(--weight-bold);
+  }
+  .donation__box > p {
+    color: var(--color-black);
+    transform: translate(10%, 10%);
+    font-weight: var(--weight-bold);
+  }
+}
+
+@media screen and (max-width: 700px){
+  .menubar {
+    top:0px;
+    padding: 10px 0;
+    height: 35px;
+  }
+  .category__name{
+    padding: 10px 20px 16px 20px;
+  }
+  .logo{
+    display: none;
+  }
+  .category__name__logo{
+    visibility: visible;
+    font-size: var(--font-small);
+    width: 100px;
+    padding: 2px 10px 2px 20px;
+    font-weight: var(--weight-logo);
+  }
+  .chatbot__box,
+  .donation__box{
+    width: 130px;
+  }
+  .chatbot__box > p{
+    color: var(--color-black);
+    transform: translate(25%, 10%);
+    font-weight: var(--weight-bold);
+  }
+  .donation__box > p {
+    color: var(--color-black);
+    transform: translate(10%, 10%);
+    font-weight: var(--weight-bold);
+  }
+  /*.menubar__user{
+    min-width: 100vw;
+    height: 13vh;
+    position: fixed;
+    transform: translate(-85%, 0%);
+    background-color: var(--color-white);
+    box-shadow: none;
+    border-bottom: 1px var(--color-green) solid;
+  }
+  .category{
+    text-align: right;
+    padding-right: 25px;
+    margin: 5px 0;
+  }*/
+  .background{
+    width: 600px;
+    height: 800px;
+  }
 }
 

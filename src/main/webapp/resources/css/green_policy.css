@@ -22,7 +22,6 @@
 }
 
 body {
-  background-color: var(--color-gray);
   margin: 0;
   padding: 0;
 }
@@ -89,8 +88,19 @@ body {
 }
 .module__name {
   text-align: center;
-  margin-top: 65px;
-  margin-bottom: 60px;
-  margin-right: 30px;
-  margin-left: 30px;
+  margin: 65px 30px 60px 30px;
+}
+
+@media screen and (max-width: 700px){	
+.policy__module__wrap {
+  margin: 100px 80px;
+}
+.policy__module{
+	width: 400px;
+	height: 300px;
+}
+.module__name{
+	margin: 120px 50px;
+	font-size: var(--font-regular);	
+}
 }

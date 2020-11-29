@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CORONA GREEN</title>
 <link href="resources/css/green_main.css?after" rel="stylesheet"
 	type="text/css" />
@@ -43,7 +44,7 @@
 		<div class="chart__wrap">
 			<div data-aos="fade-right" class="chart__bubble">
 				<p class="chart__name">누적확진자</p>
-				<svg class=" bubble" id="svg2">
+				<svg class="bubble" id="svg2">
                 </svg>
 			</div>
 		</div>

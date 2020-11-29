@@ -35,7 +35,7 @@ d3.json("resources/json/corona_patient.json", function (data) {
 
     const y = d3
         .scaleLinear() // 한계치 설정
-        .domain([0, 170])
+        .domain([0, 700])
         .range([graphHeight, 0]);
 
     const min = d3.min(data, d => d.number); //가장 작은 수 반환
