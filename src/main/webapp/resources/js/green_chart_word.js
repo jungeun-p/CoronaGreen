@@ -1,7 +1,7 @@
 // List of words
 // set the dimensions and margins of the graph
 var mar = { top: 10, right: 10, bottom: 10, left: 10 },
-	width = 1400 - mar.left - mar.right,
+	width = 950 - mar.left - mar.right,
 	height = 700 - mar.top - mar.bottom,
 	color = ["#75ccb9", "#75ccb9", "#b2dfdb", "#b2dfdb", "#819ca9", "#b0bec5", "#b0bec5", "#808e95", "#efebe9", "#f5f5f5", "#819ca9", "#546e7a", "#cfd8dc", "#9ea7aa", "#e0e0e0", "#e2f1f8", "#8d8d8d", "#819ca9", "#b0bec5", "#808e95", "#efebe9", "#f5f5f5", "#819ca9", "#546e7a", "#cfd8dc", "#9ea7aa", "#e0e0e0", "#e2f1f8", "#8d8d8d", "#819ca9", "#b0bec5", "#808e95", "#efebe9", "#f5f5f5", "#819ca9", "#546e7a", "#cfd8dc", "#9ea7aa", "#e0e0e0", "#e2f1f8", "#8d8d8d", "#ffffff", "#ffffff", "#ffffff",];
 // append the svg object to the body of the page

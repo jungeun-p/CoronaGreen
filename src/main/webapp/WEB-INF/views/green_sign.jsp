@@ -15,7 +15,7 @@
 </head>
 <body>
 
-	<%@ include file="/WEB-INF/views/header_main.jsp"%>
+	<%@ include file="/WEB-INF/views/header_login.jsp"%>
 	<form id="registform" action="registres.do" method="post">
 		<section class="regist__form">
 			<div class="regist__box" style="background-image: URL(./resources/img/color.jpg);">

@@ -63,7 +63,6 @@ a {
   margin-bottom: 60px;
 }
 
-
 .chart__name {
 	font-size: var(--font-chart);
 	font-weight: var(--weight-thin);
@@ -111,5 +110,19 @@ a {
   font-family: 'Spoqa Han Sans';
   margin-right:40px;
   margin-top: 40px;
+}
+
+@media screen and (max-width: 1080px){
+	.map_wrap{
+		transform: translate(10%, 0);
+	}
+	.chart__name__map{
+		transform: translate(0, 0);	
+	}
+	.chart__wrap {
+		transform: translate(0, 0);
+	}
+}
+@media screen and (max-width: 700px){
 }
 

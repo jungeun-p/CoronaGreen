@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>QnA SELECT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QNA</title>
 <link href="resources/css/green_qna_select.css" rel="stylesheet" type="text/css"/>
 <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&display=swap" rel="stylesheet">
 

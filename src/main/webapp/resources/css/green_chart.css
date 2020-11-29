@@ -89,3 +89,24 @@
 	border-radius: 20px;
 	margin-bottom: 200px;
 }
+@media screen and (max-width: 1080px){
+	#cloud {
+	transform: translate(-5%, 0%);
+	}
+	.chart__bar {
+	transform: translate(-50%, -10%);
+	}
+	.chart__bubble {
+	transform: translate(-30%, 10%);
+	}
+	.chart__map{
+	width: 500px;
+	}
+}
+@media screen and (max-width: 700px){
+	.chart__map{
+	width: 300px;
+	}
+}
+
+

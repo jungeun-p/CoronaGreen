@@ -26,19 +26,31 @@ body {
   padding: 0;
 }
 
-.footer {
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
+.footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  height: 140px;
+  background-color: var(--color-gray);
+}
+.footer__wrap{
+  margin-top:50px;
+}
+.footer__des{
   color: var(--color-dark-gray);
-  font-weight: var(--weight-bold);
-  padding: 10px 0;
-  position: fixed;
-  left:30%;
-  bottom: 0;
-  z-index: 1;
+  margin:0;
+}
+.footer__des:hover{
+  opacity: .6;
+  transition: .1s linear;
 }
 
-.footer__title>a{
-	color:var(--color-dark-gray);
+@media screen and (max-width: 700px){
+  .footer{
+    text-align: left;
+  }
+  .footer__wrap{
+    margin-right: 190px;
+  }
 }
