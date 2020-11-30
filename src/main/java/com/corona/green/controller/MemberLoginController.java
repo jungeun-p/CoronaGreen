@@ -60,13 +60,14 @@ public class MemberLoginController {
 	@RequestMapping(value = "/callback.do", method = { RequestMethod.GET, RequestMethod.POST })
 	public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session)
 			throws IOException, ParseException {
-
+		/*
+		  System.out.println("하이루!!!!!!!!!!!!!!!!!!!!!!!" + session);
+		 * System.out.println("하이루코드" + code); System.out.println("하이루 스테이트" + state);
+		 */
 		OAuth2AccessToken oauthToken;
 		oauthToken = naverLoginBO.getAccessToken(session, code, state);
-		if (code == null || oauthToken == null) {
-			return "green_main";
-		}
 		// 1. 로그인 사용자 정보를 읽어온다.
+		//System.out.println("콜백에서 oauth토큰!!!!!!!!!!!222" + oauthToken);
 		apiResult = naverLoginBO.getUserProfile(oauthToken); // String형식의 json데이터
 		/**
 		 * apiResult json 구조 {"resultcode":"00", "message":"success",
