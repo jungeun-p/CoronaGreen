@@ -1,5 +1,5 @@
 # Final_Project
-##CoronaGreen
+### CoronaGreen
 
 1. 프로젝트 개요
 개발 동기 및 필요성
@@ -23,3 +23,6 @@ User의 입장에서 필요한 정보만 모을 수 있는 저장소 구축(북�
 - 사용 서버 : tomcat, AWS ec2
 - 사용 데이터베이스 : Oracle DB 11g
 - 협업 툴 : GitHub
+
+### Adminpage 
+🗃 https://github.com/jungeun-p/CoronaGreen_Adminpage
