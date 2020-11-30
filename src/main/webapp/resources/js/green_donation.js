@@ -47,14 +47,7 @@ function payment() {
 
 $("#mywon").keyup(function() {
 	$("#mywon").val($("#mywon").val().replace(/(^0+)/, ""));
-	donation();
-	/*
-	 * if (user_won.length == 1 && user_won == "0") { $("#mywon").val(""); }
-	 */
-
-})
-
-var donation = function() {
+	//donation();
 	var won = /^[0-9]*$/;
 	var user_won = $("#mywon").val();
 	if (user_won == "") {
@@ -73,4 +66,26 @@ var donation = function() {
 		$("#donation_check").text("");
 		$("#button_t").prop("disabled", false);
 	}
-}
+
+})
+
+/*var donation = function() {
+	var won = /^[0-9]*$/;
+	var user_won = $("#mywon").val();
+	if (user_won == "") {
+		$("#donation_check").text("값을 입력해주세요.");
+		$("#donation_check").css("color", "red");
+		$("#button_t").prop("disabled", true);
+	} else if (user_won.length < 4 || user_won.length > 6) {
+		$("#donation_check").text("최소 금액은 1,000원부터 최대금액은 999,999원 입니다.");
+		$("#donation_check").css("color", "red");
+		$("#button_t").prop("disabled", true);
+	} else if (won.test(user_won) == false) {
+		$("#donation_check").text("숫자만 입력 가능합니다.");
+		$("#donation_check").css("color", "red");
+		$("#button_t").prop("disabled", true);
+	} else {
+		$("#donation_check").text("");
+		$("#button_t").prop("disabled", false);
+	}
+}*/

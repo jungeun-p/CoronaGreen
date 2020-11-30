@@ -7,6 +7,8 @@ var reg1 = /^[a-z0-9]{8,20}$/;
 var reg2 = /[a-z]/g;
 var reg3 = /[0-9]/g;
 
+
+
 var check = false;
 var pw = function() {
 	var user_pw = $("#pw").val().trim();
